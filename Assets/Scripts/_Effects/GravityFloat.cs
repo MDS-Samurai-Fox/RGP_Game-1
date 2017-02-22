@@ -14,13 +14,13 @@ public class GravityFloat : MonoBehaviour {
 
     private bool shouldMoveUpwards = false;
     [SerializeField]
-	private float yPosition = 0;
-	
-	void Start() {
-		
-		// yPosition = this.transform.position.y;
-		
-	}
+    private float yPosition = 0;
+
+    void Start() {
+
+        // yPosition = this.transform.position.y;
+
+    }
 
     public void Float() {
 

@@ -2,9 +2,9 @@
 using UnityEngine;
 
 public class FaceSideSplitter : MonoBehaviour {
-	
-	[HeaderAttribute("Tweening variables")]
-	[SerializeField]
+
+    [HeaderAttribute("Tweening variables")]
+    [SerializeField]
     private Ease easeType = Ease.InOutQuad;
     [SerializeField]
     private float duration = 1f;
@@ -33,39 +33,39 @@ public class FaceSideSplitter : MonoBehaviour {
         rightSideOriginalPosition = rightSide.position;
 
         ToggleJoin();
-		
-		Invoke("EnableGravityFloatingBuoyancy", duration);
+
+        Invoke("EnableGravityFloatingBuoyancy", duration);
 
     }
 
     public void ToggleJoin() {
 
         if (areSidesJoined) {
-			
-			leftSide.DOMove(leftSideSplitPosition, duration).SetEase(easeType);
-			middleSide.DOMove(middleSideSplitPosition, duration).SetEase(easeType);
-			rightSide.DOMove(rightSideSplitPosition, duration).SetEase(easeType);
+
+            leftSide.DOMove(leftSideSplitPosition, duration).SetEase(easeType);
+            middleSide.DOMove(middleSideSplitPosition, duration).SetEase(easeType);
+            rightSide.DOMove(rightSideSplitPosition, duration).SetEase(easeType);
 
         } else {
 
-			leftSide.DOMove(leftSideOriginalPosition, duration).SetEase(easeType);
-			middleSide.DOMove(middleSideOriginalPosition, duration).SetEase(easeType);
-			rightSide.DOMove(rightSideOriginalPosition, duration).SetEase(easeType);
+            leftSide.DOMove(leftSideOriginalPosition, duration).SetEase(easeType);
+            middleSide.DOMove(middleSideOriginalPosition, duration).SetEase(easeType);
+            rightSide.DOMove(rightSideOriginalPosition, duration).SetEase(easeType);
 
         }
 
         areSidesJoined = !areSidesJoined;
 
     }
-	
-	void EnableGravityFloatingBuoyancy() {
-		
-		print("Enabling Gravity Floating Buoyancy");
-		
-		foreach (GravityFloat gf in GameObject.FindObjectsOfType<GravityFloat>()) {
-			gf.Float();
-		}
-		
-	}
+
+    void EnableGravityFloatingBuoyancy() {
+
+        print("Enabling Gravity Floating Buoyancy");
+
+        foreach(GravityFloat gf in GameObject.FindObjectsOfType<GravityFloat> ()) {
+            gf.Float();
+        }
+
+    }
 
 }

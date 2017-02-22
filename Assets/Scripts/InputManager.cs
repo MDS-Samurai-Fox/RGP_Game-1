@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour {
 
-	private SoundManager sm;
+    private SoundManager sm;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -16,12 +16,11 @@ public class InputManager : MonoBehaviour {
     void Update() {
 
         if (Input.GetButtonDown("Fire1")) {
-			sm.Play(ClipType.Jetpack);
+            sm.Play(ClipType.Jetpack);
+        } else if (Input.GetButtonUp("Fire1")) {
+            sm.StopJetpackSource();
         }
-		else if (Input.GetButtonUp("Fire1")) {
-			sm.StopJetpackSource();
-		}
 
     }
-	
+
 }

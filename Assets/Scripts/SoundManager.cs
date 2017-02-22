@@ -14,22 +14,34 @@ public class SoundManager : MonoBehaviour {
     public AudioClip Intro;
     public AudioClip Finish;
     public AudioClip Buoyancy;
-	
-	// Jetpack variables
-	bool hasPlayedJetpackSound = false;
+
+    // Jetpack variables
+    bool hasPlayedJetpackSound = false;
+    Tween jetpackFadeIn, jetpackFadeOut;
+
+    void Start() {
+
+        // jetpackFadeOut = jetpackSource.DOFade(0, 0.25f);
+        // jetpackFadeIn = jetpackSource.DOFade(1, 0);
+        // jetpackSource.Play();
+
+    }
 
     public void Play(ClipType _clip) {
 
         switch (_clip) {
             case ClipType.Jetpack:
-			{
-                jetpackSource.Play();
-                if (!hasPlayedJetpackSound) {
-                    jetpackSource.DOFade(1, 0);
-                    hasPlayedJetpackSound = true;
-                    // jetpackSource.DOFade(1, 0.15f).OnComplete(jetpackActivate);
+                {
+                    print("<< Starting Jetpack");
+					
+                    jetpackFadeOut.Kill(false);
+                    jetpackSource.Play();
+                    jetpackFadeIn = jetpackSource.DOFade(1, 0.25f);
+
+                    if (!hasPlayedJetpackSound) {
+                        hasPlayedJetpackSound = true;
+                    }
                 }
-			}
                 break;
             case ClipType.Lever:
                 source.PlayOneShot(Lever);
@@ -60,18 +72,14 @@ public class SoundManager : MonoBehaviour {
     }
 
     public void StopJetpackSource() {
+        print(">> Stopping Jetpack");
+		
+        jetpackFadeIn.Kill(false);
+        jetpackFadeOut = jetpackSource.DOFade(0, 0.35f);
+
         if (hasPlayedJetpackSound) {
-            jetpackSource.DOFade(0, 0.25f).OnComplete(JetpackShutdown);
             hasPlayedJetpackSound = false;
         }
-    }
-
-    void jetpackActivate() {
-        hasPlayedJetpackSound = true;
-    }
-    
-    void JetpackShutdown() {
-        jetpackSource.Stop();
     }
 
 }
