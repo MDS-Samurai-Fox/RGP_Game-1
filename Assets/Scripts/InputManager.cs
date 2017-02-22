@@ -15,9 +15,9 @@ public class InputManager : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Jump")) {
             sm.Play(ClipType.Jetpack);
-        } else if (Input.GetButtonUp("Fire1")) {
+        } else if (Input.GetButtonUp("Jump")) {
             sm.StopJetpackSource();
         }
 

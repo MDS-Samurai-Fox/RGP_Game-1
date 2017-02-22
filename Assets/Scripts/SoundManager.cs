@@ -10,8 +10,8 @@ public class SoundManager : MonoBehaviour {
     [HeaderAttribute("Sound Effects")]
     public AudioClip Lever;
     public AudioClip Button;
-    public AudioClip JoinSplit;
-    public AudioClip Intro;
+    public AudioClip Join;
+	public AudioClip Split;
     public AudioClip Finish;
     public AudioClip Buoyancy;
 
@@ -21,9 +21,7 @@ public class SoundManager : MonoBehaviour {
 
     void Start() {
 
-        // jetpackFadeOut = jetpackSource.DOFade(0, 0.25f);
-        // jetpackFadeIn = jetpackSource.DOFade(1, 0);
-        // jetpackSource.Play();
+       jetpackSource.volume = 0;
 
     }
 
@@ -36,7 +34,7 @@ public class SoundManager : MonoBehaviour {
 					
                     jetpackFadeOut.Kill(false);
                     jetpackSource.Play();
-                    jetpackFadeIn = jetpackSource.DOFade(1, 0.25f);
+                    jetpackFadeIn = jetpackSource.DOFade(1, 1f);
 
                     if (!hasPlayedJetpackSound) {
                         hasPlayedJetpackSound = true;
@@ -49,12 +47,12 @@ public class SoundManager : MonoBehaviour {
             case ClipType.Button:
                 source.PlayOneShot(Button);
                 break;
-            case ClipType.JoinSplit:
-                source.PlayOneShot(JoinSplit);
+            case ClipType.Join:
+                source.PlayOneShot(Join);
                 break;
-            case ClipType.Intro:
-                source.PlayOneShot(Intro);
-                break;
+			case ClipType.Split:
+                source.PlayOneShot(Split);
+				break;
             case ClipType.Finish:
                 source.PlayOneShot(Finish);
                 break;
@@ -63,6 +61,27 @@ public class SoundManager : MonoBehaviour {
                 break;
             default:
                 break;
+        }
+
+    }
+	
+	public float GetLength(ClipType _clip) {
+
+        switch (_clip) {
+            case ClipType.Lever:
+                return (Lever.length);
+            case ClipType.Button:
+                return (Button.length);
+            case ClipType.Join:
+                return (Join.length);
+			case ClipType.Split:
+                return (Split.length);
+            case ClipType.Finish:
+                return (Finish.length);
+            case ClipType.Buoyancy:
+                return (Buoyancy.length);
+            default:
+                return 0;
         }
 
     }

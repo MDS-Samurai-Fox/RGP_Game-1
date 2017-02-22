@@ -2,8 +2,8 @@
     Jetpack,
     Lever,
     Button,
-    JoinSplit,
-    Intro,
+    Join,
+    Split,
     Finish,
     Buoyancy
 };

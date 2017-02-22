@@ -25,13 +25,23 @@ public class FaceSideSplitter : MonoBehaviour {
 
     private bool areSidesJoined = true;
 
+    private SoundManager sm;
+
+    void Awake() {
+
+        sm = GameObject.FindObjectOfType<SoundManager> ();
+
+    }
+
     // Use this for initialization
     void Start() {
 
+		duration = sm.GetLength(ClipType.Join);
+		
         leftSideOriginalPosition = leftSide.position;
         middleSideOriginalPosition = middleSide.position;
         rightSideOriginalPosition = rightSide.position;
-
+		
         ToggleJoin();
 
         Invoke("EnableGravityFloatingBuoyancy", duration);
@@ -41,16 +51,12 @@ public class FaceSideSplitter : MonoBehaviour {
     public void ToggleJoin() {
 
         if (areSidesJoined) {
-
-            leftSide.DOMove(leftSideSplitPosition, duration).SetEase(easeType);
-            middleSide.DOMove(middleSideSplitPosition, duration).SetEase(easeType);
-            rightSide.DOMove(rightSideSplitPosition, duration).SetEase(easeType);
+			
+			Split();
 
         } else {
 
-            leftSide.DOMove(leftSideOriginalPosition, duration).SetEase(easeType);
-            middleSide.DOMove(middleSideOriginalPosition, duration).SetEase(easeType);
-            rightSide.DOMove(rightSideOriginalPosition, duration).SetEase(easeType);
+			Join();	
 
         }
 
@@ -67,5 +73,23 @@ public class FaceSideSplitter : MonoBehaviour {
         }
 
     }
+	
+	void Join() {
+		
+		sm.Play(ClipType.Join);
+		leftSide.DOMove(leftSideOriginalPosition, duration).SetEase(easeType);
+		middleSide.DOMove(middleSideOriginalPosition, duration).SetEase(easeType);
+		rightSide.DOMove(rightSideOriginalPosition, duration).SetEase(easeType);
+		
+	}
+	
+	void Split() {
+		
+		sm.Play(ClipType.Split);
+		leftSide.DOMove(leftSideSplitPosition, duration).SetEase(easeType);
+		middleSide.DOMove(middleSideSplitPosition, duration).SetEase(easeType);
+		rightSide.DOMove(rightSideSplitPosition, duration).SetEase(easeType);
+		
+	}
 
 }
