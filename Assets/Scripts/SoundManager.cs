@@ -4,15 +4,18 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour {
 
     [HeaderAttribute("Audio Sources")]
-    public AudioSource source;
+    public AudioSource effectSource;
     public AudioSource jetpackSource;
+    public AudioSource musicSource;
 
     [HeaderAttribute("Sound Effects")]
     public AudioClip Lever;
     public AudioClip Button;
     public AudioClip Join;
 	public AudioClip Split;
+    public AudioClip SplitEnd;
     public AudioClip Finish;
+    public AudioClip Timer;
     public AudioClip Buoyancy;
 
     // Jetpack variables
@@ -30,11 +33,10 @@ public class SoundManager : MonoBehaviour {
         switch (_clip) {
             case ClipType.Jetpack:
                 {
-                    print("<< Starting Jetpack");
 					
                     jetpackFadeOut.Kill(false);
                     jetpackSource.Play();
-                    jetpackFadeIn = jetpackSource.DOFade(1, 1f);
+                    jetpackFadeIn = jetpackSource.DOFade(1, 1);
 
                     if (!hasPlayedJetpackSound) {
                         hasPlayedJetpackSound = true;
@@ -42,22 +44,25 @@ public class SoundManager : MonoBehaviour {
                 }
                 break;
             case ClipType.Lever:
-                source.PlayOneShot(Lever);
+                effectSource.PlayOneShot(Lever);
                 break;
             case ClipType.Button:
-                source.PlayOneShot(Button);
+                effectSource.PlayOneShot(Button);
                 break;
             case ClipType.Join:
-                source.PlayOneShot(Join);
+                effectSource.PlayOneShot(Join);
                 break;
 			case ClipType.Split:
-                source.PlayOneShot(Split);
+                effectSource.PlayOneShot(Split);
 				break;
             case ClipType.Finish:
-                source.PlayOneShot(Finish);
+                effectSource.PlayOneShot(Finish);
+                break;
+            case ClipType.Timer:
+                effectSource.PlayOneShot(Timer);
                 break;
             case ClipType.Buoyancy:
-                source.PlayOneShot(Buoyancy);
+                effectSource.PlayOneShot(Buoyancy);
                 break;
             default:
                 break;
@@ -78,6 +83,8 @@ public class SoundManager : MonoBehaviour {
                 return (Split.length);
             case ClipType.Finish:
                 return (Finish.length);
+            case ClipType.Timer:
+                return (Timer.length);    
             case ClipType.Buoyancy:
                 return (Buoyancy.length);
             default:
@@ -86,12 +93,7 @@ public class SoundManager : MonoBehaviour {
 
     }
 
-    public void StopSource() {
-        source.Stop();
-    }
-
     public void StopJetpackSource() {
-        print(">> Stopping Jetpack");
 		
         jetpackFadeIn.Kill(false);
         jetpackFadeOut = jetpackSource.DOFade(0, 0.35f);
@@ -99,6 +101,14 @@ public class SoundManager : MonoBehaviour {
         if (hasPlayedJetpackSound) {
             hasPlayedJetpackSound = false;
         }
+    }
+    
+    public void StopEffectSource() {
+        effectSource.Stop();
+    }
+    
+    public void StopMusicSource() {
+        musicSource.Stop();
     }
 
 }

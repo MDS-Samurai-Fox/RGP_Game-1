@@ -6,16 +6,16 @@ public class FaceSideSplitter : MonoBehaviour {
 	[HeaderAttribute("Tweening variables")]
 	[SerializeField]
 	private Ease easeType = Ease.InOutQuad;
-	[SerializeField]
 	private float duration = 1f;
 
-	[HeaderAttribute("Sides of the face")]
+	[HeaderAttribute("Transforms")]
 	public Transform faceParent;
 	public Transform leftSide;
 	public Transform middleSide;
 	public Transform rightSide;
+	public ParticleSystem particles;
 
-	[HeaderAttribute("Position Vectors")]
+	[HeaderAttribute("Split Position Vectors")]
 	public Vector3 leftSideSplitPosition;
 	public Vector3 middleSideSplitPosition;
 	public Vector3 rightSideSplitPosition;
@@ -36,6 +36,8 @@ public class FaceSideSplitter : MonoBehaviour {
 
 	// Use this for initialization
 	void Start() {
+		
+		particles.Stop();
 
 		duration = soundManager.GetLength(ClipType.Join);
 		
@@ -43,7 +45,7 @@ public class FaceSideSplitter : MonoBehaviour {
 		middleSideOriginalPosition = middleSide.localPosition;
 		rightSideOriginalPosition = rightSide.localPosition;
 		
-		faceParent.DOMove(new Vector3(0, -0.35f, 0), duration).SetEase(Ease.OutBack).OnComplete(EnableGravityFloatingBuoyancy);
+		faceParent.DOMove(new Vector3(0, -0.35f, 0), duration).SetEase(Ease.OutBack).OnComplete(EnableBuoyancy);
 		ToggleJoin();
 
 	}
@@ -64,9 +66,7 @@ public class FaceSideSplitter : MonoBehaviour {
 
 	}
 
-	void EnableGravityFloatingBuoyancy() {
-
-		print("Enabling Gravity Floating Buoyancy");
+	void EnableBuoyancy() {
 
 		foreach(Buoyancy gf in GameObject.FindObjectsOfType<Buoyancy> ()) {
 			gf.Float();
@@ -74,10 +74,18 @@ public class FaceSideSplitter : MonoBehaviour {
 
 	}
 	
+	public void DisableBuoyancy() {
+		
+		foreach(Buoyancy gf in GameObject.FindObjectsOfType<Buoyancy> ()) {
+			gf.Stop();
+		}
+		
+	}
+	
 	void Join() {
 		
+		soundManager.Play(ClipType.Finish);
 		duration = soundManager.GetLength(ClipType.Join);
-		soundManager.Play(ClipType.Join);
 		
 		leftSide.DOLocalMove(leftSideOriginalPosition, duration).SetEase(easeType);
 		middleSide.DOLocalMove(middleSideOriginalPosition, duration).SetEase(easeType);
@@ -87,12 +95,19 @@ public class FaceSideSplitter : MonoBehaviour {
 	
 	void Split() {
 		
-		duration = soundManager.GetLength(ClipType.Split);
 		soundManager.Play(ClipType.Split);
+		duration = soundManager.GetLength(ClipType.Split);
+		Invoke("PlaySplitEnd", duration - 0.05f);
+		
 		leftSide.DOLocalMove(leftSideSplitPosition, duration).SetEase(easeType);
 		middleSide.DOLocalMove(middleSideSplitPosition, duration).SetEase(easeType);
 		rightSide.DOLocalMove(rightSideSplitPosition, duration).SetEase(easeType);
 		
+	}
+	
+	void PlaySplitEnd() {
+		// particles.Play();
+		soundManager.effectSource.PlayOneShot(soundManager.SplitEnd);
 	}
 
 }

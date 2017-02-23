@@ -3,32 +3,36 @@ using UnityEngine;
 
 public class Buoyancy : MonoBehaviour {
 
-    // [SerializeField]
     private Ease easeType = Ease.InOutQuad;
-    // [SerializeField]
-    private float moveValue = 0.1f;
-    // [SerializeField]
+    private float moveAmount = 0.1f;
     private float duration = 2f;
-    // [SerializeField]
-    private float delay = 0.1f;
+    private float delay = 0.35f;
 
+    private bool canFloat = true;
     private bool shouldFloatUpwards = true;
     private float yPosition = -0.35f;
 
     public void Float() {
 
+        if (!canFloat)
+            return;
+
         if (shouldFloatUpwards) {
 
-            this.transform.DOMoveY(yPosition + moveValue, duration).SetEase(easeType).SetDelay(delay).OnComplete(Float);
+            this.transform.DOMoveY(yPosition + moveAmount, duration).SetEase(easeType).SetDelay(delay).OnComplete(Float);
 
         } else {
 
-            this.transform.DOMoveY(yPosition - moveValue, duration).SetEase(easeType).SetDelay(delay).OnComplete(Float);
+            this.transform.DOMoveY(yPosition - moveAmount, duration).SetEase(easeType).SetDelay(delay).OnComplete(Float);
 
         }
 
         shouldFloatUpwards = !shouldFloatUpwards;
 
+    }
+
+    public void Stop() {
+        canFloat = false;
     }
 
 }

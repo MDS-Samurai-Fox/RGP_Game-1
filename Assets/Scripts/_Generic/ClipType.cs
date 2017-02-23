@@ -5,5 +5,6 @@
     Join,
     Split,
     Finish,
+    Timer,
     Buoyancy
 };
