@@ -84,30 +84,38 @@ public class FaceSideSplitter : MonoBehaviour {
 	
 	void Join() {
 		
-		soundManager.Play(ClipType.Finish);
 		duration = soundManager.GetLength(ClipType.Join);
+		soundManager.Play(ClipType.Finish);
+		PlayAnimationBlastStart();
+		// Invoke("PlayAnimationBlastStart", 0);
+		// Invoke("PlayAnimationBlastEnd", duration);
 		
 		leftSide.DOLocalMove(leftSideOriginalPosition, duration).SetEase(easeType);
 		middleSide.DOLocalMove(middleSideOriginalPosition, duration).SetEase(easeType);
-		rightSide.DOLocalMove(rightSideOriginalPosition, duration).SetEase(easeType);
+		rightSide.DOLocalMove(rightSideOriginalPosition, duration).SetEase(easeType).OnComplete(PlayAnimationBlastEnd);
 		
 	}
 	
 	void Split() {
 		
-		soundManager.Play(ClipType.Split);
 		duration = soundManager.GetLength(ClipType.Split);
-		Invoke("PlaySplitEnd", duration - 0.05f);
+		soundManager.Play(ClipType.Split);
+		PlayAnimationBlastStart();
+		// Invoke("PlayAnimationBlastStart", 0);
+		// Invoke("PlayAnimationBlastEnd", duration - 0.1f);
 		
 		leftSide.DOLocalMove(leftSideSplitPosition, duration).SetEase(easeType);
 		middleSide.DOLocalMove(middleSideSplitPosition, duration).SetEase(easeType);
-		rightSide.DOLocalMove(rightSideSplitPosition, duration).SetEase(easeType);
+		rightSide.DOLocalMove(rightSideSplitPosition, duration).SetEase(easeType).OnComplete(PlayAnimationBlastEnd);
 		
 	}
 	
-	void PlaySplitEnd() {
-		// particles.Play();
-		soundManager.effectSource.PlayOneShot(soundManager.SplitEnd);
+	void PlayAnimationBlastStart() {
+		soundManager.effectSource.PlayOneShot(soundManager.BlastStart, 0.5f);
+	}
+	
+	void PlayAnimationBlastEnd() {
+		soundManager.effectSource.PlayOneShot(soundManager.BlastEnd, 0.5f);
 	}
 
 }

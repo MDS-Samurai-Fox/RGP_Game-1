@@ -55,7 +55,7 @@ public class CountdownTimer : MonoBehaviour {
     void timerToText() {
 
         timerText.text = string.Format("{0:#0}:{1:00}", Mathf.Floor(time / 60), Mathf.Floor(time) % 60);
-
+        
     }
 
     void Initialize() {

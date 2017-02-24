@@ -13,7 +13,8 @@ public class SoundManager : MonoBehaviour {
     public AudioClip Button;
     public AudioClip Join;
 	public AudioClip Split;
-    public AudioClip SplitEnd;
+    public AudioClip BlastStart;
+    public AudioClip BlastEnd;
     public AudioClip Finish;
     public AudioClip Timer;
     public AudioClip Buoyancy;
