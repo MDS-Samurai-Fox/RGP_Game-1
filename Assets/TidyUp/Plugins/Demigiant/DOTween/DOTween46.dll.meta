@@ -1,21 +1,11 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 01b3814bd4b0b411d8d28db3477c4f3d
-timeCreated: 1487820536
-=======
-guid: ec6788e922a2b87429cc01b0aa2365be
-timeCreated: 1487901913
->>>>>>> Mitch_-_Lever_functionality
-licenseType: Free
 PluginImporter:
   serializedVersion: 1
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
-<<<<<<< HEAD
   isOverridable: 0
-=======
->>>>>>> Mitch_-_Lever_functionality
   platformData:
     Any:
       enabled: 1

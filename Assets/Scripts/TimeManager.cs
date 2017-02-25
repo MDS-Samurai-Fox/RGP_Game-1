@@ -1,11 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour {
 
-    private SoundManager soundManager;
     private GameManager gameManager;
 
     public Text timerText;
@@ -16,18 +14,10 @@ public class TimeManager : MonoBehaviour {
 
     void Awake() {
 
-        soundManager = GameObject.FindObjectOfType<SoundManager> ();
-        gameManager = GameObject.FindObjectOfType<GameManager> ();
+        gameManager = FindObjectOfType<GameManager> ();
 
     }
 
-    void Start() {
-
-        // Invoke("Initialize", soundManager.GetLength(ClipType.Split));
-
-    }
-
-    // Update is called once per frame
     void Update() {
 
         if (!shouldUpdateTime)
@@ -42,7 +32,7 @@ public class TimeManager : MonoBehaviour {
 
             shouldUpdateTime = false;
 
-            soundManager.StopMusicSource();
+            gameManager.soundManager.StopMusicSource();
 
             gameManager.StopGame();
 
@@ -63,11 +53,14 @@ public class TimeManager : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Plays the ticking sound every second
+    /// </summary>
     IEnumerator tickingSound() {
 
         while (shouldUpdateTime) {
 
-            soundManager.Play(ClipType.Timer);
+            gameManager.soundManager.Play(ClipType.Timer);
             yield return new WaitForSeconds(1.0f);
 
         }

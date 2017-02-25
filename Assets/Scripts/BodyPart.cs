@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BodyPart : MonoBehaviour {
 
@@ -8,30 +6,32 @@ public class BodyPart : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     private int spriteIndex = 0;
     private int spriteArraySize = 0;
-   
-	// Use this for initialization
-	void Start () {
 
-        spriteRenderer = GetComponent<SpriteRenderer>();
+    void Awake() {
+
+        spriteRenderer = GetComponent<SpriteRenderer> ();
+
+    }
+
+    // Use this for initialization
+    void Start() {
+
         spriteArraySize = Sprites.Length;
 
         spriteRenderer.sprite = Sprites[spriteIndex];
-    }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
-    public void ChangeSprite ()
-    {
+    }
+
+    public void ChangeSprite() {
+
         spriteIndex++;
 
-        if (spriteIndex > spriteArraySize - 1)
-        {
+        if (spriteIndex > spriteArraySize - 1) {
             spriteIndex = 0;
         }
 
         spriteRenderer.sprite = Sprites[spriteIndex];
+
     }
+
 }

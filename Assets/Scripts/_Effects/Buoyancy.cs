@@ -2,8 +2,8 @@
 using UnityEngine;
 
 public class Buoyancy : MonoBehaviour {
-    
-    public GameManager gameManager;
+
+    private GameManager gameManager;
 
     private Ease easeType = Ease.InOutQuad;
     private float moveAmount = 0.1f;
@@ -12,6 +12,12 @@ public class Buoyancy : MonoBehaviour {
 
     private bool shouldFloatUpwards = true;
     private float yPosition = -0.35f;
+
+    void Awake() {
+
+        gameManager = FindObjectOfType<GameManager> ();
+
+    }
 
     public void Float() {
 

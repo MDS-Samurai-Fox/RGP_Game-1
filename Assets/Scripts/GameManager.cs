@@ -2,13 +2,15 @@
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
-    
+
     // Classes
-    private TimeManager timeManager;
-    private SoundManager soundManager;
+    [HideInInspector]
+    public TimeManager timeManager;
+    [HideInInspector]
+    public SoundManager soundManager;
     private Buoyancy buoyancy;
     private MoveAstro moveAstronaut;
-    
+
     [HideInInspector]
     public bool canUpdate = false;
 
@@ -38,17 +40,18 @@ public class GameManager : MonoBehaviour {
 
     void Awake() {
 
-        timeManager = GetComponent<TimeManager>();
-        soundManager = GameObject.FindObjectOfType<SoundManager> ();
-        buoyancy = GameObject.FindObjectOfType<Buoyancy> ();
-        moveAstronaut = GameObject.FindObjectOfType<MoveAstro> ();
+        timeManager = GetComponent<TimeManager> ();
+        soundManager = FindObjectOfType<SoundManager> ();
+        buoyancy = FindObjectOfType<Buoyancy> ();
+        moveAstronaut = FindObjectOfType<MoveAstro> ();
 
     }
 
     // Use this for initialization
     void Start() {
 
-        particles.Stop();
+        if (particles != null)
+            particles.Stop();
 
         easeLength = soundManager.GetLength(ClipType.Join);
 
@@ -67,7 +70,8 @@ public class GameManager : MonoBehaviour {
 
         timeManager.Initialize();
         canUpdate = true;
-        buoyancy.Float();
+        if (buoyancy != null)
+            buoyancy.Float();
 
     }
 

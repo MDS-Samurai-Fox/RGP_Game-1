@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
+    private GameManager gameManager;
+
     [HeaderAttribute("Audio Sources")]
     public AudioSource effectSource;
     public AudioSource jetpackSource;
@@ -22,22 +24,33 @@ public class SoundManager : MonoBehaviour {
     bool hasPlayedJetpackSound = false;
     Tween jetpackFadeIn, jetpackFadeOut;
 
-    void Start() {
+    void Awake() {
 
-        jetpackSource.volume = 0;
+        gameManager = FindObjectOfType<GameManager> ();
 
     }
-    
+
     void Update() {
-        
+
+        if (!gameManager.canUpdate)
+            return;
+
         if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")) {
+            
             Play(ClipType.Jetpack);
+            
         } else if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical")) {
+            
             StopJetpackSource();
+            
         }
-        
+
     }
 
+    /// <summary>
+    /// Plays any given clip
+    /// </summary>
+    /// <param name="_clip">The name of the clip to play</param>
     public void Play(ClipType _clip) {
 
         switch (_clip) {
@@ -83,6 +96,11 @@ public class SoundManager : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Gets the length of the desired clip, useful for making tweens last the duration of the sound
+    /// </summary>
+    /// <param name="_clip">The name of the clip</param>
+    /// <returns>The clip's duration</returns>
     public float GetLength(ClipType _clip) {
 
         switch (_clip) {
@@ -108,6 +126,9 @@ public class SoundManager : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// Stops the jetpack audio source from playing
+    /// </summary>
     public void StopJetpackSource() {
 
         jetpackFadeIn.Kill(false);
@@ -118,10 +139,16 @@ public class SoundManager : MonoBehaviour {
         }
     }
 
+    /// <summary>
+    /// Stops the effects audio source from playing
+    /// </summary>
     public void StopEffectSource() {
         effectSource.Stop();
     }
 
+    /// <summary>
+    /// Stops the music's audio source from playing
+    /// </summary>
     public void StopMusicSource() {
         musicSource.Stop();
     }
