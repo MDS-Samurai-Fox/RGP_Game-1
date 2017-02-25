@@ -27,6 +27,16 @@ public class SoundManager : MonoBehaviour {
         jetpackSource.volume = 0;
 
     }
+    
+    void Update() {
+        
+        if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")) {
+            Play(ClipType.Jetpack);
+        } else if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical")) {
+            StopJetpackSource();
+        }
+        
+    }
 
     public void Play(ClipType _clip) {
 

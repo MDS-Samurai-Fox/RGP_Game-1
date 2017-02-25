@@ -2,19 +2,20 @@
 using UnityEngine;
 
 public class Buoyancy : MonoBehaviour {
+    
+    public GameManager gameManager;
 
     private Ease easeType = Ease.InOutQuad;
     private float moveAmount = 0.1f;
     private float duration = 2f;
     private float delay = 0.35f;
 
-    private bool canFloat = true;
     private bool shouldFloatUpwards = true;
     private float yPosition = -0.35f;
 
     public void Float() {
 
-        if (!canFloat)
+        if (!gameManager.canUpdate)
             return;
 
         if (shouldFloatUpwards) {
@@ -29,10 +30,6 @@ public class Buoyancy : MonoBehaviour {
 
         shouldFloatUpwards = !shouldFloatUpwards;
 
-    }
-
-    public void Stop() {
-        canFloat = false;
     }
 
 }
