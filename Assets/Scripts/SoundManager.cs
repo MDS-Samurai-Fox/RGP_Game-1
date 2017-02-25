@@ -12,12 +12,11 @@ public class SoundManager : MonoBehaviour {
     public AudioClip Lever;
     public AudioClip Button;
     public AudioClip Join;
-	public AudioClip Split;
+    public AudioClip Split;
     public AudioClip BlastStart;
     public AudioClip BlastEnd;
     public AudioClip Finish;
     public AudioClip Timer;
-    public AudioClip Buoyancy;
 
     // Jetpack variables
     bool hasPlayedJetpackSound = false;
@@ -25,7 +24,7 @@ public class SoundManager : MonoBehaviour {
 
     void Start() {
 
-       jetpackSource.volume = 0;
+        jetpackSource.volume = 0;
 
     }
 
@@ -34,7 +33,7 @@ public class SoundManager : MonoBehaviour {
         switch (_clip) {
             case ClipType.Jetpack:
                 {
-					
+
                     jetpackFadeOut.Kill(false);
                     jetpackSource.Play();
                     jetpackFadeIn = jetpackSource.DOFade(1, 1);
@@ -53,25 +52,28 @@ public class SoundManager : MonoBehaviour {
             case ClipType.Join:
                 effectSource.PlayOneShot(Join);
                 break;
-			case ClipType.Split:
+            case ClipType.Split:
                 effectSource.PlayOneShot(Split);
-				break;
+                break;
+            case ClipType.BlastStart:
+                effectSource.PlayOneShot(BlastStart, 0.5f);
+                break;
+            case ClipType.BlastEnd:
+                effectSource.PlayOneShot(BlastEnd, 0.5f);
+                break;
             case ClipType.Finish:
                 effectSource.PlayOneShot(Finish);
                 break;
             case ClipType.Timer:
                 effectSource.PlayOneShot(Timer);
                 break;
-            case ClipType.Buoyancy:
-                effectSource.PlayOneShot(Buoyancy);
-                break;
             default:
                 break;
         }
 
     }
-	
-	public float GetLength(ClipType _clip) {
+
+    public float GetLength(ClipType _clip) {
 
         switch (_clip) {
             case ClipType.Lever:
@@ -80,14 +82,16 @@ public class SoundManager : MonoBehaviour {
                 return (Button.length);
             case ClipType.Join:
                 return (Join.length);
-			case ClipType.Split:
+            case ClipType.Split:
                 return (Split.length);
             case ClipType.Finish:
                 return (Finish.length);
+            case ClipType.BlastStart:
+                return (BlastStart.length);
+            case ClipType.BlastEnd:
+                return (BlastEnd.length);
             case ClipType.Timer:
-                return (Timer.length);    
-            case ClipType.Buoyancy:
-                return (Buoyancy.length);
+                return (Timer.length);
             default:
                 return 0;
         }
@@ -95,7 +99,7 @@ public class SoundManager : MonoBehaviour {
     }
 
     public void StopJetpackSource() {
-		
+
         jetpackFadeIn.Kill(false);
         jetpackFadeOut = jetpackSource.DOFade(0, 0.35f);
 
@@ -103,11 +107,11 @@ public class SoundManager : MonoBehaviour {
             hasPlayedJetpackSound = false;
         }
     }
-    
+
     public void StopEffectSource() {
         effectSource.Stop();
     }
-    
+
     public void StopMusicSource() {
         musicSource.Stop();
     }
