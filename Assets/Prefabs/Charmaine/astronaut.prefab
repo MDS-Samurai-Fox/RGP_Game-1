@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114192732472592642}
   - component: {fileID: 60387367202030964}
   m_Layer: 0
-  m_Name: Astronaut
+  m_Name: astronaut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.9
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db27fda48676e4a9eebf4d264e3bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 2
+  version: 1
 --- !u!212 &212335685058768596
 SpriteRenderer:
   m_ObjectHideFlags: 1
