@@ -13,7 +13,7 @@ public class MoveAstro : MonoBehaviour {
 
     }
 
-    void Update() {
+    void FixedUpdate() {
 
         if (!gameManager.canUpdate)
             return;
