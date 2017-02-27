@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -8,8 +9,10 @@ public class GameManager : MonoBehaviour {
     public TimeManager timeManager;
     [HideInInspector]
     public SoundManager soundManager;
+    [HideInInspector]
+    public FaceChecker faceChecker;
     private Buoyancy buoyancy;
-    private MoveAstro moveAstronaut;
+    // private MoveAstro moveAstronaut;
 
     [HideInInspector]
     public bool canUpdate = false;
@@ -25,6 +28,8 @@ public class GameManager : MonoBehaviour {
     public Transform middleSide;
     public Transform rightSide;
     public ParticleSystem particles;
+    public Transform faceToMatch;
+    public CanvasGroup gameEndPanel;
 
     [SpaceAttribute]
     public Vector3 leftSideSplitPosition;
@@ -43,12 +48,16 @@ public class GameManager : MonoBehaviour {
         timeManager = GetComponent<TimeManager> ();
         soundManager = FindObjectOfType<SoundManager> ();
         buoyancy = FindObjectOfType<Buoyancy> ();
-        moveAstronaut = FindObjectOfType<MoveAstro> ();
+        // moveAstronaut = FindObjectOfType<MoveAstro> ();
+        faceChecker = GetComponent<FaceChecker> ();
 
     }
 
     // Use this for initialization
     void Start() {
+        
+        gameEndPanel.DOFade(0, 0);
+        gameEndPanel.blocksRaycasts = false;
 
         if (particles != null)
             particles.Stop();
@@ -70,6 +79,7 @@ public class GameManager : MonoBehaviour {
 
         timeManager.Initialize();
         canUpdate = true;
+        
         if (buoyancy != null)
             buoyancy.Float();
 
@@ -79,6 +89,12 @@ public class GameManager : MonoBehaviour {
 
         canUpdate = false;
         FaceJoin();
+
+        if (faceChecker.CheckFace() == true) {
+            Invoke("Win", soundManager.GetLength(ClipType.Finish));
+        } else {
+            Invoke("Lose", soundManager.GetLength(ClipType.Finish));
+        }
 
     }
 
@@ -128,6 +144,24 @@ public class GameManager : MonoBehaviour {
 
     void PlayAnimationBlastEnd() {
         soundManager.Play(ClipType.BlastEnd);
+    }
+
+    void Win() {
+
+        gameEndPanel.GetComponentInChildren<Text>().text = "YOU WON";
+        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
+
+    }
+
+    void Lose() {
+
+        gameEndPanel.GetComponentInChildren<Text>().text = "YOU LOST";
+        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
+
+    }
+    
+    void EnableBlockRaycasts() {
+        gameEndPanel.blocksRaycasts = true;
     }
 
 }

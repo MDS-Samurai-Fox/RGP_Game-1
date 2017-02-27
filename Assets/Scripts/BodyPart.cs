@@ -22,6 +22,9 @@ public class BodyPart : MonoBehaviour {
 
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void ChangeSprite() {
 
         spriteIndex++;
@@ -32,6 +35,16 @@ public class BodyPart : MonoBehaviour {
 
         spriteRenderer.sprite = Sprites[spriteIndex];
 
+    }
+    
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="_sprite">The image that will replace the current sprite</param>
+    public void ChangeSprite(Sprite _sprite) {
+        
+        spriteRenderer.sprite = _sprite;
+        
     }
 
 }

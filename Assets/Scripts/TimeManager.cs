@@ -33,6 +33,7 @@ public class TimeManager : MonoBehaviour {
             shouldUpdateTime = false;
 
             gameManager.soundManager.StopMusicSource();
+            gameManager.soundManager.StopJetpackSource();
 
             gameManager.StopGame();
 
@@ -61,7 +62,13 @@ public class TimeManager : MonoBehaviour {
         while (shouldUpdateTime) {
 
             gameManager.soundManager.Play(ClipType.Timer);
-            yield return new WaitForSeconds(1.0f);
+            
+            if ((int)time < 10) {
+                yield return new WaitForSeconds(0.75f);
+            }
+            else {
+                yield return new WaitForSeconds(1.0f);
+            }
 
         }
 

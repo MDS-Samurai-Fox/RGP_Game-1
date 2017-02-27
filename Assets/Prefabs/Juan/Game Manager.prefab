@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4653471131668044}
   - component: {fileID: 114076499937782700}
   - component: {fileID: 114443925085771214}
+  - component: {fileID: 114057738908028072}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -41,6 +42,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114057738908028072
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1306250321117560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d89226a79d25a4a6593950501f30681d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightEye:
+  - {fileID: 21300000, guid: d411ffa8169265246b37e853f4c11819, type: 3}
+  - {fileID: 21300000, guid: 37ddd8ed7fb212e41aa54ce4ffbc6a03, type: 3}
+  rightEyebrow:
+  - {fileID: 21300000, guid: 8f920824c8e18fb47b8596a07a297e7c, type: 3}
+  - {fileID: 21300000, guid: f1f4034f255b6f841b28e238fe0c66e8, type: 3}
+  leftEye:
+  - {fileID: 21300000, guid: 7ce52ae9b6ff67746ae33e8bc6a59fe3, type: 3}
+  - {fileID: 21300000, guid: 533aef7d9a2a3e7418c1348d0d05f79b, type: 3}
+  leftEyebrow:
+  - {fileID: 21300000, guid: 2a852f4e01eb30a47b84eb97b8b5c5c2, type: 3}
+  - {fileID: 21300000, guid: b3dd6e964190247439133f1f0d431e17, type: 3}
+  nose:
+  - {fileID: 21300000, guid: 194bd32ae8166b640820bba1ac20d65d, type: 3}
+  - {fileID: 21300000, guid: 7c9bdedc58167794c9f4a4123d251287, type: 3}
+  mouth:
+  - {fileID: 21300000, guid: ff1c99768fafad040affb68d556c4395, type: 3}
+  - {fileID: 21300000, guid: eb4b23b7da9ecf945b2b1ac868b618e9, type: 3}
 --- !u!114 &114076499937782700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,16 +84,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeManager: {fileID: 0}
   soundManager: {fileID: 0}
+  faceChecker: {fileID: 0}
   canUpdate: 0
-  easeType: 2
+  easeType: 11
   faceParent: {fileID: 0}
   leftSide: {fileID: 0}
   middleSide: {fileID: 0}
   rightSide: {fileID: 0}
   particles: {fileID: 0}
-  leftSideSplitPosition: {x: -3.5, y: 0, z: 0}
+  faceToMatch: {fileID: 0}
+  winLoseText: {fileID: 0}
+  leftSideSplitPosition: {x: -5, y: 0, z: 0}
   middleSideSplitPosition: {x: 0, y: -1, z: 0}
-  rightSideSplitPosition: {x: 3.5, y: 0, z: 0}
+  rightSideSplitPosition: {x: 5, y: 0, z: 0}
 --- !u!114 &114443925085771214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,4 +109,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
-  time: 60
+  time: 11

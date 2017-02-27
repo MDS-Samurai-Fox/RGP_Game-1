@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 
 public class Lever : MonoBehaviour {
+    
+    public ButtonType buttonType;
 
     public BodyPart bodypart;
     private Animator animator;
@@ -16,23 +18,34 @@ public class Lever : MonoBehaviour {
 
     void Update() {
 
+        if (!gameManager.canUpdate)
+            return;
+            
         time += Time.deltaTime;
 
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
+        
+        if (!gameManager.canUpdate)
+            return;
 
         if (time > 0.6f) {
 
-            // Play either a lever or button sound depending on the value
-            if (Random.Range(1, 0) == 1) {
-
-                gameManager.soundManager.Play(ClipType.Lever);
-
-            } else {
-
-                gameManager.soundManager.Play(ClipType.Button);
-
+            switch (buttonType) {
+                
+                case ButtonType.Lever:
+                    gameManager.soundManager.Play(ClipType.Lever);
+                break;
+                case ButtonType.Button:
+                    gameManager.soundManager.Play(ClipType.Button);
+                break;
+                
+            }
+            
+            // Do something with the facechecker script
+            if (gameManager.faceChecker.CheckFace() == true) {
+                gameManager.StopGame();
             }
 
             bodypart.ChangeSprite();
