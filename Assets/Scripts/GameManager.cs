@@ -89,6 +89,8 @@ public class GameManager : MonoBehaviour {
 
         canUpdate = false;
         FaceJoin();
+        soundManager.StopMusicSource();
+        soundManager.StopJetpackSource();
 
         if (faceChecker.CheckFace() == true) {
             Invoke("Win", soundManager.GetLength(ClipType.Finish));

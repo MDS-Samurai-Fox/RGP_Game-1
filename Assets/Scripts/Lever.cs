@@ -42,15 +42,15 @@ public class Lever : MonoBehaviour {
                 break;
                 
             }
+
+            bodypart.ChangeSprite();
+            animator.SetTrigger("Lever_On");
+            time = 0f;
             
             // Do something with the facechecker script
             if (gameManager.faceChecker.CheckFace() == true) {
                 gameManager.StopGame();
             }
-
-            bodypart.ChangeSprite();
-            animator.SetTrigger("Lever_On");
-            time = 0f;
 
         }
 

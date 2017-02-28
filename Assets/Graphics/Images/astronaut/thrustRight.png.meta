@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 05de985d4e05931439541a448a44b19d
-timeCreated: 1488241247
+timeCreated: 1488314356
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -43,7 +43,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -90,6 +90,22 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -97,10 +113,10 @@ TextureImporter:
       name: thrustRight_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 1
-        width: 291
-        height: 346
+        x: 0
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -110,10 +126,10 @@ TextureImporter:
       name: thrustRight_1
       rect:
         serializedVersion: 2
-        x: 315
-        y: 2
-        width: 293
-        height: 345
+        x: 307
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,10 +139,10 @@ TextureImporter:
       name: thrustRight_2
       rect:
         serializedVersion: 2
-        x: 620
-        y: 6
-        width: 293
-        height: 341
+        x: 614
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,10 +152,10 @@ TextureImporter:
       name: thrustRight_3
       rect:
         serializedVersion: 2
-        x: 927
-        y: 6
-        width: 293
-        height: 341
+        x: 921
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +165,10 @@ TextureImporter:
       name: thrustRight_4
       rect:
         serializedVersion: 2
-        x: 1236
-        y: 6
-        width: 291
-        height: 341
+        x: 1228
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +178,10 @@ TextureImporter:
       name: thrustRight_5
       rect:
         serializedVersion: 2
-        x: 1544
-        y: 8
-        width: 289
-        height: 339
+        x: 1535
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,10 +191,10 @@ TextureImporter:
       name: thrustRight_6
       rect:
         serializedVersion: 2
-        x: 1853
-        y: 11
-        width: 285
-        height: 336
+        x: 1842
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +204,10 @@ TextureImporter:
       name: thrustRight_7
       rect:
         serializedVersion: 2
-        x: 2162
-        y: 11
-        width: 283
-        height: 336
+        x: 2149
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,10 +217,10 @@ TextureImporter:
       name: thrustRight_8
       rect:
         serializedVersion: 2
-        x: 2475
-        y: 13
-        width: 277
-        height: 334
+        x: 2456
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,10 +230,10 @@ TextureImporter:
       name: thrustRight_9
       rect:
         serializedVersion: 2
-        x: 2784
-        y: 9
-        width: 276
-        height: 338
+        x: 2763
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,10 +243,10 @@ TextureImporter:
       name: thrustRight_10
       rect:
         serializedVersion: 2
-        x: 3086
-        y: 8
-        width: 283
-        height: 339
+        x: 3070
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,10 +256,10 @@ TextureImporter:
       name: thrustRight_11
       rect:
         serializedVersion: 2
-        x: 3390
-        y: 6
-        width: 286
-        height: 341
+        x: 3377
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -253,10 +269,10 @@ TextureImporter:
       name: thrustRight_12
       rect:
         serializedVersion: 2
-        x: 3697
-        y: 6
-        width: 286
-        height: 341
+        x: 3684
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,10 +282,10 @@ TextureImporter:
       name: thrustRight_13
       rect:
         serializedVersion: 2
-        x: 4004
-        y: 4
-        width: 288
-        height: 343
+        x: 3991
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,10 +295,10 @@ TextureImporter:
       name: thrustRight_14
       rect:
         serializedVersion: 2
-        x: 4309
-        y: 4
-        width: 290
-        height: 343
+        x: 4298
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -292,10 +308,10 @@ TextureImporter:
       name: thrustRight_15
       rect:
         serializedVersion: 2
-        x: 4616
-        y: 3
-        width: 290
-        height: 344
+        x: 4605
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

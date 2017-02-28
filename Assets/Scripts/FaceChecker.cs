@@ -53,8 +53,8 @@ public class FaceChecker : MonoBehaviour {
         chosenLeftEye = leftEye[1];
         chosenLeftEyebrow = leftEyebrow[1];
         chosenNose = nose[1];
-        chosenMouth = mouth[1];
-        chosenRightEye = rightEye[1];
+        chosenMouth = mouth[0];
+        chosenRightEye = rightEye[0];
         chosenRightEyebrow = rightEyebrow[1];
 
         ChangeFace();
@@ -62,6 +62,15 @@ public class FaceChecker : MonoBehaviour {
     }
 
     public bool CheckFace() {
+        
+        print("Checking face");
+        print(">>> SPRITES");
+        print("Left Eye: " + (gameManager.faceParent.GetChild(0).GetChild(0).GetComponent<SpriteRenderer> ().sprite == chosenLeftEye));
+        print("Left Eyebrow: " + (gameManager.faceParent.GetChild(0).GetChild(1).GetComponent<SpriteRenderer> ().sprite == chosenLeftEyebrow));
+        print("Nose: " + (gameManager.faceParent.GetChild(1).GetChild(0).GetComponent<SpriteRenderer> ().sprite == chosenNose));
+        print("Mouth: " + (gameManager.faceParent.GetChild(1).GetChild(1).GetComponent<SpriteRenderer> ().sprite == chosenMouth));
+        print("Right Eye: " + (gameManager.faceParent.GetChild(2).GetChild(0).GetComponent<SpriteRenderer> ().sprite == chosenRightEye));
+        print("Right Eyebrow: " + (gameManager.faceParent.GetChild(2).GetChild(1).GetComponent<SpriteRenderer> ().sprite == chosenRightEyebrow));
 
         return (
             // Left side

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 85c86995c6262084ba0260a4d4c38f58
-timeCreated: 1488187587
+timeCreated: 1488314367
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -20,6 +20,22 @@ TextureImporter:
     21300026: Spriter_THRUST_left_13
     21300028: Spriter_THRUST_left_14
     21300030: Spriter_THRUST_left_15
+    21300032: thrustLeft_0
+    21300034: thrustLeft_1
+    21300036: thrustLeft_2
+    21300038: thrustLeft_3
+    21300040: thrustLeft_4
+    21300042: thrustLeft_5
+    21300044: thrustLeft_6
+    21300046: thrustLeft_7
+    21300048: thrustLeft_8
+    21300050: thrustLeft_9
+    21300052: thrustLeft_10
+    21300054: thrustLeft_11
+    21300056: thrustLeft_12
+    21300058: thrustLeft_13
+    21300060: thrustLeft_14
+    21300062: thrustLeft_15
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -43,7 +59,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -90,212 +106,228 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spriter_THRUST_left_0
+      name: thrustLeft_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 3
-        width: 290
-        height: 344
+        x: 0
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_1
+      name: thrustLeft_1
       rect:
         serializedVersion: 2
-        x: 313
-        y: 4
-        width: 290
-        height: 343
+        x: 307
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_2
+      name: thrustLeft_2
       rect:
         serializedVersion: 2
-        x: 620
-        y: 4
-        width: 288
-        height: 343
+        x: 614
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_3
+      name: thrustLeft_3
       rect:
         serializedVersion: 2
-        x: 929
-        y: 6
-        width: 286
-        height: 341
+        x: 921
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_4
+      name: thrustLeft_4
       rect:
         serializedVersion: 2
-        x: 1236
-        y: 6
-        width: 286
-        height: 341
+        x: 1228
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_5
+      name: thrustLeft_5
       rect:
         serializedVersion: 2
-        x: 1543
-        y: 8
-        width: 283
-        height: 339
+        x: 1535
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_6
+      name: thrustLeft_6
       rect:
         serializedVersion: 2
-        x: 1852
-        y: 9
-        width: 276
-        height: 338
+        x: 1842
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_7
+      name: thrustLeft_7
       rect:
         serializedVersion: 2
-        x: 2160
-        y: 13
-        width: 277
-        height: 334
+        x: 2149
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_8
+      name: thrustLeft_8
       rect:
         serializedVersion: 2
-        x: 2467
-        y: 11
-        width: 283
-        height: 336
+        x: 2456
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_9
+      name: thrustLeft_9
       rect:
         serializedVersion: 2
-        x: 2774
-        y: 11
-        width: 285
-        height: 336
+        x: 2763
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_10
+      name: thrustLeft_10
       rect:
         serializedVersion: 2
-        x: 3079
-        y: 8
-        width: 289
-        height: 339
+        x: 3070
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_11
+      name: thrustLeft_11
       rect:
         serializedVersion: 2
-        x: 3385
-        y: 6
-        width: 291
-        height: 341
+        x: 3377
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_12
+      name: thrustLeft_12
       rect:
         serializedVersion: 2
-        x: 3692
-        y: 6
-        width: 293
-        height: 341
+        x: 3684
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_13
+      name: thrustLeft_13
       rect:
         serializedVersion: 2
-        x: 3999
-        y: 6
-        width: 293
-        height: 341
+        x: 3991
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_14
+      name: thrustLeft_14
       rect:
         serializedVersion: 2
-        x: 4304
-        y: 2
-        width: 293
-        height: 345
+        x: 4298
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Spriter_THRUST_left_15
+      name: thrustLeft_15
       rect:
         serializedVersion: 2
-        x: 4611
-        y: 1
-        width: 291
-        height: 346
+        x: 4605
+        y: 0
+        width: 307
+        height: 348
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7c4f16b5d1bb96244ad6ef99b28b9cb0
-timeCreated: 1488197989
+timeCreated: 1488314330
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -20,6 +20,22 @@ TextureImporter:
     21300026: COLLIDE_13
     21300028: COLLIDE_14
     21300030: COLLIDE_15
+    21300032: collideLeft_0
+    21300034: collideLeft_1
+    21300036: collideLeft_2
+    21300038: collideLeft_3
+    21300040: collideLeft_4
+    21300042: collideLeft_5
+    21300044: collideLeft_6
+    21300046: collideLeft_7
+    21300048: collideLeft_8
+    21300050: collideLeft_9
+    21300052: collideLeft_10
+    21300054: collideLeft_11
+    21300056: collideLeft_12
+    21300058: collideLeft_13
+    21300060: collideLeft_14
+    21300062: collideLeft_15
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -43,7 +59,7 @@ TextureImporter:
   textureFormat: 1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 1
     aniso: -1
     mipBias: -1
     wrapMode: 1
@@ -90,212 +106,228 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: COLLIDE_0
+      name: collideLeft_0
       rect:
         serializedVersion: 2
-        x: 55
-        y: 11
-        width: 170
-        height: 390
+        x: 0
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_1
+      name: collideLeft_1
       rect:
         serializedVersion: 2
-        x: 377
-        y: 11
-        width: 165
-        height: 405
+        x: 312
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_2
+      name: collideLeft_2
       rect:
         serializedVersion: 2
-        x: 684
-        y: 13
-        width: 175
-        height: 405
+        x: 624
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_3
+      name: collideLeft_3
       rect:
         serializedVersion: 2
-        x: 989
-        y: 16
-        width: 221
-        height: 427
+        x: 936
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_4
+      name: collideLeft_4
       rect:
         serializedVersion: 2
-        x: 1293
-        y: 19
-        width: 238
-        height: 443
+        x: 1248
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_5
+      name: collideLeft_5
       rect:
         serializedVersion: 2
-        x: 1593
-        y: 23
-        width: 258
-        height: 453
+        x: 1560
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_6
+      name: collideLeft_6
       rect:
         serializedVersion: 2
-        x: 1893
-        y: 31
-        width: 277
-        height: 456
+        x: 1872
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_7
+      name: collideLeft_7
       rect:
         serializedVersion: 2
-        x: 2207
-        y: 23
-        width: 255
-        height: 452
+        x: 2184
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_8
+      name: collideLeft_8
       rect:
         serializedVersion: 2
-        x: 2519
-        y: 16
-        width: 227
-        height: 444
+        x: 2496
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_9
+      name: collideLeft_9
       rect:
         serializedVersion: 2
-        x: 2827
-        y: 12
-        width: 209
-        height: 436
+        x: 2808
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_10
+      name: collideLeft_10
       rect:
         serializedVersion: 2
-        x: 3133
-        y: 13
-        width: 205
-        height: 430
+        x: 3120
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_11
+      name: collideLeft_11
       rect:
         serializedVersion: 2
-        x: 3441
-        y: 18
-        width: 214
-        height: 420
+        x: 3432
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_12
+      name: collideLeft_12
       rect:
         serializedVersion: 2
-        x: 3760
-        y: 18
-        width: 207
-        height: 418
+        x: 3744
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_13
+      name: collideLeft_13
       rect:
         serializedVersion: 2
-        x: 4084
-        y: 15
-        width: 195
-        height: 418
+        x: 4056
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_14
+      name: collideLeft_14
       rect:
         serializedVersion: 2
-        x: 4408
-        y: 9
-        width: 183
-        height: 417
+        x: 4368
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: COLLIDE_15
+      name: collideLeft_15
       rect:
         serializedVersion: 2
-        x: 4732
-        y: 6
-        width: 171
-        height: 410
+        x: 4680
+        y: 0
+        width: 312
+        height: 493
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

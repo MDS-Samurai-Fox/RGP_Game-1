@@ -24,62 +24,59 @@ public class MoveAstro : MonoBehaviour {
         int StartingForce = 4;
 
         if (version == 1) {
+            
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
                 //rigidBody.AddForce(10 * transform.up);
                 rigidBody.AddForce(StartingForce * new Vector3(0, 1, 0));
                 //animator.Play("thrustLeft");
             }
-
-            if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
                 //rigidBody.AddForce(-10 * transform.right);
                 rigidBody.AddForce(-StartingForce * new Vector3(1, 0, 0));
                 if (!bCollision)
                 {
+                        animator.Play("thrustLeft");
                     //if (transform.rotation.z <  91.0f * Mathf.PI / 180.0f && transform.rotation.z > -91.0f * Mathf.PI / 180.0f)
                     if (transform.eulerAngles.z < 91.0f && transform.rotation.z > -91.0f )
                     {
-                        animator.Play("thrustLeft");
                     }
                     else
                     {
-                        animator.Play("thrustRight");
+                        // animator.Play("thrustLeft");
                     }
                 }
                
             }
 
-            if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
                //rigidBody.AddForce(-10 * transform.up);
                 rigidBody.AddForce(-StartingForce * new Vector3(0, 1, 0));
                     
             }
 
-            if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 //rigidBody.AddForce(10 * transform.right);
                 rigidBody.AddForce(StartingForce * new Vector3(1, 0, 0));
                 if (!bCollision)
                 {
+                    animator.Play("thrustRight");
                     //if(transform.rotation.z < 45.0f * Mathf.PI/180.0f && transform.rotation.z > -45.0f * Mathf.PI / 180.0f)
                     if (transform.eulerAngles.z < 89.0f && transform.rotation.z > -89.0f)
                     {
-                        animator.Play("thrustRight");
+                        // animator.Play("thrustRight");
                     }
                     else
                     {
-                        animator.Play("thrustLeft");
+                        // animator.Play("thrustLeft");
                     }
                 }
             }
 
-
-            //if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
-            //{
-            //    animator.Play("idleLeft");
-            //}
+            // Handing the idle animations
             if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A))
             {
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft"))
@@ -91,11 +88,7 @@ public class MoveAstro : MonoBehaviour {
                     animator.Play("idleRight");
                 }
             }
-            //if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
-            //{
-            //    animator.Play("idleLeft");
-            //}
-            if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D))
+            else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D))
             {
                 if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft"))
                 {

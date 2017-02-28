@@ -32,9 +32,6 @@ public class TimeManager : MonoBehaviour {
 
             shouldUpdateTime = false;
 
-            gameManager.soundManager.StopMusicSource();
-            gameManager.soundManager.StopJetpackSource();
-
             gameManager.StopGame();
 
         }

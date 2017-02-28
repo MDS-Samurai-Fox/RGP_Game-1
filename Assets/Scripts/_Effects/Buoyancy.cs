@@ -24,6 +24,7 @@ public class Buoyancy : MonoBehaviour {
     void Start() {
         
         if (!isOnGameState) {
+            yPosition = this.transform.position.y;
             Float();
         }
         

@@ -5,10 +5,12 @@ public class FadeIn : MonoBehaviour {
 
 	public float waitTime = 0f;
 	private float fadeDuration = 1f;
+	private Vector3 scale;
 
 	// Use this for initialization
 	void Start () {
 		
+		scale = this.transform.localScale;
 		this.transform.DOScale(Vector3.zero, 0);
 		Invoke("Initialize", waitTime);
 		
@@ -16,7 +18,7 @@ public class FadeIn : MonoBehaviour {
 	
 	void Initialize() {
 		
-		this.transform.DOScale(0.2f, fadeDuration);
+		this.transform.DOScale(scale, fadeDuration);
 		
 	}
 
