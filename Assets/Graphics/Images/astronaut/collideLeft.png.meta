@@ -1,0 +1,308 @@
+fileFormatVersion: 2
+guid: 7c4f16b5d1bb96244ad6ef99b28b9cb0
+timeCreated: 1488197989
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: COLLIDE_0
+    21300002: COLLIDE_1
+    21300004: COLLIDE_2
+    21300006: COLLIDE_3
+    21300008: COLLIDE_4
+    21300010: COLLIDE_5
+    21300012: COLLIDE_6
+    21300014: COLLIDE_7
+    21300016: COLLIDE_8
+    21300018: COLLIDE_9
+    21300020: COLLIDE_10
+    21300022: COLLIDE_11
+    21300024: COLLIDE_12
+    21300026: COLLIDE_13
+    21300028: COLLIDE_14
+    21300030: COLLIDE_15
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: COLLIDE_0
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 11
+        width: 170
+        height: 390
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_1
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 11
+        width: 165
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_2
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 13
+        width: 175
+        height: 405
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_3
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 16
+        width: 221
+        height: 427
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_4
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 19
+        width: 238
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_5
+      rect:
+        serializedVersion: 2
+        x: 1593
+        y: 23
+        width: 258
+        height: 453
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_6
+      rect:
+        serializedVersion: 2
+        x: 1893
+        y: 31
+        width: 277
+        height: 456
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_7
+      rect:
+        serializedVersion: 2
+        x: 2207
+        y: 23
+        width: 255
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_8
+      rect:
+        serializedVersion: 2
+        x: 2519
+        y: 16
+        width: 227
+        height: 444
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_9
+      rect:
+        serializedVersion: 2
+        x: 2827
+        y: 12
+        width: 209
+        height: 436
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_10
+      rect:
+        serializedVersion: 2
+        x: 3133
+        y: 13
+        width: 205
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_11
+      rect:
+        serializedVersion: 2
+        x: 3441
+        y: 18
+        width: 214
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_12
+      rect:
+        serializedVersion: 2
+        x: 3760
+        y: 18
+        width: 207
+        height: 418
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_13
+      rect:
+        serializedVersion: 2
+        x: 4084
+        y: 15
+        width: 195
+        height: 418
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_14
+      rect:
+        serializedVersion: 2
+        x: 4408
+        y: 9
+        width: 183
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: COLLIDE_15
+      rect:
+        serializedVersion: 2
+        x: 4732
+        y: 6
+        width: 171
+        height: 410
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
