@@ -20,45 +20,34 @@ public class MoveAstro : MonoBehaviour {
         if (!gameManager.canUpdate)
             return;
 
+        int StartingForce = 4;
+
         if (version == 1) {
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
             {
                 //rigidBody.AddForce(10 * transform.up);
-                rigidBody.AddForce(5 * new Vector3(0, 1, 0));
+                rigidBody.AddForce(StartingForce * new Vector3(0, 1, 0));
                 //animator.Play("thrustLeft");
             }
 
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
             {
                 //rigidBody.AddForce(-10 * transform.right);
-                rigidBody.AddForce(-5 * new Vector3(1, 0, 0));
+                rigidBody.AddForce(-StartingForce * new Vector3(1, 0, 0));
                 animator.Play("thrustLeft");
             }
 
             if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
             {
                //rigidBody.AddForce(-10 * transform.up);
-                rigidBody.AddForce(-5 * new Vector3(0, 1, 0));
-               
-                //if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleLeft"))
-                //{
-                //    animator.Play("thrustLeft");
-                //}
-                //else if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleRight"))
-                //{
-                //    animator.Play("thrustRight");
-                //}
-                //else
-                //{
-                //    animator.Play("thrustLeft");
-                //}
+                rigidBody.AddForce(-StartingForce * new Vector3(0, 1, 0));
                     
             }
 
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
             {
                 //rigidBody.AddForce(10 * transform.right);
-                rigidBody.AddForce(5 * new Vector3(1, 0, 0));
+                rigidBody.AddForce(StartingForce * new Vector3(1, 0, 0));
                 animator.Play("thrustRight");
             }
 
@@ -124,24 +113,27 @@ public class MoveAstro : MonoBehaviour {
 
     void OnCollisionStay2D(Collision2D collision)
     {
-        //if (time > 0.6f)
-        //  {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleLeft"))
+        if (collision.gameObject.transform.parent.name == "Borders")
         {
-            animator.Play("collideLeft");
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleLeft"))
+            {
+                animator.Play("collideLeft");
+            }
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft"))
+            {
+                animator.Play("collideLeft");
+            }
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleRight"))
+            {
+                animator.Play("collideRight");
+            }
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustRight"))
+            {
+                animator.Play("collideRight");
+            }
         }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft"))
-        {
-            animator.Play("collideLeft");
-        }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleRight"))
-        {
-            animator.Play("collideRight");
-        }
-        else if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustRight"))
-        {
-            animator.Play("collideRight");
-        }
+
+        
 
 
 
