@@ -379,7 +379,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 123123123
+  m_Text: 
 --- !u!1 &800582218 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1413297801870838, guid: 25c21b69bee414a5d968d5ecdf55901c,
@@ -608,9 +608,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1884764805}
-        m_MethodName: ToggleJoin
-        m_Mode: 1
+      - m_Target: {fileID: 1850264454}
+        m_MethodName: LoadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1247,6 +1247,11 @@ Prefab:
       propertyPath: gameEndPanel
       value: 
       objectReference: {fileID: 1198107187}
+    - target: {fileID: 114443925085771214, guid: e45e7793da34241f6979388c0803ec84,
+        type: 2}
+      propertyPath: time
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e45e7793da34241f6979388c0803ec84, type: 2}
   m_IsPrefabParent: 0
@@ -1417,6 +1422,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e490ba7770b5948ec9ec26080f622ec2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1850264450 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1306250321117560, guid: e45e7793da34241f6979388c0803ec84,
+    type: 2}
+  m_PrefabInternal: {fileID: 1382689642}
+--- !u!114 &1850264454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1850264450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352931d6a3e18400ba14e0ce63479458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874719130
 GameObject:
   m_ObjectHideFlags: 0
