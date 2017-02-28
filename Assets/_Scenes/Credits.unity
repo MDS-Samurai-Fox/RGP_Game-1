@@ -326,41 +326,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114383928276026992, guid: 148435b90b51d40eeb5b8e9bfa153441,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114530863063307610, guid: 148435b90b51d40eeb5b8e9bfa153441,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114094065332661130, guid: 148435b90b51d40eeb5b8e9bfa153441,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114604997172780454, guid: 148435b90b51d40eeb5b8e9bfa153441,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114144550429841656, guid: 148435b90b51d40eeb5b8e9bfa153441,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114091576711916740, guid: 148435b90b51d40eeb5b8e9bfa153441,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114703494597838908, guid: 148435b90b51d40eeb5b8e9bfa153441,
-        type: 2}
-      propertyPath: isOnGameState
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 148435b90b51d40eeb5b8e9bfa153441, type: 2}
   m_IsPrefabParent: 0
