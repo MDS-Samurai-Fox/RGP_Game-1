@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 50298592625439700}
   - component: {fileID: 114192732472592642}
   - component: {fileID: 60387367202030964}
+  - component: {fileID: 95616444772777780}
   m_Layer: 0
-  m_Name: Astronaut
+  m_Name: astronaut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1136656606306950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.74, y: 3.72, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -56,12 +57,12 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.9
+  m_AngularDrag: 1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!60 &60387367202030964
 PolygonCollider2D:
@@ -150,6 +151,23 @@ PolygonCollider2D:
       - {x: -0.29, y: -1.75}
       - {x: -0.24, y: -1.6899999}
       - {x: -0.07, y: -1.48}
+--- !u!95 &95616444772777780
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1136656606306950}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: faa8f025b0fd3884c92db61349acc669, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114192732472592642
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -161,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db27fda48676e4a9eebf4d264e3bd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 2
+  version: 1
 --- !u!212 &212335685058768596
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -193,7 +211,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f26c08d92e0da9d45b695f7886a9a0a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ee8272661b1aa64449c0d0571a010cba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
