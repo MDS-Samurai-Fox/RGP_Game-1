@@ -12,18 +12,30 @@ public class Buoyancy : MonoBehaviour {
 
     private bool shouldFloatUpwards = true;
     private float yPosition = -0.35f;
+    
+    public bool isOnGameState = true;
 
     void Awake() {
 
         gameManager = FindObjectOfType<GameManager> ();
 
     }
+    
+    void Start() {
+        
+        if (!isOnGameState) {
+            Float();
+        }
+        
+    }
 
     public void Float() {
-
-        if (!gameManager.canUpdate)
-            return;
-
+            
+        if (isOnGameState) {
+            if (!gameManager.canUpdate)
+                return;
+        }
+                
         if (shouldFloatUpwards) {
 
             this.transform.DOMoveY(yPosition + moveAmount, duration).SetEase(easeType).SetDelay(delay).OnComplete(Float);

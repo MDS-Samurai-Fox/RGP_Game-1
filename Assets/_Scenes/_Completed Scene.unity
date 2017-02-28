@@ -863,7 +863,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1725274165807160, guid: 77592f446d2214691a03d932f3af5954, type: 2}
+      propertyPath: m_Name
+      value: Left Eye
+      objectReference: {fileID: 0}
+    - target: {fileID: 114083363499811772, guid: 77592f446d2214691a03d932f3af5954,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114045638948937360, guid: 77592f446d2214691a03d932f3af5954, type: 2}
+    - {fileID: 114817732993400528, guid: 77592f446d2214691a03d932f3af5954, type: 2}
+    - {fileID: 114566026265766808, guid: 77592f446d2214691a03d932f3af5954, type: 2}
+    - {fileID: 114139999600256300, guid: 77592f446d2214691a03d932f3af5954, type: 2}
+    - {fileID: 114396197194683176, guid: 77592f446d2214691a03d932f3af5954, type: 2}
+    - {fileID: 114083363499811772, guid: 77592f446d2214691a03d932f3af5954, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 77592f446d2214691a03d932f3af5954, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &974956809 stripped
