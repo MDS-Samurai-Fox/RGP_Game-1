@@ -9,9 +9,6 @@ public class TimeManager : MonoBehaviour {
     public Text timerText;
 
     public float currentTime;
-    
-    [HideInInspector]
-    public float originalTime, remainingTime;
 
     private bool shouldUpdateTime = false;
 
@@ -23,7 +20,6 @@ public class TimeManager : MonoBehaviour {
     
     void Start() {
         
-        originalTime = currentTime;
         timerToText();
         
     }
@@ -54,7 +50,6 @@ public class TimeManager : MonoBehaviour {
     public void StopTimer() {
 
         shouldUpdateTime = false;
-        remainingTime = (originalTime - currentTime);
         gameManager.StopGame();
 
     }

@@ -159,10 +159,7 @@ public class GameManager : MonoBehaviour {
 
     void Win() {
         
-        string winText = "YOU WON\n";
-        winText += (timeManager.remainingTime.ToString());
-        winText += " Seconds left";
-        gameEndPanel.GetComponentInChildren<Text> ().text = winText;
+        gameEndPanel.GetComponentInChildren<Text> ().text = "YOU WON";
         gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
 
     }
