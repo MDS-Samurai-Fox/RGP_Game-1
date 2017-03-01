@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public class BodyPart : MonoBehaviour {
 
@@ -34,6 +35,10 @@ public class BodyPart : MonoBehaviour {
         }
 
         spriteRenderer.sprite = Sprites[spriteIndex];
+        
+        this.transform.DOShakeScale(0.4f);
+        // this.transform.DOScale(1.2f, 0.4f);
+        // this.transform.DOScale(1, 0.4f).SetDelay(0.4f);
 
     }
     

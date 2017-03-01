@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class FaceChecker : MonoBehaviour {
+
+    public bool randomizeFace = false;
 
     [HeaderAttribute("Right Eye")]
     public Sprite[] rightEye;
@@ -34,43 +34,60 @@ public class FaceChecker : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-		
-		// RANDOM
-		// private int[] indexes = { 0, 1 };
 
-        // int choices = indexes.Length;
+        if (randomizeFace) {
 
-        // chosenRightEye = rightEye[Random.Range(0, choices)];
-        // chosenRightEyebrow = rightEyebrow[Random.Range(0, choices)];
+            chosenLeftEye = leftEye[Random.Range(0, leftEye.Length)];
+            chosenLeftEyebrow = leftEyebrow[Random.Range(0, leftEyebrow.Length)];
 
-        // chosenLeftEye = leftEye[Random.Range(0, choices)];
-        // chosenLeftEyebrow = leftEyebrow[Random.Range(0, choices)];
+            chosenNose = nose[Random.Range(0, nose.Length)];
 
-        // chosenNose = nose[Random.Range(0, choices)];
+            chosenMouth = mouth[Random.Range(0, mouth.Length)];
 
-        // chosenMouth = mouth[Random.Range(0, choices)];
+            chosenRightEye = rightEye[Random.Range(0, rightEye.Length)];
+            chosenRightEyebrow = rightEyebrow[Random.Range(0, rightEyebrow.Length)];
 
-        chosenLeftEye = leftEye[1];
-        chosenLeftEyebrow = leftEyebrow[1];
-        chosenNose = nose[1];
-        chosenMouth = mouth[0];
-        chosenRightEye = rightEye[0];
-        chosenRightEyebrow = rightEyebrow[1];
+        } else {
 
-        ChangeFace();
+            chosenLeftEye = leftEye[1];
+            chosenLeftEyebrow = leftEyebrow[1];
+            chosenNose = nose[1];
+            chosenMouth = mouth[0];
+            chosenRightEye = rightEye[0];
+            chosenRightEyebrow = rightEyebrow[1];
+
+        }
+
+        Initialize();
 
     }
 
-    public bool CheckFace() {
-        
-        print("Checking face");
-        print(">>> SPRITES");
-        print("Left Eye: " + (gameManager.faceParent.GetChild(0).GetChild(0).GetComponent<SpriteRenderer> ().sprite == chosenLeftEye));
-        print("Left Eyebrow: " + (gameManager.faceParent.GetChild(0).GetChild(1).GetComponent<SpriteRenderer> ().sprite == chosenLeftEyebrow));
-        print("Nose: " + (gameManager.faceParent.GetChild(1).GetChild(0).GetComponent<SpriteRenderer> ().sprite == chosenNose));
-        print("Mouth: " + (gameManager.faceParent.GetChild(1).GetChild(1).GetComponent<SpriteRenderer> ().sprite == chosenMouth));
-        print("Right Eye: " + (gameManager.faceParent.GetChild(2).GetChild(0).GetComponent<SpriteRenderer> ().sprite == chosenRightEye));
-        print("Right Eyebrow: " + (gameManager.faceParent.GetChild(2).GetChild(1).GetComponent<SpriteRenderer> ().sprite == chosenRightEyebrow));
+    /// <summary>
+    /// Changes the face's sprites to the chosen ones
+    /// </summary>
+    void Initialize() {
+
+        // Left side
+        gameManager.faceToMatch.GetChild(0).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenLeftEye;
+        gameManager.faceToMatch.GetChild(0).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenLeftEyebrow;
+
+        // Nose
+        gameManager.faceToMatch.GetChild(1).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenNose;
+
+        // Mouth
+        gameManager.faceToMatch.GetChild(1).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenMouth;
+
+        // Right side
+        gameManager.faceToMatch.GetChild(2).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenRightEye;
+        gameManager.faceToMatch.GetChild(2).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenRightEyebrow;
+
+    }
+
+    /// <summary>
+    /// Checks the sprites of each face element to determine whether or not they match the final face
+    /// </summary>
+    /// <returns>true if face to check equals face to match</returns>
+    public bool HasMatchedFace() {
 
         return (
             // Left side
@@ -87,24 +104,6 @@ public class FaceChecker : MonoBehaviour {
             gameManager.faceParent.GetChild(2).GetChild(0).GetComponent<SpriteRenderer> ().sprite == chosenRightEye &&
             gameManager.faceParent.GetChild(2).GetChild(1).GetComponent<SpriteRenderer> ().sprite == chosenRightEyebrow
         );
-
-    }
-
-    void ChangeFace() {
-
-        // Left side
-        gameManager.faceToMatch.GetChild(0).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenLeftEye;
-        gameManager.faceToMatch.GetChild(0).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenLeftEyebrow;
-
-        // Nose
-        gameManager.faceToMatch.GetChild(1).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenNose;
-
-        // Mouth
-        gameManager.faceToMatch.GetChild(1).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenMouth;
-
-        // Right side
-        gameManager.faceToMatch.GetChild(2).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenRightEye;
-        gameManager.faceToMatch.GetChild(2).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenRightEyebrow;
 
     }
 

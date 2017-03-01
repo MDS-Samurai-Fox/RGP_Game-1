@@ -8,7 +8,10 @@ public class TimeManager : MonoBehaviour {
 
     public Text timerText;
 
-    public float time;
+    public float currentTime;
+    
+    [HideInInspector]
+    public float originalTime, remainingTime;
 
     private bool shouldUpdateTime = false;
 
@@ -17,22 +20,25 @@ public class TimeManager : MonoBehaviour {
         gameManager = FindObjectOfType<GameManager> ();
 
     }
+    
+    void Start() {
+        
+        originalTime = currentTime;
+        timerToText();
+        
+    }
 
     void Update() {
 
         if (!shouldUpdateTime)
             return;
 
-        time -= Time.deltaTime;
+        currentTime -= Time.deltaTime;
         timerToText();
 
-        if ((int) time <= 0) {
-
-            timerText.text = "0:00";
-
-            shouldUpdateTime = false;
-
-            gameManager.StopGame();
+        if ((int) currentTime <= 0) {
+            
+            StopTimer();
 
         }
 
@@ -45,9 +51,17 @@ public class TimeManager : MonoBehaviour {
 
     }
 
+    public void StopTimer() {
+
+        shouldUpdateTime = false;
+        remainingTime = (originalTime - currentTime);
+        gameManager.StopGame();
+
+    }
+
     void timerToText() {
 
-        timerText.text = string.Format("{0:#0}:{1:00}", Mathf.Floor(time / 60), Mathf.Floor(time) % 60);
+        timerText.text = string.Format("{0:#0}:{1:00}", Mathf.Floor(currentTime / 60), Mathf.Floor(currentTime) % 60);
 
     }
 
@@ -59,11 +73,10 @@ public class TimeManager : MonoBehaviour {
         while (shouldUpdateTime) {
 
             gameManager.soundManager.Play(ClipType.Timer);
-            
-            if ((int)time < 10) {
+
+            if ((int) currentTime < 10) {
                 yield return new WaitForSeconds(0.75f);
-            }
-            else {
+            } else {
                 yield return new WaitForSeconds(1.0f);
             }
 

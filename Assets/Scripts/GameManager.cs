@@ -48,19 +48,28 @@ public class GameManager : MonoBehaviour {
         timeManager = GetComponent<TimeManager> ();
         soundManager = FindObjectOfType<SoundManager> ();
         buoyancy = FindObjectOfType<Buoyancy> ();
-        // moveAstronaut = FindObjectOfType<MoveAstro> ();
         faceChecker = GetComponent<FaceChecker> ();
 
     }
 
     // Use this for initialization
     void Start() {
+
+        easeLength = soundManager.GetLength(ClipType.Join);
         
         gameEndPanel.DOFade(0, 0);
         gameEndPanel.blocksRaycasts = false;
 
         if (particles != null)
             particles.Stop();
+        
+        faceToMatch.DOScale(1, easeLength);
+        faceToMatch.DOScale(0.25f, 1).SetDelay(easeLength + 2);
+        faceToMatch.DOMove(Vector3.zero, 1).SetDelay(easeLength + 2).From().OnComplete(Initialize);
+
+    }
+
+    void Initialize() {
 
         easeLength = soundManager.GetLength(ClipType.Join);
 
@@ -69,7 +78,7 @@ public class GameManager : MonoBehaviour {
         rightSideOriginalPosition = rightSide.localPosition;
 
         // Move the face parent to the desired vector, after that enable the buoyancy
-        faceParent.DOMove(new Vector3(0, -0.35f, 0), easeLength).SetEase(Ease.OutBack).OnComplete(StartGame);
+        faceParent.DOMove(new Vector3(0, -0.35f, 0), easeLength).SetDelay(0.2f).SetEase(Ease.OutBack).OnComplete(StartGame);
 
         FaceSplit();
 
@@ -79,7 +88,7 @@ public class GameManager : MonoBehaviour {
 
         timeManager.Initialize();
         canUpdate = true;
-        
+
         if (buoyancy != null)
             buoyancy.Float();
 
@@ -92,7 +101,7 @@ public class GameManager : MonoBehaviour {
         soundManager.StopMusicSource();
         soundManager.StopJetpackSource();
 
-        if (faceChecker.CheckFace() == true) {
+        if (faceChecker.HasMatchedFace() == true) {
             Invoke("Win", soundManager.GetLength(ClipType.Finish));
         } else {
             Invoke("Lose", soundManager.GetLength(ClipType.Finish));
@@ -149,19 +158,22 @@ public class GameManager : MonoBehaviour {
     }
 
     void Win() {
-
-        gameEndPanel.GetComponentInChildren<Text>().text = "YOU WON";
+        
+        string winText = "YOU WON\n";
+        winText += (timeManager.remainingTime.ToString());
+        winText += " Seconds left";
+        gameEndPanel.GetComponentInChildren<Text> ().text = winText;
         gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
 
     }
 
     void Lose() {
 
-        gameEndPanel.GetComponentInChildren<Text>().text = "YOU LOST";
+        gameEndPanel.GetComponentInChildren<Text> ().text = "YOU LOST";
         gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
 
     }
-    
+
     void EnableBlockRaycasts() {
         gameEndPanel.blocksRaycasts = true;
     }

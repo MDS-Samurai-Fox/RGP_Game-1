@@ -30,7 +30,7 @@ public class Lever : MonoBehaviour {
         if (!gameManager.canUpdate)
             return;
 
-        if (time > 1.3f) {
+        if (time > 1.35f) {
 
             switch (buttonType) {
                 
@@ -48,8 +48,8 @@ public class Lever : MonoBehaviour {
             time = 0f;
             
             // Do something with the facechecker script
-            if (gameManager.faceChecker.CheckFace() == true) {
-                gameManager.StopGame();
+            if (gameManager.faceChecker.HasMatchedFace() == true) {
+                gameManager.timeManager.StopTimer();
             }
 
         }
