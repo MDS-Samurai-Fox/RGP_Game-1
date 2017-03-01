@@ -30,7 +30,7 @@ public class Lever : MonoBehaviour {
         if (!gameManager.canUpdate)
             return;
 
-        if (time > 0.6f) {
+        if (time > 1.3f) {
 
             switch (buttonType) {
                 

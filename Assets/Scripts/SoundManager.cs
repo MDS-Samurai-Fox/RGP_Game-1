@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
-    private GameManager gameManager;
-
     [HeaderAttribute("Audio Sources")]
     public AudioSource effectSource;
     public AudioSource jetpackSource;
@@ -24,29 +22,6 @@ public class SoundManager : MonoBehaviour {
     bool hasPlayedJetpackSound = false;
     Tween jetpackFadeIn, jetpackFadeOut;
 
-    void Awake() {
-
-        gameManager = FindObjectOfType<GameManager> ();
-
-    }
-
-    void Update() {
-
-        if (!gameManager.canUpdate)
-            return;
-
-        if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")) {
-            
-            Play(ClipType.Jetpack);
-            
-        } else if (Input.GetButtonUp("Horizontal") || Input.GetButtonUp("Vertical")) {
-            
-            StopJetpackSource();
-            
-        }
-
-    }
-
     /// <summary>
     /// Plays any given clip
     /// </summary>
@@ -64,6 +39,7 @@ public class SoundManager : MonoBehaviour {
                     if (!hasPlayedJetpackSound) {
                         hasPlayedJetpackSound = true;
                     }
+                    
                 }
                 break;
             case ClipType.Lever:
@@ -137,6 +113,7 @@ public class SoundManager : MonoBehaviour {
         if (hasPlayedJetpackSound) {
             hasPlayedJetpackSound = false;
         }
+        
     }
 
     /// <summary>

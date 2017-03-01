@@ -9,11 +9,14 @@ public class MoveAstro : MonoBehaviour {
     private bool bCollision = false;
     public int version;
 
+    private bool canPlaySound = true;
+    private float jetpackSoundTimer = 0;
+
     void Awake() {
 
         rigidBody = GetComponent<Rigidbody2D> ();
         gameManager = FindObjectOfType<GameManager> ();
-        animator = GetComponent<Animator>();
+        animator = GetComponent<Animator> ();
     }
 
     void FixedUpdate() {
@@ -21,81 +24,91 @@ public class MoveAstro : MonoBehaviour {
         if (!gameManager.canUpdate)
             return;
 
+        if (!canPlaySound) {
+            jetpackSoundTimer += Time.deltaTime;
+        }
+
+        if (jetpackSoundTimer > 1f) {
+            // StopJetpack();
+            print(">> CAN PLAY SOUND");
+            canPlaySound = true;
+            jetpackSoundTimer = 0;
+        }
+
         int StartingForce = 4;
 
         if (version == 1) {
-            
-            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-            {
+
+            if (canPlaySound) {
+
+                if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical")) {
+
+                    gameManager.soundManager.Play(ClipType.Jetpack);
+                    canPlaySound = false;
+
+                } 
+                else if (Input.GetButtonUp("Horizontal")) {
+
+                    gameManager.soundManager.StopJetpackSource();
+
+                } 
+                // else if (!Input.GetButton("Horizontal")) {
+                //     // Invoke("StopJetpack", 0.5f);
+                //     // gameManager.soundManager.StopJetpackSource();
+                // }
+
+            } 
+            else {
+                
+                print("<< CAN'T PLAY SOUND");
+                // gameManager.soundManager.StopJetpackSource();
+                
+            }
+
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
                 //rigidBody.AddForce(10 * transform.up);
                 rigidBody.AddForce(StartingForce * new Vector3(0, 1, 0));
                 //animator.Play("thrustLeft");
-            }
-            else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-            {
+            } else if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
                 //rigidBody.AddForce(-10 * transform.right);
                 rigidBody.AddForce(-StartingForce * new Vector3(1, 0, 0));
-                if (!bCollision)
-                {
-                        animator.Play("thrustLeft");
+                if (!bCollision) {
+                    animator.Play("thrustLeft");
                     //if (transform.rotation.z <  91.0f * Mathf.PI / 180.0f && transform.rotation.z > -91.0f * Mathf.PI / 180.0f)
-                    if (transform.eulerAngles.z < 91.0f && transform.rotation.z > -91.0f )
-                    {
-                    }
-                    else
-                    {
+                    if (transform.eulerAngles.z<91.0f && transform.rotation.z> -91.0f) { } else {
                         // animator.Play("thrustLeft");
                     }
                 }
-               
-            }
 
-            else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-            {
-               //rigidBody.AddForce(-10 * transform.up);
+            } else if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
+                //rigidBody.AddForce(-10 * transform.up);
                 rigidBody.AddForce(-StartingForce * new Vector3(0, 1, 0));
-                    
-            }
 
-            else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-            {
+            } else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
                 //rigidBody.AddForce(10 * transform.right);
                 rigidBody.AddForce(StartingForce * new Vector3(1, 0, 0));
-                if (!bCollision)
-                {
+                if (!bCollision) {
                     animator.Play("thrustRight");
                     //if(transform.rotation.z < 45.0f * Mathf.PI/180.0f && transform.rotation.z > -45.0f * Mathf.PI / 180.0f)
-                    if (transform.eulerAngles.z < 89.0f && transform.rotation.z > -89.0f)
-                    {
+                    if (transform.eulerAngles.z<89.0f && transform.rotation.z> -89.0f) {
                         // animator.Play("thrustRight");
-                    }
-                    else
-                    {
+                    } else {
                         // animator.Play("thrustLeft");
                     }
                 }
             }
 
             // Handing the idle animations
-            if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A))
-            {
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft"))
-                {
+            if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A)) {
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft")) {
                     animator.Play("idleLeft");
-                }
-                else
-                {
+                } else {
                     animator.Play("idleRight");
                 }
-            }
-            else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D))
-            {
-                if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft"))
-                {
+            } else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D)) {
+                if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft")) {
                     animator.Play("idleLeft");
-                }
-                else
-                {
+                } else {
                     animator.Play("idleRight");
                 }
             }
@@ -105,66 +118,61 @@ public class MoveAstro : MonoBehaviour {
         else {
 
             if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
-                
+
                 rigidBody.AddTorque(-0.5f);
                 rigidBody.AddForce(1 * transform.up);
-                
+
             }
 
             if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
-                
+
                 rigidBody.AddTorque(0.5f);
                 rigidBody.AddForce(-1 * transform.right);
             }
 
             if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
-                
+
                 rigidBody.AddTorque(0.5f);
                 rigidBody.AddForce(-1 * transform.up);
-                
+
             }
 
             if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
-                
+
                 rigidBody.AddTorque(-0.5f);
                 rigidBody.AddForce(1 * transform.right);
-                
+
             }
 
         }
 
     }
 
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.transform.parent.name == "Borders")
-        {
+    void OnCollisionStay2D(Collision2D collision) {
+        if (collision.gameObject.transform.parent.name == "Borders") {
             bCollision = true;
 
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleLeft"))
-            {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleLeft")) {
                 animator.Play("collideLeft");
-            }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft"))
-            {
+            } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft")) {
                 animator.Play("collideLeft");
-            }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleRight"))
-            {
+            } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleRight")) {
                 animator.Play("collideRight");
-            }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustRight"))
-            {
+            } else if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustRight")) {
                 animator.Play("collideRight");
             }
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision)
-    {
+    void OnCollisionExit2D(Collision2D collision) {
         bCollision = false;
 
     }
+    
+    void StopJetpack() {
+        
+        gameManager.soundManager.StopJetpackSource();
+        
+    }
 
 }
-

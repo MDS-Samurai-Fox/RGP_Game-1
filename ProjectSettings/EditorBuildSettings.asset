@@ -9,5 +9,3 @@ EditorBuildSettings:
     path: Assets/_Scenes/Menu.unity
   - enabled: 1
     path: Assets/_Scenes/_Completed Scene.unity
-  - enabled: 1
-    path: Assets/_Scenes/Credits.unity
