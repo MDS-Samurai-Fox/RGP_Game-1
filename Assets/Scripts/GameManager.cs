@@ -1,6 +1,8 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using XboxCtrlrInput;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -173,6 +175,17 @@ public class GameManager : MonoBehaviour {
 
     void EnableBlockRaycasts() {
         gameEndPanel.blocksRaycasts = true;
+    }
+
+    private void Update()
+    {
+        if (!canUpdate)
+        {
+            if (XCI.GetButtonDown(XboxButton.A))
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
     }
 
 }
