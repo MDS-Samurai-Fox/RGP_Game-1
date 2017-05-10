@@ -130,7 +130,30 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  spriteType: 3
+  spriteType: 0
+--- !u!1 &182220594 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1281923382455276, guid: d786ba3aa4195416983f81d4c0edcdbd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580617617}
+--- !u!114 &182220596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 182220594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3ac2118b4e0e04fb72c089599c399e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorArray:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  spriteType: 1
 --- !u!114 &186259827 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114785642934822290, guid: d786ba3aa4195416983f81d4c0edcdbd,
@@ -194,6 +217,29 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3bbaa45bc6ade42308b3c78dd2d302dd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &292250780 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1156629736174280, guid: d786ba3aa4195416983f81d4c0edcdbd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580617617}
+--- !u!114 &292250781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 292250780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3ac2118b4e0e04fb72c089599c399e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorArray:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  spriteType: 3
 --- !u!1 &402770151
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +308,29 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1580617617}
   m_Script: {fileID: 11500000, guid: 0030696c9be69374694615b433be56f3, type: 3}
+--- !u!1 &499844561 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1293382284405326, guid: d786ba3aa4195416983f81d4c0edcdbd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580617617}
+--- !u!114 &499844564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 499844561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3ac2118b4e0e04fb72c089599c399e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorArray:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  spriteType: 1
 --- !u!114 &580907137 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114669187544764930, guid: a12f8cffd269c43e29c3026510475600,
@@ -302,7 +371,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  spriteType: 1
+  spriteType: 2
 --- !u!4 &855849108 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4301772943611152, guid: 77592f446d2214691a03d932f3af5954,
@@ -674,7 +743,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  spriteType: 1
+  spriteType: 0
 --- !u!1 &1263115847 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1378884126829308, guid: d786ba3aa4195416983f81d4c0edcdbd,
@@ -1371,3 +1440,26 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9552f8ae16df94a45b1e34faa8c57e21, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2057714556 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1466593073921886, guid: d786ba3aa4195416983f81d4c0edcdbd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580617617}
+--- !u!114 &2057714557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2057714556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3ac2118b4e0e04fb72c089599c399e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorArray:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  spriteType: 1

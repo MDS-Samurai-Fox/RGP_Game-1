@@ -29,11 +29,11 @@ public class ColourEditor : MonoBehaviour {
         Color haircolor4 = new Color(183.0f / 255.0f, 166.0f / 255.0f, 158.0f / 255.0f);
         Color haircolor5 = new Color(141.0f / 255.0f, 74.0f / 255.0f, 67.0f / 255.0f);
 
-        Color eyecolor1 = new Color(28.0f / 255.0f, 78.0f / 255.0f, 126.0f / 255.0f);
-        Color eyecolor2 = new Color(118.0f / 255.0f, 80.0f / 255.0f, 55.0f / 255.0f);
+        Color eyecolor1 = new Color(25.0f / 255.0f, 23.0f / 255.0f, 188.0f / 255.0f);
+        Color eyecolor2 = new Color(69.0f / 255.0f, 24.0f / 255.0f, 0.0f / 255.0f);
         Color eyecolor3 = new Color(119.0f / 255.0f, 101.0f / 255.0f, 54.0f / 255.0f);
         Color eyecolor4 = new Color(48.0f / 255.0f, 88.0f / 255.0f, 6.0f / 255.0f);
-        Color eyecolor5 = new Color(127.0f / 255.0f, 122.0f / 255.0f, 161.0f / 255.0f);
+        Color eyecolor5 = new Color(61.0f / 255.0f, 69.0f / 255.0f, 80.0f / 255.0f);
 
         Color lipcolor1 = new Color(222.0f / 255.0f, 15.0f / 255.0f, 13.0f / 255.0f);   
         Color lipcolor2 = new Color(186.0f / 255.0f, 6.0f / 255.0f, 78.0f / 255.0f);

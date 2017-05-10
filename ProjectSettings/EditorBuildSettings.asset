@@ -11,3 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Original Scenes/_Completed Scene.unity
     guid: 05070e2f30ef643f08253ade11b0152b
+  - enabled: 1
+    path: Assets/_Scenes/Charmaine Colour.unity
+    guid: 1e0c3ce3a93066345b824a90b52e2052
+  - enabled: 1
+    path: Assets/_Scenes/Mitch.unity
+    guid: ee2fbf0552c0ce04bbb60f7072c528f1
