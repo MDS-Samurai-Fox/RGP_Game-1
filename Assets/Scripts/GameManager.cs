@@ -186,6 +186,11 @@ public class GameManager : MonoBehaviour {
                 SceneManager.LoadScene(0);
             }
         }
+
+        if (faceChecker.HasMatchedFace() == true)
+        {
+            timeManager.StopTimer();
+        }
     }
 
 }

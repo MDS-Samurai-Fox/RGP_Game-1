@@ -41,7 +41,26 @@ public class BodyPart : MonoBehaviour {
         // this.transform.DOScale(1, 0.4f).SetDelay(0.4f);
 
     }
-    
+
+    public void ChangeSpriteDebug()
+    {
+
+        spriteIndex++;
+
+        if (spriteIndex > spriteArraySize - 1)
+        {
+            spriteIndex = 0;
+        }
+
+        spriteRenderer.sprite = Sprites[spriteIndex];
+
+       // this.transform.DOShakeScale(0.4f);
+        // this.transform.DOScale(1.2f, 0.4f);
+        // this.transform.DOScale(1, 0.4f).SetDelay(0.4f);
+
+    }
+
+
     /// <summary>
     /// 
     /// </summary>
