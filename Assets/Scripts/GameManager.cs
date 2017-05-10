@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour {
         // Move the face parent to the desired vector, after that enable the buoyancy
         faceParent.DOMove(new Vector3(0, -0.35f, 0), easeLength).SetDelay(0.2f).SetEase(Ease.OutBack).OnComplete(StartGame);
 
-        FaceSplit();
+        //FaceSplit();
 
     }
 

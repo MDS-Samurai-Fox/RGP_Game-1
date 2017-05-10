@@ -124,6 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3ac2118b4e0e04fb72c089599c399e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colorArray:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  spriteType: 0
 --- !u!114 &186259827 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114785642934822290, guid: d786ba3aa4195416983f81d4c0edcdbd,
@@ -273,6 +280,29 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1580617617}
   m_Script: {fileID: 11500000, guid: 0030696c9be69374694615b433be56f3, type: 3}
+--- !u!1 &727238234 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1516857345642506, guid: d786ba3aa4195416983f81d4c0edcdbd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580617617}
+--- !u!114 &727238237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 727238234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3ac2118b4e0e04fb72c089599c399e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorArray:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  spriteType: 0
 --- !u!4 &855849108 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4301772943611152, guid: 77592f446d2214691a03d932f3af5954,
@@ -395,6 +425,29 @@ Prefab:
     - {fileID: 114211556566159006, guid: 77592f446d2214691a03d932f3af5954, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 77592f446d2214691a03d932f3af5954, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &928153201 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1948465012312712, guid: d786ba3aa4195416983f81d4c0edcdbd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580617617}
+--- !u!114 &928153204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 928153201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3ac2118b4e0e04fb72c089599c399e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorArray:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  spriteType: 0
 --- !u!1001 &973375806
 Prefab:
   m_ObjectHideFlags: 0
@@ -599,6 +652,52 @@ CanvasGroup:
   m_PrefabParentObject: {fileID: 225252580867907304, guid: a12f8cffd269c43e29c3026510475600,
     type: 2}
   m_PrefabInternal: {fileID: 973375806}
+--- !u!1 &1244703212 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1397579603092960, guid: d786ba3aa4195416983f81d4c0edcdbd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580617617}
+--- !u!114 &1244703215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1244703212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3ac2118b4e0e04fb72c089599c399e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorArray:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  spriteType: 0
+--- !u!1 &1263115847 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1378884126829308, guid: d786ba3aa4195416983f81d4c0edcdbd,
+    type: 2}
+  m_PrefabInternal: {fileID: 1580617617}
+--- !u!114 &1263115850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1263115847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3ac2118b4e0e04fb72c089599c399e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorArray:
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0, g: 0, b: 0, a: 0}
+  spriteType: 2
 --- !u!1001 &1382689642
 Prefab:
   m_ObjectHideFlags: 0
