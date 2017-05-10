@@ -87,14 +87,19 @@ public class ColourEditor : MonoBehaviour {
 
        if (Input.GetKey(KeyCode.R)) {
 
-            SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-            //renderer.color = new Color(fRed / 255.0f, fGreen / 255.0f, fBlue / 255.0f, 1.0f);
-            renderer.DOColor(colorArray[i], 1.0f).SetEase(Ease.InSine);
-
-            i++;
-            if (i > 4)
-                i = 0;
+            ChangeColor();
         }      
 
+    }
+
+    public void ChangeColor()
+    {
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+        //renderer.color = new Color(fRed / 255.0f, fGreen / 255.0f, fBlue / 255.0f, 1.0f);
+        renderer.DOColor(colorArray[i], 1.0f).SetEase(Ease.InSine);
+
+        i++;
+        if (i > 4)
+            i = 0;
     }
 }
