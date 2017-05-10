@@ -16,7 +16,6 @@ public class ColourEditor : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
         
         Color skincolor1 = new Color(60.0f / 255.0f, 46.0f / 255.0f, 40.0f / 255.0f);
         Color skincolor2 = new Color(105.0f / 255.0f, 80.0f / 255.0f, 70.0f / 255.0f);
@@ -24,23 +23,23 @@ public class ColourEditor : MonoBehaviour {
         Color skincolor4 = new Color(240.0f / 255.0f, 184.0f / 255.0f, 160.0f / 255.0f);
         Color skincolor5 = new Color(255.0f / 255.0f, 229.0f / 255.0f, 200.0f / 255.0f);
 
-        Color haircolor1 = new Color(60.0f / 255.0f, 46.0f / 255.0f, 40.0f / 255.0f);
-        Color haircolor2 = new Color(105.0f / 255.0f, 80.0f / 255.0f, 70.0f / 255.0f);
-        Color haircolor3 = new Color(165.0f / 255.0f, 126.0f / 255.0f, 110.0f / 255.0f);
-        Color haircolor4 = new Color(240.0f / 255.0f, 184.0f / 255.0f, 160.0f / 255.0f);
-        Color haircolor5 = new Color(255.0f / 255.0f, 229.0f / 255.0f, 200.0f / 255.0f);
+        Color haircolor1 = new Color(9.0f / 255.0f, 8.0f / 255.0f, 6.0f / 255.0f);
+        Color haircolor2 = new Color(83.0f / 255.0f, 61.0f / 255.0f, 53.0f / 255.0f);
+        Color haircolor3 = new Color(233.0f / 255.0f, 206.0f / 255.0f, 168.0f / 255.0f);
+        Color haircolor4 = new Color(183.0f / 255.0f, 166.0f / 255.0f, 158.0f / 255.0f);
+        Color haircolor5 = new Color(141.0f / 255.0f, 74.0f / 255.0f, 67.0f / 255.0f);
 
-        Color eyecolor1 = new Color(255.0f / 255.0f, 0.0f / 255.0f, 40.0f / 255.0f);
-        Color eyecolor2 = new Color(255.0f / 0.0f, 255.0f / 255.0f, 70.0f / 255.0f);
-        Color eyecolor3 = new Color(0.0f / 255.0f, 255.0f / 255.0f, 110.0f / 255.0f);
-        Color eyecolor4 = new Color(100.0f / 100.0f, 100.0f / 255.0f, 160.0f / 255.0f);
-        Color eyecolor5 = new Color(0.0f / 0.0f, 0.0f / 255.0f, 200.0f / 255.0f);
+        Color eyecolor1 = new Color(28.0f / 255.0f, 78.0f / 255.0f, 126.0f / 255.0f);
+        Color eyecolor2 = new Color(118.0f / 255.0f, 80.0f / 255.0f, 55.0f / 255.0f);
+        Color eyecolor3 = new Color(119.0f / 255.0f, 101.0f / 255.0f, 54.0f / 255.0f);
+        Color eyecolor4 = new Color(48.0f / 255.0f, 88.0f / 255.0f, 6.0f / 255.0f);
+        Color eyecolor5 = new Color(127.0f / 255.0f, 122.0f / 255.0f, 161.0f / 255.0f);
 
-        Color lipcolor1 = new Color(60.0f / 255.0f, 46.0f / 255.0f, 40.0f / 255.0f);
-        Color lipcolor2 = new Color(105.0f / 255.0f, 80.0f / 255.0f, 70.0f / 255.0f);
-        Color lipcolor3 = new Color(165.0f / 255.0f, 126.0f / 255.0f, 110.0f / 255.0f);
-        Color lipcolor4 = new Color(240.0f / 255.0f, 184.0f / 255.0f, 160.0f / 255.0f);
-        Color lipcolor5 = new Color(255.0f / 255.0f, 229.0f / 255.0f, 200.0f / 255.0f);
+        Color lipcolor1 = new Color(222.0f / 255.0f, 15.0f / 255.0f, 13.0f / 255.0f);   
+        Color lipcolor2 = new Color(186.0f / 255.0f, 6.0f / 255.0f, 78.0f / 255.0f);
+        Color lipcolor3 = new Color(227.0f / 255.0f, 93.0f / 255.0f, 106.0f / 255.0f);
+        Color lipcolor4 = new Color(153.0f / 255.0f, 88.0f / 255.0f, 106.0f / 255.0f);
+        Color lipcolor5 = new Color(238.0f / 255.0f, 193.0f / 255.0f, 173.0f / 255.0f);
 
         if (spriteType == type.Skin)    {
 
@@ -85,7 +84,7 @@ public class ColourEditor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-       if (Input.GetKey(KeyCode.R)) {
+       if (Input.GetKeyDown(KeyCode.R)) {
 
             ChangeColor();
         }      
@@ -94,12 +93,15 @@ public class ColourEditor : MonoBehaviour {
 
     public void ChangeColor()
     {
+        print(i);
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         //renderer.color = new Color(fRed / 255.0f, fGreen / 255.0f, fBlue / 255.0f, 1.0f);
         renderer.DOColor(colorArray[i], 1.0f).SetEase(Ease.InSine);
 
-        i++;
+        i = i + 1;
         if (i > 4)
+        {
             i = 0;
+        }
     }
 }

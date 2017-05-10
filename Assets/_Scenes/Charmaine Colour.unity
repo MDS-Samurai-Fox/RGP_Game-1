@@ -130,7 +130,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  spriteType: 0
+  spriteType: 3
 --- !u!114 &186259827 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114785642934822290, guid: d786ba3aa4195416983f81d4c0edcdbd,
@@ -302,7 +302,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  spriteType: 0
+  spriteType: 1
 --- !u!4 &855849108 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4301772943611152, guid: 77592f446d2214691a03d932f3af5954,
@@ -674,7 +674,7 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  spriteType: 0
+  spriteType: 1
 --- !u!1 &1263115847 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1378884126829308, guid: d786ba3aa4195416983f81d4c0edcdbd,
@@ -989,6 +989,21 @@ Prefab:
         type: 2}
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 212609963190189102, guid: d786ba3aa4195416983f81d4c0edcdbd,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212609963190189102, guid: d786ba3aa4195416983f81d4c0edcdbd,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212609963190189102, guid: d786ba3aa4195416983f81d4c0edcdbd,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d786ba3aa4195416983f81d4c0edcdbd, type: 2}
