@@ -50,5 +50,10 @@ public class Wheel : MonoBehaviour {
         {
             gameManager.timeManager.StopTimer();
         }
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        FindObjectOfType<CameraEffectController>().Shake(0.2f, 0.7f);
     }
 }

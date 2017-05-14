@@ -52,6 +52,8 @@ public class Lever : MonoBehaviour {
                 gameManager.timeManager.StopTimer();
             }
 
+            FindObjectOfType<CameraEffectController>().Shake(0.2f, 0.7f);
+
         }
 
     }
