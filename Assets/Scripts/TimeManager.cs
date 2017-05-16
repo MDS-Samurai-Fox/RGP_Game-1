@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TimeManager : MonoBehaviour {
 
     private GameManager gameManager;
 
-    public Text timerText;
+    //public Text timerText;
+    public TextMeshProUGUI countdownText;
 
     public float currentTime;
 
@@ -56,7 +58,7 @@ public class TimeManager : MonoBehaviour {
 
     void timerToText() {
 
-        timerText.text = string.Format("{0:#0}:{1:00}", Mathf.Floor(currentTime / 60), Mathf.Floor(currentTime) % 60);
+        countdownText.text = string.Format("{0:#0}:{1:00}", Mathf.Floor(currentTime / 60), Mathf.Floor(currentTime) % 60);
 
     }
 
