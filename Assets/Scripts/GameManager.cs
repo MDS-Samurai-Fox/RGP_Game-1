@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using XboxCtrlrInput;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour {
 
@@ -168,7 +169,7 @@ public class GameManager : MonoBehaviour {
 
     void Lose() {
 
-        gameEndPanel.GetComponentInChildren<Text> ().text = "YOU LOST";
+        gameEndPanel.GetComponentInChildren<TextMeshProUGUI> ().text = "YOU LOST";
         gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
 
     }
