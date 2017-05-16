@@ -322,6 +322,10 @@ Prefab:
       propertyPath: m_SortMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1425334759895768, guid: dee0c3b03072bff4db33554db28864e8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dee0c3b03072bff4db33554db28864e8, type: 2}
   m_IsPrefabParent: 0
@@ -342,11 +346,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   colorArray:
+  - {r: 0.7647059, g: 0.62809855, b: 0.5454152, a: 1}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
   - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
+  - {r: 0.89019614, g: 0.7411765, b: 0.6509804, a: 1}
   spriteType: 0
 --- !u!1 &169384550
 GameObject:
@@ -571,6 +575,7 @@ GameObject:
   - component: {fileID: 588349333}
   - component: {fileID: 588349332}
   - component: {fileID: 588349331}
+  - component: {fileID: 588349335}
   m_Layer: 0
   m_Name: Wheel Left Eye
   m_TagString: Untagged
@@ -820,6 +825,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &588349335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 588349330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa30c8cb679f4eb89d2488aeb37cc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 6
 --- !u!1001 &602174913
 Prefab:
   m_ObjectHideFlags: 0
@@ -867,7 +884,7 @@ Prefab:
     - target: {fileID: 198409037968356970, guid: dee0c3b03072bff4db33554db28864e8,
         type: 2}
       propertyPath: randomSeed
-      value: 611129638
+      value: 2091330598
       objectReference: {fileID: 0}
     - target: {fileID: 198409037968356970, guid: dee0c3b03072bff4db33554db28864e8,
         type: 2}
@@ -1021,6 +1038,7 @@ GameObject:
   - component: {fileID: 698310200}
   - component: {fileID: 698310203}
   - component: {fileID: 698310202}
+  - component: {fileID: 698310204}
   m_Layer: 0
   m_Name: Wheel Left Face
   m_TagString: Untagged
@@ -1270,6 +1288,18 @@ PolygonCollider2D:
       - {x: 0.295, y: -0.72999996}
       - {x: 0.125, y: -0.77}
       - {x: 0.024999999, y: -0.78}
+--- !u!114 &698310204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 698310199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fa30c8cb679f4eb89d2488aeb37cc5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTime: 6
 --- !u!4 &855849108 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4301772943611152, guid: 77592f446d2214691a03d932f3af5954,
@@ -1745,19 +1775,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17075b2f865e8284196f9155a458f4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Targets: []
-  m_Context: {fileID: 0}
-  m_IsDirty: 0
-  m_ReferenceTargetIndex: 0
-  m_InspectorMode: 0
-  hideInspector: 0
-  faceDebugging: {fileID: 0}
-  LeftEye: {fileID: 0}
-  LeftEyebrow: {fileID: 0}
-  Nose: {fileID: 0}
-  Mouth: {fileID: 0}
-  RightEye: {fileID: 0}
-  RightEyebrow: {fileID: 0}
 --- !u!114 &1144129960
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using System.Collections;
 
 public class BodyPart : MonoBehaviour {
 
@@ -8,14 +9,19 @@ public class BodyPart : MonoBehaviour {
     private int spriteIndex = 0;
     private int spriteArraySize = 0;
 
+    private Material originalMaterial;
+
     void Awake() {
 
-        spriteRenderer = GetComponent<SpriteRenderer> ();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        originalMaterial = spriteRenderer.material;
 
     }
 
     // Use this for initialization
     void Start() {
+
+        Debug.Log(originalMaterial);
 
         spriteArraySize = Sprites.Length;
 
@@ -28,6 +34,9 @@ public class BodyPart : MonoBehaviour {
     /// </summary>
     public void ChangeSprite() {
 
+        StartCoroutine(AnimateSpriteChange(0.05f));
+        StartCoroutine(Utils.Pause(0.15f));
+
         spriteIndex++;
 
         if (spriteIndex > spriteArraySize - 1) {
@@ -35,7 +44,7 @@ public class BodyPart : MonoBehaviour {
         }
 
         spriteRenderer.sprite = Sprites[spriteIndex];
-        
+
         this.transform.DOShakeScale(0.4f);
         // this.transform.DOScale(1.2f, 0.4f);
         // this.transform.DOScale(1, 0.4f).SetDelay(0.4f);
@@ -60,7 +69,6 @@ public class BodyPart : MonoBehaviour {
 
     }
 
-
     /// <summary>
     /// 
     /// </summary>
@@ -69,6 +77,16 @@ public class BodyPart : MonoBehaviour {
         
         spriteRenderer.sprite = _sprite;
         
+    }
+
+    private IEnumerator AnimateSpriteChange(float length) {
+
+        spriteRenderer.material = Resources.Load("Material_White") as Material;
+
+        yield return new WaitForSeconds(length);
+
+        spriteRenderer.material = originalMaterial;
+
     }
 
 }

@@ -43,11 +43,11 @@ public class ColourEditor : MonoBehaviour {
 
         if (spriteType == type.Skin)    {
 
-            colorArray[0] = skincolor1;
-            colorArray[1] = skincolor2;
-            colorArray[2] = skincolor3;
-            colorArray[3] = skincolor4;
-            colorArray[4] = skincolor5;
+            //colorArray[0] = skincolor1;
+            //colorArray[1] = skincolor2;
+            //colorArray[2] = skincolor3;
+            //colorArray[3] = skincolor4;
+            //colorArray[4] = skincolor5;
 
         }
         else if (spriteType == type.Hair)   {
@@ -93,15 +93,15 @@ public class ColourEditor : MonoBehaviour {
 
     public void ChangeColor()
     {
-        print(i);
+        //print(i);
         SpriteRenderer renderer = GetComponent<SpriteRenderer>();
-        //renderer.color = new Color(fRed / 255.0f, fGreen / 255.0f, fBlue / 255.0f, 1.0f);
+        ////renderer.color = new Color(fRed / 255.0f, fGreen / 255.0f, fBlue / 255.0f, 1.0f);
         renderer.DOColor(colorArray[i], 1.0f).SetEase(Ease.InSine);
 
         i = i + 1;
-        if (i > 4)
-        {
+        if (i > 4) {
             i = 0;
         }
+
     }
 }
