@@ -95,6 +95,30 @@ public class MoveAstro : MonoBehaviour {
             }
 
         }
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || XCI.GetAxisRaw(XboxAxis.LeftStickX) > 0)
+        {
+            //print("LeftStickX > 0, Down");
+            rigidBody.AddForce(StartingForce * new Vector3(1, 0, 0));
+            //Instantiate(particleEffect, gameObject.transform.position, Quaternion.Euler(0, 0, 90));
+            if (!movementParticles.isPlaying)
+            {
+                movementParticles.Play();
+            }
+
+            if (!bCollision)
+            {
+                animator.Play("newThrustRight");
+
+                if (transform.eulerAngles.z < 89.0f && transform.rotation.z > -89.0f)
+                {
+                    // animator.Play("thrustRight");
+                }
+                else
+                {
+                    // animator.Play("thrustLeft");
+                }
+            }
+        }
         if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S) || XCI.GetAxisRaw(XboxAxis.LeftStickY) < 0) {
 
             rigidBody.AddForce(-StartingForce * new Vector3(0, 1, 0));
@@ -103,25 +127,7 @@ public class MoveAstro : MonoBehaviour {
                 movementParticles.Play();
             }
         }
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || XCI.GetAxisRaw(XboxAxis.LeftStickX) > 0) {
-            //print("LeftStickX > 0, Down");
-            rigidBody.AddForce(StartingForce * new Vector3(1, 0, 0));
-            //Instantiate(particleEffect, gameObject.transform.position, Quaternion.Euler(0, 0, 90));
-            if (!movementParticles.isPlaying) {
-                movementParticles.Play();
-            }
-
-            if (!bCollision) {
-                animator.Play("newThrustRight");
-
-                if (transform.eulerAngles.z < 89.0f && transform.rotation.z > -89.0f) {
-                    // animator.Play("thrustRight");
-                }
-                else {
-                    // animator.Play("thrustLeft");
-                }
-            }
-        }
+        
 
 
         // Handing the idle animations
@@ -149,16 +155,16 @@ public class MoveAstro : MonoBehaviour {
             bCollision = true;
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("newIdleLeft")) {
-                animator.Play("collideLeft");
+                //animator.Play("collideLeft");
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("newThrustLeft")) {
-                animator.Play("collideLeft");
+                //animator.Play("collideLeft");
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("newIdleRight")) {
-                animator.Play("collideRight");
+                //animator.Play("collideRight");
             }
             else if (animator.GetCurrentAnimatorStateInfo(0).IsName("newThrustRight")) {
-                animator.Play("collideRight");
+               //animator.Play("collideRight");
             }
         }
     }
