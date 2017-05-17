@@ -35,7 +35,7 @@ public class BodyPart : MonoBehaviour {
     public void ChangeSprite() {
 
         StartCoroutine(AnimateSpriteChange(0.05f));
-        StartCoroutine(Utils.Pause(0.15f));
+        StartCoroutine(Utils.Pause(0.05f));
 
         spriteIndex++;
 

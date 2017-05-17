@@ -46,8 +46,16 @@ public class AnalogLever : MonoBehaviour
         }
 
       
-
         Vector3 newRotation = transform.rotation.eulerAngles + (rotationVector* rotateDirection);
         transform.DORotate(newRotation, 0.1f);
+
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        FindObjectOfType<CameraEffectController>().Shake(0.2f, 0.7f);
     }
 }
+    
+
+        
