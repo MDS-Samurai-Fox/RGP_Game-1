@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour {
         faceParent.DOMove(new Vector3(0, -0.35f, 0), easeLength).SetDelay(0.2f).SetEase(Ease.OutBack).OnComplete(StartGame);
 
         //FaceSplit();
+        soundManager.Play(ClipType.Split);
 
     }
 
@@ -91,6 +92,8 @@ public class GameManager : MonoBehaviour {
 
         timeManager.Initialize();
         canUpdate = true;
+        
+        PlayAnimationBlastEnd();
 
         if (buoyancy != null)
             buoyancy.Float();
