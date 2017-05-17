@@ -85,7 +85,7 @@ public class MoveAstro : MonoBehaviour {
             }
 
             if (!bCollision) {
-                animator.Play("thrustLeft");
+                animator.Play("newThrustLeft");
 
                 if (transform.eulerAngles.z < 91.0f && transform.rotation.z > -91.0f) {
                 }
@@ -112,7 +112,7 @@ public class MoveAstro : MonoBehaviour {
             }
 
             if (!bCollision) {
-                animator.Play("thrustRight");
+                animator.Play("newThrustRight");
 
                 if (transform.eulerAngles.z < 89.0f && transform.rotation.z > -89.0f) {
                     // animator.Play("thrustRight");
@@ -126,19 +126,19 @@ public class MoveAstro : MonoBehaviour {
 
         // Handing the idle animations
         if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A) || XCI.GetButtonUp(XboxButton.X)) {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft")) {
-                animator.Play("idleLeft");
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("newThrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft")) {
+                animator.Play("newIdleLeft");
             }
             else {
-                animator.Play("idleRight");
+                animator.Play("newIdleRight");
             }
         }
         else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D) || XCI.GetButtonUp(XboxButton.B)) {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft")) {
-                animator.Play("idleLeft");
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("newThrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft")) {
+                animator.Play("newIdleLeft");
             }
             else {
-                animator.Play("idleRight");
+                animator.Play("newIdleRight");
             }
         }
     }
@@ -148,16 +148,16 @@ public class MoveAstro : MonoBehaviour {
         if (collision.gameObject.transform.parent.name == "Borders") {
             bCollision = true;
 
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleLeft")) {
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("newIdleLeft")) {
                 animator.Play("collideLeft");
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustLeft")) {
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("newThrustLeft")) {
                 animator.Play("collideLeft");
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("idleRight")) {
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("newIdleRight")) {
                 animator.Play("collideRight");
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("thrustRight")) {
+            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("newThrustRight")) {
                 animator.Play("collideRight");
             }
         }
