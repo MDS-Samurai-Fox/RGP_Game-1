@@ -524,15 +524,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4341103085603082, guid: 3bbaa45bc6ade42308b3c78dd2d302dd, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.15
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 4341103085603082, guid: 3bbaa45bc6ade42308b3c78dd2d302dd, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.15
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 4341103085603082, guid: 3bbaa45bc6ade42308b3c78dd2d302dd, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.15
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 60387367202030964, guid: 3bbaa45bc6ade42308b3c78dd2d302dd, type: 2}
@@ -2050,11 +2050,24 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1144129957}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17075b2f865e8284196f9155a458f4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Targets: []
+  m_Context: {fileID: 0}
+  m_IsDirty: 0
+  m_ReferenceTargetIndex: 0
+  m_InspectorMode: 0
+  hideInspector: 0
+  faceDebugging: {fileID: 0}
+  LeftEye: {fileID: 0}
+  LeftEyebrow: {fileID: 0}
+  Nose: {fileID: 0}
+  Mouth: {fileID: 0}
+  RightEye: {fileID: 0}
+  RightEyebrow: {fileID: 0}
 --- !u!114 &1144129960
 MonoBehaviour:
   m_ObjectHideFlags: 0
