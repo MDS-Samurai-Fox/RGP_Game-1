@@ -43,11 +43,11 @@ public class ColourEditor : MonoBehaviour {
 
         if (spriteType == type.Skin)    {
 
-            //colorArray[0] = skincolor1;
-            //colorArray[1] = skincolor2;
-            //colorArray[2] = skincolor3;
-            //colorArray[3] = skincolor4;
-            //colorArray[4] = skincolor5;
+            colorArray[0] = skincolor1;
+            colorArray[1] = skincolor2;
+            colorArray[2] = skincolor3;
+            colorArray[3] = skincolor4;
+            colorArray[4] = skincolor5;
 
         }
         else if (spriteType == type.Hair)   {
