@@ -5,17 +5,25 @@ using UnityEngine;
 public class FaceDebugging : MonoBehaviour {
 
     [HideInInspector]
-    public BodyPart LeftEye;
+    public BodyPart Eyes;
     [HideInInspector]
-    public BodyPart LeftEyebrow;
+    public BodyPart Eyebrows;
     [HideInInspector]
     public BodyPart Nose;
     [HideInInspector]
     public BodyPart Mouth;
     [HideInInspector]
-    public BodyPart RightEye;
+    public BodyPart RightEar;
     [HideInInspector]
-    public BodyPart RightEyebrow;
+    public BodyPart LeftEar;
+    [HideInInspector]
+    public BodyPart Hair;
+    [HideInInspector]
+    public BodyPart Mustache;
+    [HideInInspector]
+    public BodyPart Beard;
+    [HideInInspector]
+    public BodyPart Face;
 
     //public int LeftEyeIndex;
     //public int LeftEyebrowIndex;
@@ -28,16 +36,27 @@ public class FaceDebugging : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        LeftEye = transform.Find("Left Face Side").transform.Find("Left Eye").gameObject.GetComponent<BodyPart>();
-        LeftEyebrow = transform.Find("Left Face Side").transform.Find("Left Eyebrow").gameObject.GetComponent<BodyPart>();
-        Nose = transform.Find("Middle Face Side").transform.Find("Nose").gameObject.GetComponent<BodyPart>();
-        Mouth = transform.Find("Middle Face Side").transform.Find("Mouth").gameObject.GetComponent<BodyPart>();
-        RightEye = transform.Find("Right Face Side").transform.Find("Right Eye").gameObject.GetComponent<BodyPart>();
-        RightEyebrow = transform.Find("Right Face Side").transform.Find("Right Eyebrow").gameObject.GetComponent<BodyPart>();
+        //LeftEye = transform.Find("Left Face Side").transform.Find("Left Eye").gameObject.GetComponent<BodyPart>();
+        //LeftEyebrow = transform.Find("Left Face Side").transform.Find("Left Eyebrow").gameObject.GetComponent<BodyPart>();
+        //Nose = transform.Find("Middle Face Side").transform.Find("Nose").gameObject.GetComponent<BodyPart>();
+        //Mouth = transform.Find("Middle Face Side").transform.Find("Mouth").gameObject.GetComponent<BodyPart>();
+        //RightEye = transform.Find("Right Face Side").transform.Find("Right Eye").gameObject.GetComponent<BodyPart>();
+        //RightEyebrow = transform.Find("Right Face Side").transform.Find("Right Eyebrow").gameObject.GetComponent<BodyPart>();
+
+        Eyes = transform.Find("Left Face Side").transform.Find("Eyes").gameObject.GetComponent<BodyPart>();
+        Eyebrows = transform.Find("Left Face Side").transform.Find("Eyebrows").gameObject.GetComponent<BodyPart>();
+        Nose = transform.Find("Left Face Side").transform.Find("Nose").gameObject.GetComponent<BodyPart>();
+        Mouth = transform.Find("Left Face Side").transform.Find("Mouth").gameObject.GetComponent<BodyPart>();
+        RightEar = transform.Find("Left Face Side").transform.Find("Right Ear").gameObject.GetComponent<BodyPart>();
+        LeftEar = transform.Find("Left Face Side").transform.Find("Left Ear").gameObject.GetComponent<BodyPart>();
+        Hair = transform.Find("Left Face Side").transform.Find("Hair").gameObject.GetComponent<BodyPart>();
+        Mustache = transform.Find("Left Face Side").transform.Find("Mustache").gameObject.GetComponent<BodyPart>();
+        Beard = transform.Find("Left Face Side").transform.Find("Beard").gameObject.GetComponent<BodyPart>();
+        Face = transform.Find("Left Face Side").gameObject.GetComponent<BodyPart>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

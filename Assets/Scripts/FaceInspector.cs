@@ -7,12 +7,21 @@ using UnityEditor;
 public class FaceInspector : Editor {
 
     private FaceDebugging faceDebugging;
-    private BodyPart LeftEye;
-    private BodyPart LeftEyebrow;
+    //private BodyPart LeftEye;
+    //private BodyPart LeftEyebrow;
     private BodyPart Nose;
     private BodyPart Mouth;
-    private BodyPart RightEye;
-    private BodyPart RightEyebrow;
+    //private BodyPart RightEye;
+    //private BodyPart RightEyebrow;
+
+    private BodyPart Eyes;
+    private BodyPart Eyebrows;
+    private BodyPart Hair;
+    private BodyPart RightEar;
+    private BodyPart LeftEar;
+    private BodyPart Mustache;
+    private BodyPart Beard;
+    private BodyPart Face;
 
     // Use this for initialization
     void Start () {
@@ -28,21 +37,21 @@ public class FaceInspector : Editor {
     {
         FaceDebugging faceDebugging = (FaceDebugging)target;
 
-        if (GUILayout.Button("Left Eye"))
-        {
-            LeftEye = faceDebugging.LeftEye;
-            LeftEye.ChangeSpriteDebug();
-        }
-        if (GUILayout.Button("Left Eyebrow"))
-        {
-            LeftEyebrow = faceDebugging.LeftEyebrow;
-            LeftEyebrow.ChangeSpriteDebug();
-        }
-        if (GUILayout.Button("Right Eye"))
-        {
-            RightEye = faceDebugging.RightEye;
-            RightEye.ChangeSpriteDebug();
-        }
+        //if (GUILayout.Button("Left Eye"))
+        //{
+        //    LeftEye = faceDebugging.LeftEye;
+        //    LeftEye.ChangeSpriteDebug();
+        //}
+        //if (GUILayout.Button("Left Eyebrow"))
+        //{
+        //    LeftEyebrow = faceDebugging.LeftEyebrow;
+        //    LeftEyebrow.ChangeSpriteDebug();
+        //}
+        //if (GUILayout.Button("Right Eye"))
+        //{
+        //    RightEye = faceDebugging.RightEye;
+        //    RightEye.ChangeSpriteDebug();
+        //}
         if (GUILayout.Button("Nose"))
         {
             Nose = faceDebugging.Nose;
@@ -53,15 +62,57 @@ public class FaceInspector : Editor {
             Mouth = faceDebugging.Mouth;
             Mouth.ChangeSpriteDebug();
         }
-        if (GUILayout.Button("Right Eye"))
+        //if (GUILayout.Button("Right Eye"))
+        //{
+        //    RightEye = faceDebugging.RightEye;
+        //    RightEye.ChangeSpriteDebug();
+        //}
+        //if (GUILayout.Button("Right Eyebrow"))
+        //{
+        //    RightEyebrow = faceDebugging.RightEyebrow;
+        //    RightEyebrow.ChangeSpriteDebug();
+        //}
+
+
+        if (GUILayout.Button("Eyes"))
         {
-            RightEye = faceDebugging.RightEye;
-            RightEye.ChangeSpriteDebug();
+            Eyes = faceDebugging.Eyes;
+            Eyes.ChangeSpriteDebug();
         }
-        if (GUILayout.Button("Right Eyebrow"))
+        if (GUILayout.Button("Eyebrows"))
         {
-            RightEyebrow = faceDebugging.RightEyebrow;
-            RightEyebrow.ChangeSpriteDebug();
+            Eyebrows = faceDebugging.Eyebrows;
+            Eyebrows.ChangeSpriteDebug();
+        }
+        if (GUILayout.Button("Right Ear"))
+        {
+            RightEar = faceDebugging.RightEar;
+            RightEar.ChangeSpriteDebug();
+        }
+        if (GUILayout.Button("Left Ear"))
+        {
+            LeftEar = faceDebugging.LeftEar;
+            LeftEar.ChangeSpriteDebug();
+        }
+        if (GUILayout.Button("Hair"))
+        {
+            Hair = faceDebugging.Hair;
+            Hair.ChangeSpriteDebug();
+        }
+        if (GUILayout.Button("Face"))
+        {
+            Face = faceDebugging.Face;
+            Face.ChangeSpriteDebug();
+        }
+        if (GUILayout.Button("Mustache"))
+        {
+            Mustache = faceDebugging.Mustache;
+            Mustache.ChangeSpriteDebug();
+        }
+        if (GUILayout.Button("Beard"))
+        {
+            Beard = faceDebugging.Beard;
+            Beard.ChangeSpriteDebug();
         }
 
         DrawDefaultInspector();
