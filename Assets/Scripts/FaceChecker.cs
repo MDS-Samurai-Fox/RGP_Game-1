@@ -68,18 +68,18 @@ public class FaceChecker : MonoBehaviour {
     void Initialize() {
 
         // Left side
-        gameManager.faceToMatch.GetChild(0).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenLeftEye;
-        gameManager.faceToMatch.GetChild(0).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenLeftEyebrow;
+        //gameManager.faceToMatch.GetChild(0).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenLeftEye;
+        //gameManager.faceToMatch.GetChild(0).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenLeftEyebrow;
 
-        // Nose
-        gameManager.faceToMatch.GetChild(1).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenNose;
+        //// Nose
+        //gameManager.faceToMatch.GetChild(1).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenNose;
 
-        // Mouth
-        gameManager.faceToMatch.GetChild(1).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenMouth;
+        //// Mouth
+        //gameManager.faceToMatch.GetChild(1).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenMouth;
 
-        // Right side
-        gameManager.faceToMatch.GetChild(2).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenRightEye;
-        gameManager.faceToMatch.GetChild(2).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenRightEyebrow;
+        //// Right side
+        //gameManager.faceToMatch.GetChild(2).GetChild(0).GetComponent<SpriteRenderer> ().sprite = chosenRightEye;
+        //gameManager.faceToMatch.GetChild(2).GetChild(1).GetComponent<SpriteRenderer> ().sprite = chosenRightEyebrow;
 
     }
 

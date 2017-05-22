@@ -35,7 +35,8 @@ public class FaceInspector : Editor {
 
     override public void OnInspectorGUI()
     {
-        FaceDebugging faceDebugging = (FaceDebugging)target;
+        //FaceDebugging faceDebugging = (FaceDebugging)target;
+        faceDebugging = (FaceDebugging)target;
 
         //if (GUILayout.Button("Left Eye"))
         //{
