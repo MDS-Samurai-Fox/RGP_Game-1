@@ -99,7 +99,7 @@ public class Wheel : MonoBehaviour {
         Vector3 newRotation = transform.rotation.eulerAngles + rotationVector;
         transform.DORotate(newRotation, 0.1f);
 
-        if (gameManager.faceChecker.HasMatchedFace() == true)
+        if (gameManager.faceCheckerNew.HasMatchedFace() == true)
         {
             gameManager.timeManager.StopTimer();
         }
