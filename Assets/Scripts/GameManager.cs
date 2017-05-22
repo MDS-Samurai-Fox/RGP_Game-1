@@ -7,6 +7,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour {
 
+    public bool bNewGameManager;
+
     // Classes
     [HideInInspector]
     public TimeManager timeManager;
@@ -14,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public SoundManager soundManager;
     [HideInInspector]
     public FaceChecker faceChecker;
+    public FaceCheckerNew faceCheckerNew;
     private Buoyancy buoyancy;
     // private MoveAstro moveAstronaut;
 
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour {
         soundManager = FindObjectOfType<SoundManager> ();
         buoyancy = FindObjectOfType<Buoyancy> ();
         faceChecker = GetComponent<FaceChecker> ();
+        faceCheckerNew = GetComponent<FaceCheckerNew>();
 
     }
 
@@ -83,8 +87,8 @@ public class GameManager : MonoBehaviour {
         // Move the face parent to the desired vector, after that enable the buoyancy
         faceParent.DOMove(new Vector3(0, -0.35f, 0), easeLength).SetDelay(0.2f).SetEase(Ease.OutBack).OnComplete(StartGame);
 
-        //FaceSplit();
-        soundManager.Play(ClipType.Split);
+        FaceSplit();
+        //soundManager.Play(ClipType.Split);
 
     }
 
@@ -107,11 +111,28 @@ public class GameManager : MonoBehaviour {
         soundManager.StopMusicSource();
         soundManager.StopJetpackSource();
 
-        if (faceChecker.HasMatchedFace() == true) {
-            Invoke("Win", soundManager.GetLength(ClipType.Finish));
-        } else {
-            Invoke("Lose", soundManager.GetLength(ClipType.Finish));
+        if (bNewGameManager)
+        {
+            if (faceCheckerNew.HasMatchedFace() == true)
+            {
+                Invoke("Win", soundManager.GetLength(ClipType.Finish));
+            }
+            else
+            {
+                Invoke("Lose", soundManager.GetLength(ClipType.Finish));
+            }
         }
+        else
+        {
+            if (faceChecker.HasMatchedFace() == true)
+            {
+                Invoke("Win", soundManager.GetLength(ClipType.Finish));
+            }
+            else
+            {
+                Invoke("Lose", soundManager.GetLength(ClipType.Finish));
+            }
+        }       
 
     }
 
@@ -137,9 +158,12 @@ public class GameManager : MonoBehaviour {
         soundManager.Play(ClipType.Finish);
         PlayAnimationBlastStart();
 
-        leftSide.DOLocalMove(leftSideOriginalPosition, easeLength).SetEase(easeType);
-        middleSide.DOLocalMove(middleSideOriginalPosition, easeLength).SetEase(easeType);
-        rightSide.DOLocalMove(rightSideOriginalPosition, easeLength).SetEase(easeType).OnComplete(PlayAnimationBlastEnd);
+        if (!bNewGameManager)
+        {
+            leftSide.DOLocalMove(leftSideOriginalPosition, easeLength).SetEase(easeType);
+            middleSide.DOLocalMove(middleSideOriginalPosition, easeLength).SetEase(easeType);
+            rightSide.DOLocalMove(rightSideOriginalPosition, easeLength).SetEase(easeType).OnComplete(PlayAnimationBlastEnd);
+        }
 
     }
 
@@ -149,9 +173,12 @@ public class GameManager : MonoBehaviour {
         soundManager.Play(ClipType.Split);
         PlayAnimationBlastStart();
 
-        leftSide.DOLocalMove(leftSideSplitPosition, easeLength).SetEase(easeType);
-        middleSide.DOLocalMove(middleSideSplitPosition, easeLength).SetEase(easeType);
-        rightSide.DOLocalMove(rightSideSplitPosition, easeLength).SetEase(easeType).OnComplete(PlayAnimationBlastEnd);
+        if (!bNewGameManager)
+        {
+            leftSide.DOLocalMove(leftSideSplitPosition, easeLength).SetEase(easeType);
+            middleSide.DOLocalMove(middleSideSplitPosition, easeLength).SetEase(easeType);
+            rightSide.DOLocalMove(rightSideSplitPosition, easeLength).SetEase(easeType).OnComplete(PlayAnimationBlastEnd);
+        }
 
     }
 
@@ -191,10 +218,21 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if (faceChecker.HasMatchedFace() == true)
+        if (bNewGameManager)
         {
-            timeManager.StopTimer();
+            if (faceCheckerNew.HasMatchedFace() == true)
+            {
+                timeManager.StopTimer();
+            }
         }
+        else
+        {
+            if (faceChecker.HasMatchedFace() == true)
+            {
+                timeManager.StopTimer();
+            }
+        }
+
     }
 
 }

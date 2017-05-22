@@ -7,7 +7,7 @@ public class MoveAstro : MonoBehaviour {
     private Rigidbody2D rigidBody;
     private GameManager gameManager;
     private Animator animator;
-    private float time;
+    //private float time;
     private bool bCollision = false;
     public GameObject particleEffect;
 
