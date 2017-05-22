@@ -32,10 +32,15 @@ public class SatelliteController : MonoBehaviour {
         if (timer > fadeTime && !canMove)
         {
             canMove = true;
-            MoveLeft();
+
+            if (this.name == "Satellite 1")
+                MoveLeft();
+
+            if (this.name == "Satellite 2")
+                Orbit(20.0f, 12.0f);
         }
 
-        if (canMove)
+        if (canMove && panels)
         {
             Vector3 newRotation = panels.rotation.eulerAngles + (panelRotationVector * movingLeft);
             panels.DORotate(newRotation, 0.1f);
@@ -56,5 +61,10 @@ public class SatelliteController : MonoBehaviour {
         baseRenderer.flipX = true;
         movingLeft = -1;
         // Debug.Log("Satellite Moving right");
+    }
+
+    private void Orbit(float x, float y)
+    {
+        // transform.RotateAround(new Vector3(x, y, 0.0f), new Vector3(0.0f, 0.0f, 1.0f), 30.0f);
     }
 }
