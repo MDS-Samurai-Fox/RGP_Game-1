@@ -30,7 +30,7 @@ public class ButtonColor : MonoBehaviour {
                 spriteRenderer.color = color1;
             timer = 0.0f;
 
-            print("Color change" + this);
+            // print("Color change" + this);
         }     
     }
 }

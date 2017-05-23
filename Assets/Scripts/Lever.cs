@@ -49,7 +49,9 @@ public class Lever : MonoBehaviour {
                 bodypart[i].ChangeSprite();
             }
             
-            animator.SetTrigger("Lever_On");
+            if (animator)
+                animator.SetTrigger("Lever_On");
+
             time = 0f;
 
             if (gameManager.bNewGameManager)
