@@ -58,7 +58,7 @@ public class TimeManager : MonoBehaviour {
 
     void timerToText() {
 
-        countdownText.text = string.Format("{0:#0}:{1:00}", Mathf.Floor(currentTime / 60), Mathf.Floor(currentTime) % 60);
+            countdownText.text = string.Format("{0:#0}:{1:00}", Mathf.Floor(currentTime / 60), Mathf.Floor(currentTime) % 60);
 
     }
 
