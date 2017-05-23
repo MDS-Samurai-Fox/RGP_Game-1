@@ -684,6 +684,11 @@ Prefab:
       propertyPath: currentTime
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 114443925085771214, guid: e45e7793da34241f6979388c0803ec84,
+        type: 2}
+      propertyPath: countdownText
+      value: 
+      objectReference: {fileID: 1893813215}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e45e7793da34241f6979388c0803ec84, type: 2}
   m_IsPrefabParent: 0
@@ -1042,6 +1047,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canUpdate: 0
   maxScrollResetTimer: 0.3
+--- !u!114 &1893813215 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114335520465188612, guid: a12f8cffd269c43e29c3026510475600,
+    type: 2}
+  m_PrefabInternal: {fileID: 973375806}
+  m_Script: {fileID: 1453722849, guid: 89f0137620f6af44b9ba852b4190e64e, type: 3}
 --- !u!1 &1897959271 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1108127658898624, guid: a12f8cffd269c43e29c3026510475600,

@@ -11,11 +11,13 @@ public class BodyPart : MonoBehaviour {
 
     private Material originalMaterial;
 
+    private GameManager gameManager;
+
     void Awake() {
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalMaterial = spriteRenderer.material;
-
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Use this for initialization
@@ -49,6 +51,16 @@ public class BodyPart : MonoBehaviour {
         // this.transform.DOScale(1.2f, 0.4f);
         // this.transform.DOScale(1, 0.4f).SetDelay(0.4f);
 
+        if (gameManager.bNewGameManager)
+        {
+            ParticleSystem smokeParticles;
+            smokeParticles = GetComponentInChildren<ParticleSystem>();
+            if (!smokeParticles.isPlaying)
+            {
+                smokeParticles.Play();
+            }
+        }
+        
     }
 
     public void ChangeSpriteDebug()
