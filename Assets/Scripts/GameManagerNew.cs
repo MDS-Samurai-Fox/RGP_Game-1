@@ -21,7 +21,7 @@ public class GameManagerNew : MonoBehaviour {
 
     [HeaderAttribute("Intro Animation")]
     [SerializeField]
-    private Ease easeType = Ease.InSine;
+    //private Ease easeType = Ease.InSine;
     private float easeLength = 0;
 
     [SpaceAttribute]

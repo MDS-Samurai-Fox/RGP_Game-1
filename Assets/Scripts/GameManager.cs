@@ -192,7 +192,8 @@ public class GameManager : MonoBehaviour {
 
     void Win() {
         
-        gameEndPanel.GetComponentInChildren<Text> ().text = "YOU WON";
+        //gameEndPanel.GetComponentInChildren<Text> ().text = "YOU WON";
+        gameEndPanel.GetComponentInChildren<TextMeshProUGUI>().text = "YOU WON";
         gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
 
     }

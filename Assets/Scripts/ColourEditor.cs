@@ -13,6 +13,7 @@ public class ColourEditor : MonoBehaviour {
 
     int i = 0;
 
+    public bool testing;
 
     // Use this for initialization
     void Start () {
@@ -84,11 +85,29 @@ public class ColourEditor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-       if (Input.GetKeyDown(KeyCode.R)) {
+        if (!testing)
+            return;
+
+        //testing
+        if (Input.GetKeyDown(KeyCode.F) && spriteType == type.Skin) {
 
             ChangeColor();
-        }      
+        }
+        if (Input.GetKeyDown(KeyCode.L) && spriteType == type.Lips)
+        {
 
+            ChangeColor();
+        }
+        if (Input.GetKeyDown(KeyCode.E) && spriteType == type.Eyes)
+        {
+
+            ChangeColor();
+        }
+        if (Input.GetKeyDown(KeyCode.H) && spriteType == type.Hair)
+        {
+
+            ChangeColor();
+        }
     }
 
     public void ChangeColor()
