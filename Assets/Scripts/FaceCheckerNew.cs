@@ -177,6 +177,9 @@ public class FaceCheckerNew : MonoBehaviour {
         hairRenderer.DOColor(chosenHaircolor, 1.0f).SetEase(Ease.InSine);
         mustacheRenderer.DOColor(chosenHaircolor, 1.0f).SetEase(Ease.InSine);
         beardRenderer.DOColor(chosenHaircolor, 1.0f).SetEase(Ease.InSine);
+
+        //float fScale = Random.Range(-1, 1);
+        //gameManager.faceToMatch.GetChild(0).GetChild(4).transform.DOLocalScale(1.0f, 0.4f).SetEase(Ease.InSine);
     }
 
     /// <summary>
@@ -201,50 +204,9 @@ public class FaceCheckerNew : MonoBehaviour {
             gameManager.faceParent.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().color == chosenEyecolor &&
             gameManager.faceParent.GetChild(0).GetChild(5).GetComponent<SpriteRenderer>().color == chosenLipcolor &&
             gameManager.faceParent.GetChild(0).GetChild(6).GetComponent<SpriteRenderer>().color == chosenHaircolor
+            //add this check once scaling is implemented
+            //&& gameManager.faceParent.GetChild(0).GetChild(4).transform.localScale == gameManager.faceToMatch.GetChild(0).GetChild(4).transform.localScale
         );
 
     }
 }
-
-
-//{
-
-
-
-//        if (spriteType == type.Skin)    {
-
-//            colorArray[0] = skincolor1;
-//            colorArray[1] = skincolor2;
-//            colorArray[2] = skincolor3;
-//            colorArray[3] = skincolor4;
-//            colorArray[4] = skincolor5;
-
-//        }
-//        else if (spriteType == type.Hair)   {
-
-//            colorArray[0] = haircolor1;
-//            colorArray[1] = haircolor2;
-//            colorArray[2] = haircolor3;
-//            colorArray[3] = haircolor4;
-//            colorArray[4] = haircolor5;
-
-//        }
-//        else if (spriteType == type.Eyes)   {
-
-//            colorArray[0] = eyecolor1;
-//            colorArray[1] = eyecolor2;
-//            colorArray[2] = eyecolor3;
-//            colorArray[3] = eyecolor4;
-//            colorArray[4] = eyecolor5;
-
-//        }
-//        else if (spriteType == type.Lips)   {
-
-//            colorArray[0] = lipcolor1;
-//            colorArray[1] = lipcolor2;
-//            colorArray[2] = lipcolor3;
-//            colorArray[3] = lipcolor4;
-//            colorArray[4] = lipcolor5;
-
-//        }
-//}

@@ -63,6 +63,12 @@ public class BodyPart : MonoBehaviour {
         
     }
 
+    public void ChangeScale(float fScale)
+    {
+        this.transform.DOScale(fScale, 0.4f).SetEase(Ease.InSine);
+        // this.transform.DOScale(1, 0.4f).SetDelay(0.4f);
+    }
+
     public void ChangeSpriteDebug()
     {
 
