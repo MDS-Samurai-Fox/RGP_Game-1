@@ -4,7 +4,8 @@ public class Lever : MonoBehaviour {
     
     public ButtonType buttonType;
 
-    public BodyPart bodypart;
+    public BodyPart[] bodypart;
+    //public BodyPart bodypart;
     private Animator animator;
     private GameManager gameManager;
     private float time;
@@ -43,14 +44,30 @@ public class Lever : MonoBehaviour {
                 
             }
 
-            bodypart.ChangeSprite();
+            for (int i = 0; i < bodypart.Length; i++)
+            {
+                bodypart[i].ChangeSprite();
+            }
+            
             animator.SetTrigger("Lever_On");
             time = 0f;
-            
-            // Do something with the facechecker script
-            if (gameManager.faceChecker.HasMatchedFace() == true) {
-                gameManager.timeManager.StopTimer();
+
+            if (gameManager.bNewGameManager)
+            {
+                if (gameManager.faceCheckerNew.HasMatchedFace() == true)
+                {
+                    gameManager.timeManager.StopTimer();
+                }
             }
+            else
+            {
+                // Do something with the facechecker script
+                if (gameManager.faceChecker.HasMatchedFace() == true)
+                {
+                    gameManager.timeManager.StopTimer();
+                }
+            }
+
 
             FindObjectOfType<CameraEffectController>().Shake(0.2f, 0.7f);
 

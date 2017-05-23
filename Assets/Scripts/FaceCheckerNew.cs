@@ -8,6 +8,9 @@ public class FaceCheckerNew : MonoBehaviour {
     [HeaderAttribute("Eyes")]
     public Sprite[] Eyes;
 
+    [HeaderAttribute("Eyeballs")]
+    public Sprite[] Eyeballs;
+
     [HeaderAttribute("Eyebrows")]
     public Sprite[] Eyebrows;
 
@@ -35,7 +38,10 @@ public class FaceCheckerNew : MonoBehaviour {
     [HeaderAttribute("Beard")]
     public Sprite[] Beard;
 
-    private Sprite chosenEyes, chosenEyebrows, chosenFace, chosenHair, chosenNose, chosenMouth, chosenLeftEar, chosenRightEar, chosenMustache, chosenBeard;
+    [HeaderAttribute("Teeth")]
+    public Sprite[] Teeth;
+
+    private Sprite chosenEyeballs, chosenEyes, chosenEyebrows, chosenFace, chosenHair, chosenNose, chosenMouth, chosenLeftEar, chosenRightEar, chosenMustache, chosenBeard, chosenTeeth;
 
     private GameManager gameManager;
 
@@ -82,11 +88,14 @@ public class FaceCheckerNew : MonoBehaviour {
 
         if (randomizeFace)
         {
-
-            chosenEyes = Eyes[Random.Range(0, Eyes.Length)];
+            int iEyeIndex = Random.Range(0, Eyes.Length);
+            chosenEyes = Eyes[iEyeIndex];
+            chosenEyeballs = Eyeballs[iEyeIndex];
             chosenEyebrows = Eyebrows[Random.Range(0, Eyebrows.Length)];
             chosenNose = nose[Random.Range(0, nose.Length)];
-            chosenMouth = mouth[Random.Range(0, mouth.Length)];
+            int iMouthIndex = Random.Range(0, mouth.Length);
+            chosenMouth = mouth[iMouthIndex];
+            chosenTeeth = Teeth[iMouthIndex];
             chosenFace = Face[Random.Range(0, Face.Length)];
             chosenHair = Hair[Random.Range(0, Hair.Length)];
             int iEarIndex = Random.Range(0, RightEar.Length);
@@ -113,6 +122,8 @@ public class FaceCheckerNew : MonoBehaviour {
             chosenLeftEar = LeftEar[1];
             chosenMustache = Mustache[1];
             chosenBeard = Beard[1];
+            chosenEyeballs = Eyeballs[1];
+            chosenTeeth = Teeth[1];
 
             chosenSkincolor = skinColorArray[0];
             chosenEyecolor = eyeColorArray[0];
@@ -140,6 +151,8 @@ public class FaceCheckerNew : MonoBehaviour {
         SpriteRenderer hairRenderer = gameManager.faceToMatch.GetChild(0).GetChild(6).GetComponent<SpriteRenderer>();
         SpriteRenderer mustacheRenderer = gameManager.faceToMatch.GetChild(0).GetChild(7).GetComponent<SpriteRenderer>();
         SpriteRenderer beardRenderer = gameManager.faceToMatch.GetChild(0).GetChild(8).GetComponent<SpriteRenderer>();
+        SpriteRenderer eyeballRenderer = gameManager.faceToMatch.GetChild(0).GetChild(9).GetComponent<SpriteRenderer>();
+        SpriteRenderer teethRenderer = gameManager.faceToMatch.GetChild(0).GetChild(10).GetComponent<SpriteRenderer>();
 
         faceRenderer.sprite = chosenFace;
         eyeRenderer.sprite = chosenEyes;
@@ -151,6 +164,8 @@ public class FaceCheckerNew : MonoBehaviour {
         hairRenderer.sprite = chosenHair;
         mustacheRenderer.sprite = chosenMustache;
         beardRenderer.sprite = chosenBeard;
+        eyeballRenderer.sprite = chosenEyeballs;
+        teethRenderer.sprite = chosenTeeth;
 
         faceRenderer.DOColor(chosenSkincolor, 1.0f).SetEase(Ease.InSine);
         rightEarRenderer.DOColor(chosenSkincolor, 1.0f).SetEase(Ease.InSine);
