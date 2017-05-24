@@ -8,13 +8,13 @@ public class ButtonColor : MonoBehaviour {
     public Color color2;
     private SpriteRenderer spriteRenderer;
     private float timer = 0.0f;
-    private GameManager gameManager;
+ //   private GameManager gameManager;
 
     // Use this for initialization
     void Start () {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         spriteRenderer.color = color1;
-        gameManager = FindObjectOfType<GameManager>();
+    //    gameManager = FindObjectOfType<GameManager>();
     }
 	
 	// Update is called once per frame
