@@ -51,7 +51,7 @@ public class AnalogLever : MonoBehaviour
         Vector3 newRotation = transform.rotation.eulerAngles + (rotationVector* rotateDirection);
         transform.DORotate(newRotation, 0.1f);
 
-        fScale = transform.rotation.z;
+        fScale = 0.4f;
 
         for (int i = 0; i < bodypart.Length; i++)
         {
