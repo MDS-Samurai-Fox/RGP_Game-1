@@ -49,7 +49,7 @@ public class SatelliteController : MonoBehaviour {
 
     private void MoveLeft()
     {
-        transform.DOMove(new Vector3(-7.0f, 0.0f, 0.0f), 11.0f).OnComplete(MoveRight);
+        transform.DOMove(new Vector3(-6.0f, 0.0f, 0.0f), 11.0f).OnComplete(MoveRight);
         baseRenderer.flipX = false;
         movingLeft = 1;
         // Debug.Log("Satellite Moving left");
@@ -57,7 +57,7 @@ public class SatelliteController : MonoBehaviour {
 
     private void MoveRight()
     {
-        transform.DOMove(new Vector3(7.0f, 0.0f, 0.0f), 11.0f).OnComplete(MoveLeft);
+        transform.DOMove(new Vector3(6.0f, 0.0f, 0.0f), 11.0f).OnComplete(MoveLeft);
         baseRenderer.flipX = true;
         movingLeft = -1;
         // Debug.Log("Satellite Moving right");

@@ -7,8 +7,8 @@ using XboxCtrlrInput;
 
 public class MenuManager : MonoBehaviour {
 
-    // public CanvasGroup menuPanel;
-    // public CanvasGroup creditsPanel;
+     //public CanvasGroup menuPanel;
+     //public CanvasGroup creditsPanel;
 
     private AudioSource audioSource;
 
@@ -30,8 +30,9 @@ public class MenuManager : MonoBehaviour {
 
     void Start() {
 
-        if (SceneManager.GetActiveScene().name == "Menu") {
-            CanvasGroup creditsPanel = GameObject.Find("Credits Panel").GetComponent<CanvasGroup> ();
+        if (SceneManager.GetActiveScene().name == "Menu")
+        {
+            CanvasGroup creditsPanel = GameObject.Find("Credits Panel").GetComponent<CanvasGroup>();
             creditsPanel.alpha = 0;
             creditsPanel.blocksRaycasts = false;
         }
@@ -95,13 +96,16 @@ public class MenuManager : MonoBehaviour {
 
         }
 
-        // if (_panel == menuPanel) {
-        //     creditsPanel.alpha = 0;
-        //     creditsPanel.blocksRaycasts = false;
-        // } else {
-        //     menuPanel.alpha = 0;
-        //     menuPanel.blocksRaycasts = false;
-        // }
+        //if (_panel == menuPanel)
+        //{
+        //    creditsPanel.alpha = 0;
+        //    creditsPanel.blocksRaycasts = false;
+        //}
+        //else
+        //{
+        //    menuPanel.alpha = 0;
+        //    menuPanel.blocksRaycasts = false;
+        //}
 
     }
 

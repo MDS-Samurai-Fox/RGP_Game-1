@@ -56,6 +56,7 @@ public class Lever : MonoBehaviour {
 
             if (gameManager.bNewGameManager)
             {
+                Debug.Log("Checking face with new GM");
                 if (gameManager.faceCheckerNew.HasMatchedFace() == true)
                 {
                     gameManager.timeManager.StopTimer();
@@ -63,6 +64,7 @@ public class Lever : MonoBehaviour {
             }
             else
             {
+                Debug.Log("Checking face with old GM");
                 // Do something with the facechecker script
                 if (gameManager.faceChecker.HasMatchedFace() == true)
                 {

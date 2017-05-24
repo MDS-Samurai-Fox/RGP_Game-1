@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class FaceChecker : MonoBehaviour {
+public class FaceChecker : MonoBehaviour
+{
 
     public bool randomizeFace = false;
 
@@ -26,16 +27,19 @@ public class FaceChecker : MonoBehaviour {
 
     private GameManager gameManager;
 
-    void Awake() {
+    void Awake()
+    {
 
-        gameManager = GetComponent<GameManager> ();
+        gameManager = GetComponent<GameManager>();
 
     }
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
 
-        if (randomizeFace) {
+        if (randomizeFace)
+        {
 
             chosenLeftEye = leftEye[Random.Range(0, leftEye.Length)];
             chosenLeftEyebrow = leftEyebrow[Random.Range(0, leftEyebrow.Length)];
@@ -47,7 +51,9 @@ public class FaceChecker : MonoBehaviour {
             chosenRightEye = rightEye[Random.Range(0, rightEye.Length)];
             chosenRightEyebrow = rightEyebrow[Random.Range(0, rightEyebrow.Length)];
 
-        } else {
+        }
+        else
+        {
 
             chosenLeftEye = leftEye[1];
             chosenLeftEyebrow = leftEyebrow[1];
@@ -65,7 +71,8 @@ public class FaceChecker : MonoBehaviour {
     /// <summary>
     /// Changes the face's sprites to the chosen ones
     /// </summary>
-    void Initialize() {
+    void Initialize()
+    {
 
         // Left side
         gameManager.faceToMatch.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite = chosenLeftEye;
@@ -87,22 +94,35 @@ public class FaceChecker : MonoBehaviour {
     /// Checks the sprites of each face element to determine whether or not they match the final face
     /// </summary>
     /// <returns>true if face to check equals face to match</returns>
-    public bool HasMatchedFace() {
+    public bool HasMatchedFace()
+    {
+
+        Debug.Log(gameManager.faceParent.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite);
+
+        Debug.Log(gameManager.faceParent.GetChild(0).GetChild(1).GetComponent<SpriteRenderer>().sprite);
+
+        Debug.Log(gameManager.faceParent.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().sprite);
+
+        Debug.Log(gameManager.faceParent.GetChild(1).GetChild(1).GetComponent<SpriteRenderer>().sprite);
+
+        Debug.Log(gameManager.faceParent.GetChild(2).GetChild(0).GetComponent<SpriteRenderer>().sprite);
+
+        Debug.Log(gameManager.faceParent.GetChild(2).GetChild(1).GetComponent<SpriteRenderer>().sprite);
 
         return (
             // Left side
-            gameManager.faceParent.GetChild(0).GetChild(0).GetComponent<SpriteRenderer> ().sprite == chosenLeftEye &&
-            gameManager.faceParent.GetChild(0).GetChild(1).GetComponent<SpriteRenderer> ().sprite == chosenLeftEyebrow &&
+            gameManager.faceParent.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite == chosenLeftEye &&
+            gameManager.faceParent.GetChild(0).GetChild(1).GetComponent<SpriteRenderer>().sprite == chosenLeftEyebrow &&
 
-            // Nose
-            gameManager.faceParent.GetChild(1).GetChild(0).GetComponent<SpriteRenderer> ().sprite == chosenNose &&
+     //  Nose
+         gameManager.faceParent.GetChild(1).GetChild(0).GetComponent<SpriteRenderer>().sprite == chosenNose &&
 
-            // Mouth
-            gameManager.faceParent.GetChild(1).GetChild(1).GetComponent<SpriteRenderer> ().sprite == chosenMouth &&
+     //  Mouth
+          gameManager.faceParent.GetChild(1).GetChild(1).GetComponent<SpriteRenderer>().sprite == chosenMouth &&
 
-            // Right side
-            gameManager.faceParent.GetChild(2).GetChild(0).GetComponent<SpriteRenderer> ().sprite == chosenRightEye &&
-            gameManager.faceParent.GetChild(2).GetChild(1).GetComponent<SpriteRenderer> ().sprite == chosenRightEyebrow
+     //  Right side
+         gameManager.faceParent.GetChild(2).GetChild(0).GetComponent<SpriteRenderer>().sprite == chosenRightEye &&
+         gameManager.faceParent.GetChild(2).GetChild(1).GetComponent<SpriteRenderer>().sprite == chosenRightEyebrow
         );
 
     }

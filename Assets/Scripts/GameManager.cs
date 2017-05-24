@@ -113,8 +113,10 @@ public class GameManager : MonoBehaviour {
 
         if (bNewGameManager)
         {
+            Debug.Log("new game manager");
             if (faceCheckerNew.HasMatchedFace() == true)
             {
+                Debug.Log("WIN");
                 Invoke("Win", soundManager.GetLength(ClipType.Finish));
             }
             else
@@ -124,8 +126,10 @@ public class GameManager : MonoBehaviour {
         }
         else
         {
+            Debug.Log("old game manager");
             if (faceChecker.HasMatchedFace() == true)
             {
+                Debug.Log("WIN");
                 Invoke("Win", soundManager.GetLength(ClipType.Finish));
             }
             else
@@ -191,7 +195,8 @@ public class GameManager : MonoBehaviour {
     }
 
     void Win() {
-        
+
+        Debug.Log("INVOKING WIN");
         //gameEndPanel.GetComponentInChildren<Text> ().text = "YOU WON";
         gameEndPanel.GetComponentInChildren<TextMeshProUGUI>().text = "YOU WON";
         gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
@@ -219,20 +224,20 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if (bNewGameManager)
-        {
-            if (faceCheckerNew.HasMatchedFace() == true)
-            {
-                timeManager.StopTimer();
-            }
-        }
-        else
-        {
-            if (faceChecker.HasMatchedFace() == true)
-            {
-                timeManager.StopTimer();
-            }
-        }
+        //if (bNewGameManager)
+        //{
+        //    if (faceCheckerNew.HasMatchedFace() == true)
+        //    {
+        //        timeManager.StopTimer();
+        //    }
+        //}
+        //else
+        //{
+        //    if (faceChecker.HasMatchedFace() == true)
+        //    {
+        //        timeManager.StopTimer();
+        //    }
+        //}
 
     }
 
