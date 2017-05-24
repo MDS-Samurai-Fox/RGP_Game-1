@@ -57,7 +57,7 @@ public class BodyPart : MonoBehaviour {
             smokeParticles = GetComponentInChildren<ParticleSystem>();
             if (!smokeParticles.isPlaying)
             {
-                smokeParticles.Play();
+               // smokeParticles.Play();
             }
         }
         

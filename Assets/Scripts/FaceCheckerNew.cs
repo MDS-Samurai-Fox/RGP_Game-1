@@ -190,15 +190,15 @@ public class FaceCheckerNew : MonoBehaviour {
     {
 
         return (
-            gameManager.faceParent.GetChild(0).GetComponent<SpriteRenderer>().sprite == chosenFace &&
-            gameManager.faceParent.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite == chosenEyes &&
-            gameManager.faceParent.GetChild(0).GetChild(1).GetComponent<SpriteRenderer>().sprite == chosenEyebrows &&
-            gameManager.faceParent.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>().sprite == chosenRightEar &&
-            gameManager.faceParent.GetChild(0).GetChild(3).GetComponent<SpriteRenderer>().sprite == chosenLeftEar &&
-            gameManager.faceParent.GetChild(0).GetChild(4).GetComponent<SpriteRenderer>().sprite == chosenNose &&
-            gameManager.faceParent.GetChild(0).GetChild(5).GetComponent<SpriteRenderer>().sprite == chosenMouth &&
-            gameManager.faceParent.GetChild(0).GetChild(6).GetComponent<SpriteRenderer>().sprite == chosenHair &&
-            gameManager.faceParent.GetChild(0).GetChild(7).GetComponent<SpriteRenderer>().sprite == chosenMustache &&
+            //gameManager.faceParent.GetChild(0).GetComponent<SpriteRenderer>().sprite == chosenFace &&
+            //gameManager.faceParent.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().sprite == chosenEyes &&
+            //gameManager.faceParent.GetChild(0).GetChild(1).GetComponent<SpriteRenderer>().sprite == chosenEyebrows &&
+            //gameManager.faceParent.GetChild(0).GetChild(2).GetComponent<SpriteRenderer>().sprite == chosenRightEar &&
+            //gameManager.faceParent.GetChild(0).GetChild(3).GetComponent<SpriteRenderer>().sprite == chosenLeftEar &&
+            //gameManager.faceParent.GetChild(0).GetChild(4).GetComponent<SpriteRenderer>().sprite == chosenNose &&
+            //gameManager.faceParent.GetChild(0).GetChild(5).GetComponent<SpriteRenderer>().sprite == chosenMouth &&
+            //gameManager.faceParent.GetChild(0).GetChild(6).GetComponent<SpriteRenderer>().sprite == chosenHair &&
+            //gameManager.faceParent.GetChild(0).GetChild(7).GetComponent<SpriteRenderer>().sprite == chosenMustache &&
             gameManager.faceParent.GetChild(0).GetChild(8).GetComponent<SpriteRenderer>().sprite == chosenBeard &&
             gameManager.faceParent.GetChild(0).GetComponent<SpriteRenderer>().color == chosenSkincolor &&
             gameManager.faceParent.GetChild(0).GetChild(0).GetComponent<SpriteRenderer>().color == chosenEyecolor &&

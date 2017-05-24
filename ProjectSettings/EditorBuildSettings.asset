@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Original Scenes/Menu.unity
-    guid: bf09b7ee9da2a45afadce0350eeb2c60
+    path: Assets/_Scenes/Charmaine Menu.unity
+    guid: 290398a7a44cf9b45a20ac54edf244a4
   - enabled: 1
     path: Assets/_Scenes/Original Scenes/_Completed Scene.unity
     guid: 05070e2f30ef643f08253ade11b0152b
   - enabled: 0
-    path: 
+    path: Assets/_Scenes/Charmaine Colour.unity
     guid: 1e0c3ce3a93066345b824a90b52e2052
   - enabled: 1
     path: Assets/_Scenes/New Face Charmaine.unity
