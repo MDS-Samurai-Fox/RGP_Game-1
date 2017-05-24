@@ -35,9 +35,9 @@ public class ButtonColor : MonoBehaviour {
             // print("Color change" + this);
         }
 
-        if (gameManager.faceChecker.HasMatchedFace() == true)
-        {
-            gameManager.timeManager.StopTimer();
-        }
+        //if (gameManager.faceChecker.HasMatchedFace() == true)
+        //{
+        //    gameManager.timeManager.StopTimer();
+        //}
     }
 }
