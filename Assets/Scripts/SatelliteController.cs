@@ -19,8 +19,8 @@ public class SatelliteController : MonoBehaviour {
         fadeIn = GetComponent<FadeIn>();
         fadeTime = fadeIn.waitTime + 2.0f;
         panelRotationVector = new Vector3(0.0f, 0.0f, 4.0f);
-        panels = transform.FindChild("Panels");
-        baseRenderer = transform.FindChild("Base").GetComponent<SpriteRenderer>();
+        panels = transform.Find("Panels");
+        baseRenderer = transform.Find("Base").GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
