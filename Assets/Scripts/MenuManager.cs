@@ -24,17 +24,15 @@ public class MenuManager : MonoBehaviour
 
     // [System.Serializable]
     [SerializeField] private List<Image> Buttons = new List<Image>();
+
+    /// <summary>
+    /// Awake is called when the script instance is being loaded.
+    /// </summary>
     void Awake()
     {
-    }
-
-    void Start()
-    {
-        if (SceneManager.GetActiveScene().name == "Menu")
+        if (null == audioSource)
         {
-            CanvasGroup creditsPanel = GameObject.Find("Credits Panel").GetComponent<CanvasGroup>();
-            creditsPanel.alpha = 0;
-            creditsPanel.blocksRaycasts = false;
+            audioSource = GetComponent<AudioSource>();
         }
     }
 
@@ -100,6 +98,12 @@ public class MenuManager : MonoBehaviour
     {
         if (canUpdate)
         {
+#if UNITY_PS4
+            if (XCI.GetButtonDown(XboxButton.A))
+            {
+                LoadScene(1);
+            }
+#else
             if (XCI.GetButtonDown(XboxButton.A))
             {
                 switch (menuSelection)
@@ -108,15 +112,12 @@ public class MenuManager : MonoBehaviour
                         LoadScene(1);
                         break;
                     case 1:
-
-                        break;
-                    case 2:
                         Exit();
                         break;
                 }
             }
 
-            if (XCI.GetAxisRaw(XboxAxis.LeftStickY) > 0 && canScroll)
+            if (((XCI.GetAxisRaw(XboxAxis.LeftStickY) > 0) || (XCI.GetDPadDown(XboxDPad.Up))) && canScroll)
             {
                 canScroll = false;
                 menuSelection--;
@@ -126,8 +127,9 @@ public class MenuManager : MonoBehaviour
                     menuSelection = Buttons.Count - 1;
                 }
 
+                print("Selection: " + menuSelection);
             }
-            else if (XCI.GetAxisRaw(XboxAxis.LeftStickY) < 0 && canScroll)
+            if (((XCI.GetAxisRaw(XboxAxis.LeftStickY) < 0) || (XCI.GetDPadDown(XboxDPad.Down))) && canScroll)
             {
                 canScroll = false;
                 menuSelection++;
@@ -153,7 +155,6 @@ public class MenuManager : MonoBehaviour
             }
         }
 
-
         for (int i = 0; i < Buttons.Count; i++)
         {
             if (menuSelection == -1)
@@ -171,6 +172,7 @@ public class MenuManager : MonoBehaviour
                     Buttons[i].color = Color.grey;
                 }
             }
+#endif
         }
 
     }

@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour {
 
     // Obsolete
     private bool areSidesJoined = true;
+    private bool hasGameEnded = false;
 
     void Awake() {
 
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour {
         buoyancy = FindObjectOfType<Buoyancy> ();
         faceChecker = GetComponent<FaceChecker> ();
         faceCheckerNew = GetComponent<FaceCheckerNew>();
+        hasGameEnded = false;
 
     }
 
@@ -199,14 +201,18 @@ public class GameManager : MonoBehaviour {
         Debug.Log("INVOKING WIN");
         //gameEndPanel.GetComponentInChildren<Text> ().text = "YOU WON";
         gameEndPanel.GetComponentInChildren<TextMeshProUGUI>().text = "YOU WON";
-        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
+        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts).OnComplete(() => {
+            hasGameEnded = true;
+        });
 
     }
 
     void Lose() {
 
         gameEndPanel.GetComponentInChildren<TextMeshProUGUI> ().text = "YOU LOST";
-        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
+        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts).OnComplete(() => {
+            hasGameEnded = true;
+        });
 
     }
 
@@ -218,6 +224,10 @@ public class GameManager : MonoBehaviour {
     {
         if (!canUpdate)
         {
+            if (!hasGameEnded)
+            {
+                return;
+            }
             if (XCI.GetButtonDown(XboxButton.A))
             {
                 SceneManager.LoadScene(0);
