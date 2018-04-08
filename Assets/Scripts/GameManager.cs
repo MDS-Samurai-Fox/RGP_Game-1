@@ -201,23 +201,20 @@ public class GameManager : MonoBehaviour {
         Debug.Log("INVOKING WIN");
         //gameEndPanel.GetComponentInChildren<Text> ().text = "YOU WON";
         gameEndPanel.GetComponentInChildren<TextMeshProUGUI>().text = "YOU WON";
-        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts).OnComplete(() => {
-            hasGameEnded = true;
-        });
+        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
 
     }
 
     void Lose() {
 
         gameEndPanel.GetComponentInChildren<TextMeshProUGUI> ().text = "YOU LOST";
-        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts).OnComplete(() => {
-            hasGameEnded = true;
-        });
+        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
 
     }
 
     void EnableBlockRaycasts() {
         gameEndPanel.blocksRaycasts = true;
+        hasGameEnded = true;
     }
 
     private void Update()
