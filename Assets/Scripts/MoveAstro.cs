@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
-using XboxCtrlrInput;
+// using XboxCtrlrInput;
 using DG.Tweening;
 
-public class MoveAstro : MonoBehaviour {
+public class MoveAstro : MonoBehaviour
+{
 
     private Rigidbody2D rigidBody;
     private GameManager gameManager;
@@ -16,25 +17,29 @@ public class MoveAstro : MonoBehaviour {
 
     private ParticleSystem movementParticles;
 
-    void Awake() {
+    void Awake ()
+    {
 
-        rigidBody = GetComponent<Rigidbody2D>();
-        gameManager = FindObjectOfType<GameManager>();
-        animator = GetComponent<Animator>();
-        movementParticles = GetComponentInChildren<ParticleSystem>();
+        rigidBody = GetComponent<Rigidbody2D> ();
+        gameManager = FindObjectOfType<GameManager> ();
+        animator = GetComponent<Animator> ();
+        movementParticles = GetComponentInChildren<ParticleSystem> ();
 
     }
 
-    void FixedUpdate() {
+    void FixedUpdate ()
+    {
 
         if (!gameManager.canUpdate)
             return;
 
-        if (!canPlaySound) {
+        if (!canPlaySound)
+        {
             jetpackSoundTimer += Time.deltaTime;
         }
 
-        if (jetpackSoundTimer > 1f) {
+        if (jetpackSoundTimer > 1f)
+        {
             // StopJetpack();
             //print(">> CAN PLAY SOUND");
             canPlaySound = true;
@@ -43,17 +48,23 @@ public class MoveAstro : MonoBehaviour {
 
         int StartingForce = 4;
 
-        if (canPlaySound) {
+        float inputX = Input.GetAxisRaw ("Horizontal");
+        float inputY = Input.GetAxisRaw ("Vertical");
 
-            if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical") || XCI.GetAxisRaw(XboxAxis.LeftStickX) != 0 || XCI.GetAxisRaw(XboxAxis.LeftStickY) != 0) {
+        if (canPlaySound)
+        {
 
-                gameManager.soundManager.Play(ClipType.Jetpack);
+            if (Input.GetButtonDown ("Horizontal") || Input.GetButtonDown ("Vertical") || inputX != 0 || inputY != 0)
+            {
+
+                gameManager.soundManager.Play (ClipType.Jetpack);
                 canPlaySound = false;
 
             }
-            else if (Input.GetButtonUp("Horizontal") || XCI.GetAxisRaw(XboxAxis.LeftStickX) == 0) {
+            else if (Input.GetButtonUp ("Horizontal") || inputX == 0)
+            {
 
-                gameManager.soundManager.StopJetpackSource();
+                gameManager.soundManager.StopJetpackSource ();
 
             }
             // else if (!Input.GetButton("Horizontal")) {
@@ -62,52 +73,58 @@ public class MoveAstro : MonoBehaviour {
             // }
 
         }
-        else {
+        else
+        {
 
             //print("<< CAN'T PLAY SOUND");
             // gameManager.soundManager.StopJetpackSource();
 
         }
 
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || XCI.GetAxisRaw(XboxAxis.LeftStickY) > 0) {
-            rigidBody.AddForce(StartingForce * new Vector3(0, 1, 0));
+        if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.W) || inputY > 0)
+        {
+            rigidBody.AddForce (StartingForce * new Vector3 (0, 1, 0));
             //movementParticles.Play();
             //Instantiate(particleEffect, gameObject.transform.position, Quaternion.Euler(0, 0, 180));
-            if (!movementParticles.isPlaying) {
-                movementParticles.Play();
+            if (!movementParticles.isPlaying)
+            {
+                movementParticles.Play ();
             }
         }
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || XCI.GetAxisRaw(XboxAxis.LeftStickX) < 0) {
-            rigidBody.AddForce(-StartingForce * new Vector3(1, 0, 0));
+        if (Input.GetKey (KeyCode.LeftArrow) || Input.GetKey (KeyCode.A) || inputX < 0)
+        {
+            rigidBody.AddForce (-StartingForce * new Vector3 (1, 0, 0));
             //Instantiate(particleEffect, gameObject.transform.position, Quaternion.Euler(0, 0, -90));
-            if (!movementParticles.isPlaying) {
-                movementParticles.Play();
+            if (!movementParticles.isPlaying)
+            {
+                movementParticles.Play ();
             }
 
-            if (!bCollision) {
-                animator.Play("newThrustLeft");
+            if (!bCollision)
+            {
+                animator.Play ("newThrustLeft");
 
-                if (transform.eulerAngles.z < 91.0f && transform.rotation.z > -91.0f) {
-                }
-                else {
+                if (transform.eulerAngles.z < 91.0f && transform.rotation.z > -91.0f) { }
+                else
+                {
                     // animator.Play("thrustLeft");
                 }
             }
 
         }
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || XCI.GetAxisRaw(XboxAxis.LeftStickX) > 0)
+        else if (Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.D) || inputX > 0)
         {
             //print("LeftStickX > 0, Down");
-            rigidBody.AddForce(StartingForce * new Vector3(1, 0, 0));
+            rigidBody.AddForce (StartingForce * new Vector3 (1, 0, 0));
             //Instantiate(particleEffect, gameObject.transform.position, Quaternion.Euler(0, 0, 90));
             if (!movementParticles.isPlaying)
             {
-                movementParticles.Play();
+                movementParticles.Play ();
             }
 
             if (!bCollision)
             {
-                animator.Play("newThrustRight");
+                animator.Play ("newThrustRight");
 
                 if (transform.eulerAngles.z < 89.0f && transform.rotation.z > -89.0f)
                 {
@@ -119,64 +136,77 @@ public class MoveAstro : MonoBehaviour {
                 }
             }
         }
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S) || XCI.GetAxisRaw(XboxAxis.LeftStickY) < 0) {
+        if (Input.GetKey (KeyCode.DownArrow) || Input.GetKey (KeyCode.S) || inputY < 0)
+        {
 
-            rigidBody.AddForce(-StartingForce * new Vector3(0, 1, 0));
+            rigidBody.AddForce (-StartingForce * new Vector3 (0, 1, 0));
             //Instantiate(particleEffect, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
-            if (!movementParticles.isPlaying) {
-                movementParticles.Play();
+            if (!movementParticles.isPlaying)
+            {
+                movementParticles.Play ();
             }
         }
-        
-
 
         // Handing the idle animations
-        if (Input.GetKeyUp(KeyCode.LeftArrow) || Input.GetKeyUp(KeyCode.A) || XCI.GetButtonUp(XboxButton.X)) {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("newThrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft")) {
-                animator.Play("newIdleLeft");
+        if (Input.GetKeyUp (KeyCode.LeftArrow) || Input.GetKeyUp (KeyCode.A) || Input.GetButtonDown("Fire1"))
+        {
+            if (animator.GetCurrentAnimatorStateInfo (0).IsName ("newThrustLeft") || animator.GetCurrentAnimatorStateInfo (0).IsName ("collideLeft"))
+            {
+                animator.Play ("newIdleLeft");
             }
-            else {
-                animator.Play("newIdleRight");
+            else
+            {
+                animator.Play ("newIdleRight");
             }
         }
-        else if (Input.GetKeyUp(KeyCode.RightArrow) || Input.GetKeyUp(KeyCode.D) || XCI.GetButtonUp(XboxButton.B)) {
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("newThrustLeft") || animator.GetCurrentAnimatorStateInfo(0).IsName("collideLeft")) {
-                animator.Play("newIdleLeft");
+        else if (Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.D) || Input.GetButtonDown("Fire3"))
+        {
+            if (animator.GetCurrentAnimatorStateInfo (0).IsName ("newThrustLeft") || animator.GetCurrentAnimatorStateInfo (0).IsName ("collideLeft"))
+            {
+                animator.Play ("newIdleLeft");
             }
-            else {
-                animator.Play("newIdleRight");
+            else
+            {
+                animator.Play ("newIdleRight");
             }
         }
     }
 
-
-    void OnCollisionStay2D(Collision2D collision) {
-        if (collision.gameObject.transform.parent.name == "Borders") {
+    void OnCollisionStay2D (Collision2D collision)
+    {
+        if (collision.gameObject.transform.parent.name == "Borders")
+        {
             bCollision = true;
 
-            if (animator.GetCurrentAnimatorStateInfo(0).IsName("newIdleLeft")) {
+            if (animator.GetCurrentAnimatorStateInfo (0).IsName ("newIdleLeft"))
+            {
                 //animator.Play("collideLeft");
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("newThrustLeft")) {
+            else if (animator.GetCurrentAnimatorStateInfo (0).IsName ("newThrustLeft"))
+            {
                 //animator.Play("collideLeft");
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("newIdleRight")) {
+            else if (animator.GetCurrentAnimatorStateInfo (0).IsName ("newIdleRight"))
+            {
                 //animator.Play("collideRight");
             }
-            else if (animator.GetCurrentAnimatorStateInfo(0).IsName("newThrustRight")) {
-               //animator.Play("collideRight");
+            else if (animator.GetCurrentAnimatorStateInfo (0).IsName ("newThrustRight"))
+            {
+                //animator.Play("collideRight");
             }
         }
     }
 
-    void OnCollisionExit2D(Collision2D collision) {
+    void OnCollisionExit2D (Collision2D collision)
+    {
         bCollision = false;
 
     }
 
-    void StopJetpack() {
+    void StopJetpack ()
+    {
 
-        gameManager.soundManager.StopJetpackSource();
+        gameManager.soundManager.StopJetpackSource ();
 
     }
 

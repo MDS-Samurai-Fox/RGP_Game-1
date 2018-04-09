@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Original Scenes/_Completed Scene.unity
     guid: 05070e2f30ef643f08253ade11b0152b
+  - enabled: 0
+    path: Assets/_Scenes/Controls.unity
+    guid: 9c74ebe651dc3834dab3ececb037ac97

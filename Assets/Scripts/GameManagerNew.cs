@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-using XboxCtrlrInput;
+// using XboxCtrlrInput;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -202,7 +202,7 @@ public class GameManagerNew : MonoBehaviour {
     {
         if (!canUpdate)
         {
-            if (XCI.GetButtonDown(XboxButton.A))
+            if (Input.GetButtonDown("Fire1"))
             {
                 SceneManager.LoadScene(0);
             }

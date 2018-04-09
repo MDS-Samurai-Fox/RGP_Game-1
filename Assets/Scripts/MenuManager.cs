@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using XboxCtrlrInput;
+// using XboxCtrlrInput;
 
 public class MenuManager : MonoBehaviour
 {
@@ -98,13 +98,13 @@ public class MenuManager : MonoBehaviour
     {
         if (canUpdate)
         {
-#if UNITY_PS4
-            if (XCI.GetButtonDown(XboxButton.A))
+#if UNITY_PS4 || UNITY_PSP2
+            if (Input.GetButtonDown("Fire1"))
             {
                 LoadScene(1);
             }
 #else
-            if (XCI.GetButtonDown(XboxButton.A))
+            if (Input.GetButtonDown("Fire1"))
             {
                 switch (menuSelection)
                 {
