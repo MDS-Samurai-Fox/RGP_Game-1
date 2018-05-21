@@ -1,7 +1,8 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-public class Buoyancy : MonoBehaviour {
+public class Buoyancy : MonoBehaviour
+{
 
     private GameManager gameManager;
 
@@ -12,38 +13,46 @@ public class Buoyancy : MonoBehaviour {
 
     private bool shouldFloatUpwards = true;
     private float yPosition = -0.35f;
-    
+
     public bool isOnGameState = true;
 
-    void Awake() {
+    void Awake ()
+    {
 
         gameManager = FindObjectOfType<GameManager> ();
 
     }
-    
-    void Start() {
-        
-        if (!isOnGameState) {
+
+    void Start ()
+    {
+
+        if (!isOnGameState)
+        {
             yPosition = this.transform.position.y;
-            Float();
+            Float ();
         }
-        
+
     }
 
-    public void Float() {
-            
-        if (isOnGameState) {
+    public void Float ()
+    {
+
+        if (isOnGameState)
+        {
             if (!gameManager.canUpdate)
                 return;
         }
-                
-        if (shouldFloatUpwards) {
 
-            this.transform.DOMoveY(yPosition + moveAmount, duration).SetEase(easeType).SetDelay(delay).OnComplete(Float);
+        if (shouldFloatUpwards)
+        {
 
-        } else {
+            this.transform.DOMoveY (yPosition + moveAmount, duration).SetEase (easeType).SetDelay (delay).OnComplete (Float);
 
-            this.transform.DOMoveY(yPosition - moveAmount, duration).SetEase(easeType).SetDelay(delay).OnComplete(Float);
+        }
+        else
+        {
+
+            this.transform.DOMoveY (yPosition - moveAmount, duration).SetEase (easeType).SetDelay (delay).OnComplete (Float);
 
         }
 

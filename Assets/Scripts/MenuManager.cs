@@ -23,16 +23,16 @@ public class MenuManager : MonoBehaviour
     private float scrollResetTimer = 0;
 
     // [System.Serializable]
-    [SerializeField] private List<Image> Buttons = new List<Image>();
+    [SerializeField] private List<Image> Buttons = new List<Image> ();
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
     /// </summary>
-    void Awake()
+    void Awake ()
     {
         if (null == audioSource)
         {
-            audioSource = GetComponent<AudioSource>();
+            audioSource = GetComponent<AudioSource> ();
         }
     }
 
@@ -40,49 +40,49 @@ public class MenuManager : MonoBehaviour
     /// Loads the scene in an ordered manner
     /// </summary>
     /// <param name="_scene">The number of the scene in the hierarchy</param>
-    public void LoadScene(int _scene)
+    public void LoadScene (int _scene)
     {
         sceneToChange = _scene;
 
         if (audioSource != null)
         {
-            audioSource.PlayOneShot(audioSource.clip);
-            Invoke("ChangeScene", audioSource.clip.length / 2);
+            audioSource.PlayOneShot (audioSource.clip);
+            Invoke ("ChangeScene", audioSource.clip.length / 2);
         }
         else
         {
-            Invoke("ChangeScene", 0);
+            Invoke ("ChangeScene", 0);
         }
 
     }
 
-    void ChangeScene()
+    void ChangeScene ()
     {
-        SceneManager.LoadScene(sceneToChange);
+        SceneManager.LoadScene (sceneToChange);
     }
 
-    public void Exit()
+    public void Exit ()
     {
-        audioSource.PlayOneShot(audioSource.clip);
+        audioSource.PlayOneShot (audioSource.clip);
 
-        Invoke("Quit", audioSource.clip.length - 0.2f);
+        Invoke ("Quit", audioSource.clip.length - 0.2f);
     }
 
-    void Quit()
+    void Quit ()
     {
-        Application.Quit();
+        Application.Quit ();
     }
 
-    public void SetPanel(CanvasGroup _panel)
+    public void SetPanel (CanvasGroup _panel)
     {
-        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject (null);
 
-        audioSource.PlayOneShot(audioSource.clip);
+        audioSource.PlayOneShot (audioSource.clip);
 
-        _panel.DOFade(1, 0.35f);
+        _panel.DOFade (1, 0.35f);
         _panel.blocksRaycasts = true;
 
-        foreach (CanvasGroup cg in GameObject.FindObjectsOfType<CanvasGroup>())
+        foreach (CanvasGroup cg in GameObject.FindObjectsOfType<CanvasGroup> ())
         {
             if (cg != _panel)
             {
@@ -94,30 +94,35 @@ public class MenuManager : MonoBehaviour
 
     }
 
-    private void Update()
+    private void Update ()
     {
         if (canUpdate)
         {
 #if UNITY_PS4 || UNITY_PSP2
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown ("Fire1"))
+            {
+                LoadScene (1);
+            }
+#elif UNITY_ANDROID || UNITY_IOS
+            if (Input.GetMouseButtonDown(1))
             {
                 LoadScene(1);
             }
 #else
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown ("Fire1"))
             {
                 switch (menuSelection)
                 {
                     case 0:
-                        LoadScene(1);
+                        LoadScene (1);
                         break;
                     case 1:
-                        Exit();
+                        Exit ();
                         break;
                 }
             }
 
-            if (((XCI.GetAxisRaw(XboxAxis.LeftStickY) > 0) || (XCI.GetDPadDown(XboxDPad.Up))) && canScroll)
+            if (((XCI.GetAxisRaw (XboxAxis.LeftStickY) > 0) || (XCI.GetDPadDown (XboxDPad.Up))) && canScroll)
             {
                 canScroll = false;
                 menuSelection--;
@@ -127,9 +132,9 @@ public class MenuManager : MonoBehaviour
                     menuSelection = Buttons.Count - 1;
                 }
 
-                print("Selection: " + menuSelection);
+                print ("Selection: " + menuSelection);
             }
-            if (((XCI.GetAxisRaw(XboxAxis.LeftStickY) < 0) || (XCI.GetDPadDown(XboxDPad.Down))) && canScroll)
+            if (((XCI.GetAxisRaw (XboxAxis.LeftStickY) < 0) || (XCI.GetDPadDown (XboxDPad.Down))) && canScroll)
             {
                 canScroll = false;
                 menuSelection++;
@@ -139,7 +144,7 @@ public class MenuManager : MonoBehaviour
                     menuSelection = 0;
                 }
 
-                print("Selection: " + menuSelection);
+                print ("Selection: " + menuSelection);
             }
 
         }

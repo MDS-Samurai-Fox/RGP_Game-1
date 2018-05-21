@@ -4,7 +4,7 @@ using DG.Tweening;
 
 public class MoveAstro : MonoBehaviour
 {
-
+    [SerializeField] private Joystick joystick;
     private Rigidbody2D rigidBody;
     private GameManager gameManager;
     private Animator animator;
@@ -40,8 +40,6 @@ public class MoveAstro : MonoBehaviour
 
         if (jetpackSoundTimer > 1f)
         {
-            // StopJetpack();
-            //print(">> CAN PLAY SOUND");
             canPlaySound = true;
             jetpackSoundTimer = 0;
         }
@@ -50,6 +48,11 @@ public class MoveAstro : MonoBehaviour
 
         float inputX = Input.GetAxisRaw ("Horizontal");
         float inputY = Input.GetAxisRaw ("Vertical");
+
+#if UNITY_ANDROID || UNITY_IOS
+        inputX = joystick.Horizontal;
+        inputY = joystick.Vertical;
+#endif
 
         if (canPlaySound)
         {
@@ -63,29 +66,14 @@ public class MoveAstro : MonoBehaviour
             }
             else if (Input.GetButtonUp ("Horizontal") || inputX == 0)
             {
-
                 gameManager.soundManager.StopJetpackSource ();
-
             }
-            // else if (!Input.GetButton("Horizontal")) {
-            //     // Invoke("StopJetpack", 0.5f);
-            //     // gameManager.soundManager.StopJetpackSource();
-            // }
-
         }
-        else
-        {
-
-            //print("<< CAN'T PLAY SOUND");
-            // gameManager.soundManager.StopJetpackSource();
-
-        }
+        else { }
 
         if (Input.GetKey (KeyCode.UpArrow) || Input.GetKey (KeyCode.W) || inputY > 0)
         {
             rigidBody.AddForce (StartingForce * new Vector3 (0, 1, 0));
-            //movementParticles.Play();
-            //Instantiate(particleEffect, gameObject.transform.position, Quaternion.Euler(0, 0, 180));
             if (!movementParticles.isPlaying)
             {
                 movementParticles.Play ();
@@ -148,7 +136,7 @@ public class MoveAstro : MonoBehaviour
         }
 
         // Handing the idle animations
-        if (Input.GetKeyUp (KeyCode.LeftArrow) || Input.GetKeyUp (KeyCode.A) || Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyUp (KeyCode.LeftArrow) || Input.GetKeyUp (KeyCode.A) || Input.GetButtonDown ("Fire1"))
         {
             if (animator.GetCurrentAnimatorStateInfo (0).IsName ("newThrustLeft") || animator.GetCurrentAnimatorStateInfo (0).IsName ("collideLeft"))
             {
@@ -159,7 +147,7 @@ public class MoveAstro : MonoBehaviour
                 animator.Play ("newIdleRight");
             }
         }
-        else if (Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.D) || Input.GetButtonDown("Fire3"))
+        else if (Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.D) || Input.GetButtonDown ("Fire3"))
         {
             if (animator.GetCurrentAnimatorStateInfo (0).IsName ("newThrustLeft") || animator.GetCurrentAnimatorStateInfo (0).IsName ("collideLeft"))
             {

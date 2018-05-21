@@ -23,8 +23,6 @@ public class BodyPart : MonoBehaviour {
     // Use this for initialization
     void Start() {
 
-        Debug.Log(originalMaterial);
-
         spriteArraySize = Sprites.Length;
 
         spriteRenderer.sprite = Sprites[spriteIndex];

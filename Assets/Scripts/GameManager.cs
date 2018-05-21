@@ -1,11 +1,11 @@
 ﻿using DG.Tweening;
-using UnityEngine;
-using UnityEngine.UI;
-// using XboxCtrlrInput;
-using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : AdManager
+{
 
     public bool bNewGameManager;
 
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public bool canUpdate = false;
 
-    [HeaderAttribute("Intro Animation")]
+    [HeaderAttribute ("Intro Animation")]
     [SerializeField]
     private Ease easeType = Ease.InSine;
     private float easeLength = 0;
@@ -50,107 +50,93 @@ public class GameManager : MonoBehaviour {
     private bool areSidesJoined = true;
     private bool hasGameEnded = false;
 
-    void Awake() {
+    [SerializeField] public static int m_GameplayCount = 0;
+
+    void Awake ()
+    {
 
         timeManager = GetComponent<TimeManager> ();
         soundManager = FindObjectOfType<SoundManager> ();
         buoyancy = FindObjectOfType<Buoyancy> ();
         faceChecker = GetComponent<FaceChecker> ();
-        faceCheckerNew = GetComponent<FaceCheckerNew>();
+        faceCheckerNew = GetComponent<FaceCheckerNew> ();
+        m_GameplayCount = 0;
         hasGameEnded = false;
 
     }
 
     // Use this for initialization
-    void Start() {
+    void Start ()
+    {
+        ShowAd ("rewardedVideo");
+        easeLength = soundManager.GetLength (ClipType.Join);
 
-        easeLength = soundManager.GetLength(ClipType.Join);
-        
-        gameEndPanel.DOFade(0, 0);
+        gameEndPanel.DOFade (0, 0);
         gameEndPanel.blocksRaycasts = false;
 
         if (particles != null)
-            particles.Stop();
-        
-        faceToMatch.DOScale(1, easeLength);
-        faceToMatch.DOScale(0.25f, 1).SetDelay(easeLength + 2);
-        faceToMatch.DOMove(Vector3.zero, 1).SetDelay(easeLength + 2).From().OnComplete(Initialize);
+            particles.Stop ();
+
+        faceToMatch.DOScale (1, easeLength);
+        faceToMatch.DOScale (0.25f, 1).SetDelay (easeLength + 2);
+        faceToMatch.DOMove (Vector3.zero, 1).SetDelay (easeLength + 2).From ().OnComplete (Initialize);
 
     }
 
-    void Initialize() {
+    void Initialize ()
+    {
 
-        easeLength = soundManager.GetLength(ClipType.Join);
+        easeLength = soundManager.GetLength (ClipType.Join);
 
         leftSideOriginalPosition = leftSide.localPosition;
         middleSideOriginalPosition = middleSide.localPosition;
         rightSideOriginalPosition = rightSide.localPosition;
 
         // Move the face parent to the desired vector, after that enable the buoyancy
-        faceParent.DOMove(new Vector3(0, -0.35f, 0), easeLength).SetDelay(0.2f).SetEase(Ease.OutBack).OnComplete(StartGame);
+        faceParent.DOMove (new Vector3 (0, -0.35f, 0), easeLength).SetDelay (0.2f).SetEase (Ease.OutBack).OnComplete (StartGame);
 
-        FaceSplit();
+        FaceSplit ();
         //soundManager.Play(ClipType.Split);
 
     }
 
-    void StartGame() {
-
-        timeManager.Initialize();
+    void StartGame ()
+    {
+        timeManager.Initialize ();
         canUpdate = true;
-        
-        PlayAnimationBlastEnd();
+
+        PlayAnimationBlastEnd ();
 
         if (buoyancy != null)
-            buoyancy.Float();
+            buoyancy.Float ();
 
     }
 
-    public void StopGame() {
+    public void StopGame ()
+    {
 
         canUpdate = false;
-        FaceJoin();
-        soundManager.StopMusicSource();
-        soundManager.StopJetpackSource();
+        FaceJoin ();
+        soundManager.StopMusicSource ();
+        soundManager.StopJetpackSource ();
 
-        if (bNewGameManager)
+        ShowAd ("rewardedVideo");
+
+    }
+
+    public void ToggleJoin ()
+    {
+
+        if (areSidesJoined)
         {
-            Debug.Log("new game manager");
-            if (faceCheckerNew.HasMatchedFace() == true)
-            {
-                Debug.Log("WIN");
-                Invoke("Win", soundManager.GetLength(ClipType.Finish));
-            }
-            else
-            {
-                Invoke("Lose", soundManager.GetLength(ClipType.Finish));
-            }
+
+            FaceSplit ();
+
         }
         else
         {
-            Debug.Log("old game manager");
-            if (faceChecker.HasMatchedFace() == true)
-            {
-                Debug.Log("WIN");
-                Invoke("Win", soundManager.GetLength(ClipType.Finish));
-            }
-            else
-            {
-                Invoke("Lose", soundManager.GetLength(ClipType.Finish));
-            }
-        }       
 
-    }
-
-    public void ToggleJoin() {
-
-        if (areSidesJoined) {
-
-            FaceSplit();
-
-        } else {
-
-            FaceJoin();
+            FaceJoin ();
 
         }
 
@@ -158,66 +144,71 @@ public class GameManager : MonoBehaviour {
 
     }
 
-    void FaceJoin() {
+    void FaceJoin ()
+    {
 
-        easeLength = soundManager.GetLength(ClipType.Join);
-        soundManager.Play(ClipType.Finish);
-        PlayAnimationBlastStart();
+        easeLength = soundManager.GetLength (ClipType.Join);
+        soundManager.Play (ClipType.Finish);
+        PlayAnimationBlastStart ();
 
         if (!bNewGameManager)
         {
-            leftSide.DOLocalMove(leftSideOriginalPosition, easeLength).SetEase(easeType);
-            middleSide.DOLocalMove(middleSideOriginalPosition, easeLength).SetEase(easeType);
-            rightSide.DOLocalMove(rightSideOriginalPosition, easeLength).SetEase(easeType).OnComplete(PlayAnimationBlastEnd);
+            leftSide.DOLocalMove (leftSideOriginalPosition, easeLength).SetEase (easeType);
+            middleSide.DOLocalMove (middleSideOriginalPosition, easeLength).SetEase (easeType);
+            rightSide.DOLocalMove (rightSideOriginalPosition, easeLength).SetEase (easeType).OnComplete (PlayAnimationBlastEnd);
         }
 
     }
 
-    void FaceSplit() {
+    void FaceSplit ()
+    {
 
-        easeLength = soundManager.GetLength(ClipType.Split);
-        soundManager.Play(ClipType.Split);
-        PlayAnimationBlastStart();
+        easeLength = soundManager.GetLength (ClipType.Split);
+        soundManager.Play (ClipType.Split);
+        PlayAnimationBlastStart ();
 
         if (!bNewGameManager)
         {
-            leftSide.DOLocalMove(leftSideSplitPosition, easeLength).SetEase(easeType);
-            middleSide.DOLocalMove(middleSideSplitPosition, easeLength).SetEase(easeType);
-            rightSide.DOLocalMove(rightSideSplitPosition, easeLength).SetEase(easeType).OnComplete(PlayAnimationBlastEnd);
+            leftSide.DOLocalMove (leftSideSplitPosition, easeLength).SetEase (easeType);
+            middleSide.DOLocalMove (middleSideSplitPosition, easeLength).SetEase (easeType);
+            rightSide.DOLocalMove (rightSideSplitPosition, easeLength).SetEase (easeType).OnComplete (PlayAnimationBlastEnd);
         }
 
     }
 
-    void PlayAnimationBlastStart() {
-        soundManager.Play(ClipType.BlastStart);
+    void PlayAnimationBlastStart ()
+    {
+        soundManager.Play (ClipType.BlastStart);
     }
 
-    void PlayAnimationBlastEnd() {
-        soundManager.Play(ClipType.BlastEnd);
+    void PlayAnimationBlastEnd ()
+    {
+        soundManager.Play (ClipType.BlastEnd);
     }
 
-    void Win() {
+    void Win ()
+    {
 
-        Debug.Log("INVOKING WIN");
-        //gameEndPanel.GetComponentInChildren<Text> ().text = "YOU WON";
-        gameEndPanel.GetComponentInChildren<TextMeshProUGUI>().text = "YOU WON";
-        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
+        gameEndPanel.GetComponentInChildren<TextMeshProUGUI> ().text = "YOU WON";
+        gameEndPanel.DOFade (1, 1).OnComplete (EnableBlockRaycasts);
 
     }
 
-    void Lose() {
+    void Lose ()
+    {
 
         gameEndPanel.GetComponentInChildren<TextMeshProUGUI> ().text = "YOU LOST";
-        gameEndPanel.DOFade(1, 1).OnComplete(EnableBlockRaycasts);
+        gameEndPanel.DOFade (1, 1).OnComplete (EnableBlockRaycasts);
 
     }
 
-    void EnableBlockRaycasts() {
+    void EnableBlockRaycasts ()
+    {
         gameEndPanel.blocksRaycasts = true;
         hasGameEnded = true;
     }
 
-    private void Update()
+    private void Update ()
     {
         if (!canUpdate)
         {
@@ -225,9 +216,9 @@ public class GameManager : MonoBehaviour {
             {
                 return;
             }
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown ("Fire1"))
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene (0);
             }
         }
 
@@ -246,6 +237,48 @@ public class GameManager : MonoBehaviour {
         //    }
         //}
 
+    }
+
+    // ADS
+    protected override void OnAdFinished ()
+    {
+        EndGame ();
+    }
+
+    protected override void OnAdSkipped ()
+    {
+        EndGame ();
+    }
+
+    protected override void OnAdFailed ()
+    {
+        EndGame ();
+    }
+
+    void EndGame ()
+    {
+        if (bNewGameManager)
+        {
+            if (faceCheckerNew.HasMatchedFace () == true)
+            {
+                Invoke ("Win", soundManager.GetLength (ClipType.Finish));
+            }
+            else
+            {
+                Invoke ("Lose", soundManager.GetLength (ClipType.Finish));
+            }
+        }
+        else
+        {
+            if (faceChecker.HasMatchedFace () == true)
+            {
+                Invoke ("Win", soundManager.GetLength (ClipType.Finish));
+            }
+            else
+            {
+                Invoke ("Lose", soundManager.GetLength (ClipType.Finish));
+            }
+        }
     }
 
 }
