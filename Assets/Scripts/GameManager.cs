@@ -68,7 +68,6 @@ public class GameManager : AdManager
     // Use this for initialization
     void Start ()
     {
-        ShowAd ("rewardedVideo");
         easeLength = soundManager.GetLength (ClipType.Join);
 
         gameEndPanel.DOFade (0, 0);

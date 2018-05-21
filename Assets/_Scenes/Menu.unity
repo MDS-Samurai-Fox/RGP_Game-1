@@ -520,6 +520,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114907436022991486, guid: 673c30004b9d1a34a8b8d8a85f80aa29,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907436022991486, guid: 673c30004b9d1a34a8b8d8a85f80aa29,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114827947975757930, guid: 673c30004b9d1a34a8b8d8a85f80aa29,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -548,41 +558,6 @@ Prefab:
     - target: {fileID: 1457015731947368, guid: 673c30004b9d1a34a8b8d8a85f80aa29, type: 2}
       propertyPath: m_Name
       value: Screen Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 224627195871710638, guid: 673c30004b9d1a34a8b8d8a85f80aa29,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 350
-      objectReference: {fileID: 0}
-    - target: {fileID: 224627195871710638, guid: 673c30004b9d1a34a8b8d8a85f80aa29,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 125
-      objectReference: {fileID: 0}
-    - target: {fileID: 224627195871710638, guid: 673c30004b9d1a34a8b8d8a85f80aa29,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -436
-      objectReference: {fileID: 0}
-    - target: {fileID: 224627195871710638, guid: 673c30004b9d1a34a8b8d8a85f80aa29,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 114827947975757930, guid: 673c30004b9d1a34a8b8d8a85f80aa29,
-        type: 2}
-      propertyPath: m_fontSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114827947975757930, guid: 673c30004b9d1a34a8b8d8a85f80aa29,
-        type: 2}
-      propertyPath: m_fontSizeBase
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 114827947975757930, guid: 673c30004b9d1a34a8b8d8a85f80aa29,
-        type: 2}
-      propertyPath: m_firstOverflowCharacterIndex
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 673c30004b9d1a34a8b8d8a85f80aa29, type: 2}

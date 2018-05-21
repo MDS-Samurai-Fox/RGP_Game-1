@@ -4,11 +4,11 @@ using UnityEngine.Advertisements;
 
 public class AdManager : MonoBehaviour
 {
-// #if UNITY_ANDROID
+#if UNITY_ANDROID
+	string gameID = "1807883";
+#elif UNITY_IOS
 	string gameID = "1807882";
-// #elif UNITY_IOS
-	// string gameID = "1807883";
-// #endif
+#endif
 
 	void Awake ()
 	{
