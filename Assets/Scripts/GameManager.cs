@@ -79,12 +79,10 @@ public class GameManager : AdManager
         faceToMatch.DOScale (1, easeLength);
         faceToMatch.DOScale (0.25f, 1).SetDelay (easeLength + 2);
         faceToMatch.DOMove (Vector3.zero, 1).SetDelay (easeLength + 2).From ().OnComplete (Initialize);
-
     }
 
     void Initialize ()
     {
-
         easeLength = soundManager.GetLength (ClipType.Join);
 
         leftSideOriginalPosition = leftSide.localPosition;
@@ -95,8 +93,6 @@ public class GameManager : AdManager
         faceParent.DOMove (new Vector3 (0, -0.35f, 0), easeLength).SetDelay (0.2f).SetEase (Ease.OutBack).OnComplete (StartGame);
 
         FaceSplit ();
-        //soundManager.Play(ClipType.Split);
-
     }
 
     void StartGame ()
@@ -119,8 +115,8 @@ public class GameManager : AdManager
         soundManager.StopMusicSource ();
         soundManager.StopJetpackSource ();
 
-        ShowAd ("rewardedVideo");
-
+        ShowAd ("video");
+        EndGame ();
     }
 
     public void ToggleJoin ()
@@ -128,24 +124,18 @@ public class GameManager : AdManager
 
         if (areSidesJoined)
         {
-
             FaceSplit ();
-
         }
         else
         {
-
             FaceJoin ();
-
         }
 
         areSidesJoined = !areSidesJoined;
-
     }
 
     void FaceJoin ()
     {
-
         easeLength = soundManager.GetLength (ClipType.Join);
         soundManager.Play (ClipType.Finish);
         PlayAnimationBlastStart ();
@@ -156,7 +146,6 @@ public class GameManager : AdManager
             middleSide.DOLocalMove (middleSideOriginalPosition, easeLength).SetEase (easeType);
             rightSide.DOLocalMove (rightSideOriginalPosition, easeLength).SetEase (easeType).OnComplete (PlayAnimationBlastEnd);
         }
-
     }
 
     void FaceSplit ()
@@ -220,22 +209,6 @@ public class GameManager : AdManager
                 SceneManager.LoadScene (0);
             }
         }
-
-        //if (bNewGameManager)
-        //{
-        //    if (faceCheckerNew.HasMatchedFace() == true)
-        //    {
-        //        timeManager.StopTimer();
-        //    }
-        //}
-        //else
-        //{
-        //    if (faceChecker.HasMatchedFace() == true)
-        //    {
-        //        timeManager.StopTimer();
-        //    }
-        //}
-
     }
 
     // ADS
