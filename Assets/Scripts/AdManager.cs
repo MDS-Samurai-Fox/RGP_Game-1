@@ -8,6 +8,8 @@ public class AdManager : MonoBehaviour
 	string gameID = "1807883";
 #elif UNITY_IOS
 	string gameID = "1807882";
+#else
+	string gameID = "0";
 #endif
 
 	void Awake ()

@@ -122,7 +122,7 @@ public class MenuManager : MonoBehaviour
                 }
             }
 
-            if (((XCI.GetAxisRaw (XboxAxis.LeftStickY) > 0) || (XCI.GetDPadDown (XboxDPad.Up))) && canScroll)
+            if (Input.GetKeyDown(KeyCode.W) && canScroll)
             {
                 canScroll = false;
                 menuSelection--;
@@ -134,7 +134,7 @@ public class MenuManager : MonoBehaviour
 
                 print ("Selection: " + menuSelection);
             }
-            if (((XCI.GetAxisRaw (XboxAxis.LeftStickY) < 0) || (XCI.GetDPadDown (XboxDPad.Down))) && canScroll)
+            if (Input.GetKeyDown(KeyCode.S) && canScroll)
             {
                 canScroll = false;
                 menuSelection++;

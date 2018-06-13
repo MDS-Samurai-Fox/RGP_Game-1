@@ -13,6 +13,8 @@ public class UnityAdsButton : MonoBehaviour
 	private string gameId = "1807882";
 #elif UNITY_ANDROID
 	private string gameId = "1807883";
+#else
+	private string gameId = "0";
 #endif
 
 	Button m_Button;
